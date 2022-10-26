@@ -1,0 +1,83 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Breadcrumb } from "astro-headless-ui";
+---
+
+<Base>
+    <h1>Breadcrumb</h1>
+    <section>
+        <h3>Breadcrumb with no props</h3>
+        <nav>
+            <Breadcrumb />
+        </nav>
+        <h3>url Prop Only with string url</h3>
+        <nav>
+            <Breadcrumb url="http://127.0.0.1:3000/posts/categories/javascript/how-to-use-javascript"/>
+        </nav>
+        <h3>Default Slot Only</h3>
+        <nav>
+            <Breadcrumb>
+                {url => (
+                    <a href={url.href}>{url.text}</a>
+                )}
+            </Breadcrumb>
+        </nav>
+        <h3>Customized slots</h3>
+        <nav>
+        <Breadcrumb url="http://127.0.0.1:3000/posts/categories/javascript/how-to-use-javascript">
+            <two slot="1">{url => (
+                <a href={url.href}>#2 {url.text}</a>
+                <span style="font-family:monospace;font-size:1rem;">&gt;</span>
+            )}</two>
+            <javascript slot="javascript">{url => (
+                <a href={url.href}>SLUG {url.text}</a>
+                <span style="font-family:monospace;font-size:1rem;">&gt;</span>
+            )}</javascript>
+            {url => (
+                <a href={url.href}>{url.text}</a>
+                <span style="font-family:monospace;font-size:1rem;">&gt;</span>
+            )}
+            <last slot="last">{url => (
+                <span>{url.text}</span>
+            )}</last>
+        </Breadcrumb>
+        </nav>
+        <h3>Default Collapse Test</h3>
+        <nav>
+            <Breadcrumb collapse url="http://127.0.0.1:3000/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16"/>
+        </nav>
+        <h3>Collapse With Customized Slots</h3>
+        <nav>
+            <Breadcrumb collapse end="2" url="http://127.0.0.1:3000/posts/categories/javascript/how-to-use-javascript">
+                <disabled slot="disabled">{url => (
+                    <span>...</span>
+                    <span style="font-family:monospace;font-size:1rem;">&gt;</span>
+                )}</disabled>
+                {url => (
+                    <a href={url.href}>{url.text}</a>
+                    <span style="font-family:monospace;font-size:1rem;">&gt;</span>
+                )}
+                <last slot="last">{url => (
+                    <span>{url.text}</span>
+                )}</last>
+            </Breadcrumb>
+        </nav>
+        <h3>Remove index from Default</h3>
+        <nav>
+            <Breadcrumb collapse index={false} start="2" end="5" url="http://127.0.0.1:3000/This/is/an/example/of/a/really/long/path/to/test/collapsing"/>
+        </nav>
+    </section>
+</Base>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    nav {
+        display: flex;
+        gap: 0.25rem;
+    }
+</style>

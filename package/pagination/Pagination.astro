@@ -1,0 +1,68 @@
+---
+export interface Props {
+	url?: string;
+	total: string|number;
+	current: string|number;
+	start?: string|number;
+	end?: string|number;
+	middle?: string|number;
+	index?: boolean;
+	commas?: boolean;
+	collapse?: boolean;
+}
+const {
+	url="",
+	total,
+	current,
+	start=2,
+	end=2,
+	middle=2,
+	index,
+	commas=true,
+	collapse=true
+} = Astro.props as Props;
+
+function disabled(page: number) {
+	//Toggle collapsing
+	if(!collapse) return false;
+	//Skip current page
+	else if(+current === page) return false
+
+	//Calc End Pages
+	else if(page <= +start || page >= +total - (+end - 1)) return false;
+	//Calc Middle Pages
+	else if(Math.abs(page - +current) <= +middle) return false;
+
+	else return true;
+}
+---
+
+{ Array.from({ length: +total }, (_, i) => i + 1).map((i) => {
+	let slot: string;
+	//Active
+	if (+current === i) slot = 'active';
+	//Disabled
+	else if (i !== 1 && disabled(i) && !disabled(i - 1)) slot = 'disabled';
+
+	else if (!disabled(i)) {
+		//Firt link
+		if (i === 1) slot = 'first';
+		//Link Before Active Link
+		else if (i === +current - 1) slot = 'before';
+		//Link After Active Link
+		else if (i === +current + 1) slot = 'after';
+		///Last link
+		else if (i === +total) slot = 'last';
+		//All other links
+		else slot = 'link';
+	}
+
+	const page = {
+		number: commas?Intl.NumberFormat('en-us').format(i):i,
+		href: i === 1?index?`${url}/`:`${url}/${i}`:`${url}/${i}`,
+		slot: slot
+	}
+
+	if (Astro.slots.has(slot)) return <Fragment set:html={Astro.slots.render(slot, [page])}/>
+	if (slot) return <Fragment set:html={Astro.slots.render('default', [page])}/>
+})}

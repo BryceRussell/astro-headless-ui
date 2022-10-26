@@ -1,0 +1,18 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Map } from "astro-headless-ui";
+---
+
+<Base>
+    <h1>Map</h1>
+    <p>Javascript Array.protoype abrascted into an Astro component</p>
+
+    <ul>
+        <Map {...[1, 2, 3, 4, 5, 6, 7, 8, 9 , 10]}>
+            <h3>Default</h3>
+            {i => <li>{i}</li>}
+            <f slot="5">{i => <><h3>Index # 5</h3><li>Index # 5: {i}</li></>}</f>
+            <f slot="last">{i => <><h3>Last</h3><li>Last Item: {i}</li></>}</f>
+        </Map>
+    </ul>
+</Base>

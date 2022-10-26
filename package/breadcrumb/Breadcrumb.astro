@@ -1,0 +1,62 @@
+---
+export interface Props {
+    url?: URL | string; // URL to generate links from
+    index?: string | boolean; // Renames 'Home' link or removes root link entirely
+    collapse?: boolean; // Collapse deeply nested urls uses start/end for calc
+    start?: number | string; // # of links to display at the start of a collapsed breadcrumb
+    end?: number | string; // # of links to display at the end of a collapsed breadcrumb
+}
+
+const {
+    url: _url=Astro.url,
+    index="Home",
+    collapse=false,
+    start=1,
+    end=3
+} = Astro.props as Props
+
+var url: URL;
+if (typeof _url === 'string') url = new URL(_url)
+else url = _url
+
+const slugs = url.pathname.split('/');
+
+function disabled(i: number): boolean {
+    if (i+1 > +start && i < slugs.length - +end) return true
+    return false
+}
+
+var previous: string = "";
+---
+
+{ slugs.map((slug, i) => {
+    //Index link logic
+    let text: string = slug;
+    if (i === 0) {
+        if (index === false) return false
+        text = ''+index
+    }
+
+    //Increment href for links
+    previous = `${previous}${slug}/`
+
+    //Parameter passed to slots
+    const param = {
+        href: i===0?'/':previous.slice(0,-1),
+        slug,
+        text
+    }
+    //Render Slots
+    if (Object.keys(Astro.slots).length !== 0) {
+        if (Astro.slots.has(''+i)) return <Fragment set:html={Astro.slots.render(''+i, [param])}/>
+        if (Astro.slots.has(slug)) return <Fragment set:html={Astro.slots.render(slug, [param])}/>
+        if (Astro.slots.has('first') && i === 0) return <Fragment set:html={Astro.slots.render('first', [param])}/>
+        if (Astro.slots.has('disabled') && collapse && disabled(i)) return !disabled(i-1)&&<Fragment set:html={Astro.slots.render('disabled', [param])}/>
+        if (Astro.slots.has('last') && i === slugs.length-1) return <Fragment set:html={Astro.slots.render('last', [param])}/>
+        return <Fragment set:html={Astro.slots.render('default', [param])}/>
+    }
+    //Defaults if no slot is defined
+    if (collapse && disabled(i)) return !disabled(i-1)&&<span>... /</span>
+    if (i === slugs.length-1) return <span>{text}</span>
+    return <><a href={param.href}>{text}</a><span>/</span></>
+})}

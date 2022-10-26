@@ -1,0 +1,24 @@
+---
+import Base from "@/layouts/Base.astro";
+import { A } from "astro-headless-ui";
+
+const active_attrs = {active: {class:"active",style:"color:red"}}
+---
+
+<Base>
+    <h1>Links</h1>
+    <nav>
+        <A href="/" {...active_attrs}>Home</A>
+        <A href="/A" {...active_attrs}>Current</A>
+        <A href="/test" {...active_attrs}>Test</A>
+    </nav>
+</Base>
+
+<style>
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+</style>
+

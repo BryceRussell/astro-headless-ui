@@ -1,0 +1,35 @@
+---
+export interface Props {
+    data: any[];
+    size?: string | number;
+    page: string | number;
+}
+
+const {
+    data=[],
+    size=10,
+    page=1
+} = Astro.props
+
+function paginate(data:any[]) {
+    var last = Math.max(1, Math.ceil(data.length / +size));
+    return [...Array(last).keys()].map((n) => {
+        var num = n + 1;
+        var start = +size === Infinity ? 0 : (num - 1) * +size;
+        var end = Math.min(start + +size, data.length);
+        return {
+            data: data.slice(start, end),
+            start,
+            end: end-1,
+            size,
+            total: data.length,
+            current: num,
+            last,
+        }
+    })
+}
+---
+{() => {
+    if (Number.isInteger(+page) && Astro.slots.has(''+page)) return <Fragment set:html={Astro.slots.render(''+page, [paginate(data)[+page - 1]])}/>
+    return <Fragment set:html={Astro.slots.render('default', [paginate(data)[+page - 1]])}/>
+}}
