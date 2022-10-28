@@ -1,0 +1,120 @@
+---
+import Base from "@/layouts/Base.astro";
+import { ScrollProp, MouseProp, NoScriptProp } from "astro-headless-ui";
+---
+
+<Base>
+    <main>
+    
+        <h1>CSS Properties</h1>
+        <h2>Scroll Property</h2>
+        <p>The top/left offsets of the scroll position inside the window or an element</p>
+        <p id="scrollY">Window Scroll Y:</p>
+        <p id="scrollX">Window Scroll X:</p>
+        <p><strong>Target specific element:</strong></p>
+        <div id="e-scroll" style="overflow:scroll;height:6rem;background-color:lightblue;">
+            <div style="position:relative;height:100rem;width:100rem;">
+                <div style="position:sticky;top:0;left:0;width:fit-content;height:fit-content;padding:.5rem;">
+                    <p id="e-scrollY">Element Scroll Y:</p>
+                    <p id="e-scrollX">Element Scroll X:</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Mouse Property</h2>
+        <p>The X/Y position of the mouse inside the window or inside of an element</p>
+        <p id="mouseX">Window Mouse X:</p>
+        <p id="mouseY">Window Mouse Y:</p>
+        <p><strong>Target specific element:</strong></p>
+        <div id="e-mouse" style="height:10rem;padding:.5rem;background-color:lightblue;">
+            <p id="e-mouseX">Element Mouse X:</p>
+            <p id="e-mouseY">Element Mouse Y:</p>
+        </div>
+
+        <h2>NoScript Property and Class</h2>
+        <p>Custom property for displaying styles when javascript is disabled</p>
+        <p style="margin:1rem 0;">
+            <strong>Toggle javascript on/off: </strong>
+            <span class="noscript-hide" style="text-decoration:underline">This text only visible when javascript is enabled</span>
+        </p>
+        <p style="color:var(--noscript, red);">This text is only red if javascript is disabled</p>
+    </main>
+
+    <NoScriptProp />
+    <ScrollProp />
+    <ScrollProp property="e-scroll" selector="#e-scroll"/>
+    <MouseProp />
+    <MouseProp property="e-mouse" selector="#e-mouse"/>
+</Base>
+
+<style is:global>
+    body {
+        position: relative;
+        width: 200rem;
+        padding: 0;
+        margin: 0;
+    }
+    main {
+        position: sticky;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 1rem;
+        height: 100%;
+        max-width: 75ch;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    #scrollY::after {
+        counter-reset: s var(--scrollY);
+        content: counter(s);
+        margin-left: 0.25rem;
+    }
+
+    #scrollX::after {
+        counter-reset: s var(--scrollX);
+        content: counter(s);
+        margin-left: 0.25rem;
+    }
+
+    #e-scrollY::after {
+        counter-reset: s var(--e-scrollY);
+        content: counter(s);
+        margin-left: 0.25rem;
+    }
+
+    #e-scrollX::after {
+        counter-reset: s var(--e-scrollX);
+        content: counter(s);
+        margin-left: 0.25rem;
+    }
+
+    #mouseY::after {
+        counter-reset: m var(--mouseY);
+        content: counter(m);
+        margin-left: 0.25rem;
+    }
+
+    #mouseX::after {
+        counter-reset: m var(--mouseX);
+        content: counter(m);
+        margin-left: 0.25rem;
+    }
+
+    #e-mouseY::after {
+        counter-reset: m var(--e-mouseY);
+        content: counter(m);
+        margin-left: 0.25rem;
+    }
+
+    #e-mouseX::after {
+        counter-reset: m var(--e-mouseX);
+        content: counter(m);
+        margin-left: 0.25rem;
+    }
+</style>

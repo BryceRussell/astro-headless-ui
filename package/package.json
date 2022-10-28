@@ -14,8 +14,10 @@
   "main": "./index.js",
   "files": [
     "index.js",
+    "css",
     "pagination",
     "breadcrumb",
-    "map"
+    "map",
+    "a"
   ]
 }

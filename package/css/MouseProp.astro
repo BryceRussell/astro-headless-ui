@@ -1,0 +1,25 @@
+---
+export interface Props {
+    selector?: string;
+    property?: string;
+}
+
+const {
+    selector=":root",
+    property="mouse"
+} = Astro.props as Props
+---
+
+<script define:vars={{
+    s: selector,
+    x: `--${property}X`,
+    y: `--${property}Y`
+}}>
+    const t = document.querySelector(s)
+    const e = [":root", "html", "body"].includes(s)?window:t
+    const b = e===t
+    e.addEventListener('mousemove', (v) => {
+        t.style.setProperty(x, b?v.offsetX:v.clientX);
+        t.style.setProperty(y, b?v.offsetY:v.clientY);
+    }, false);
+</script>
