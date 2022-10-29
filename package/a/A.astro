@@ -1,16 +1,14 @@
 ---
-export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
-    active?: {
-        [attribute: string]: string;
-    };
+export interface Props {
+    href: string;
 }
 
 const {
-    active,
-    ...attrs
+    href
 } = Astro.props as Props
 ---
 
-<a {...{...attrs, ...Astro.url.pathname === attrs.href?active:{}}}>
-    <slot/>
-</a>
+{ Astro.url.pathname === href
+    ? <Fragment  set:html={Astro.slots.render('active')}/>
+    : <Fragment  set:html={Astro.slots.render('default')}/>
+}

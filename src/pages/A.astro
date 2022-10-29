@@ -2,15 +2,24 @@
 import Base from "@/layouts/Base.astro";
 import { A } from "astro-headless-ui";
 
-const active_attrs = {active: {class:"active",style:"color:red"}}
 ---
 
 <Base>
     <h1>Links</h1>
+    <p>Active link is highlighted in red</p>
     <nav>
-        <A href="/" {...active_attrs}>Home</A>
-        <A href="/A" {...active_attrs}>Current</A>
-        <A href="/test" {...active_attrs}>Test</A>
+        <A href="/">
+            <a href="/">Home</a>
+            <f slot="active"><a href="/" style="color:red;">Home</a></f>
+        </A>
+        <A href="/A">
+            <a href="/A">Current</a>
+            <f slot="active"><a href="/A" style="color:red;">A (Current page)</a></f>
+        </A>
+        <A href="/pagination">
+            <a href="/pagination">Pagination</a>
+            <f slot="active"><a href="/pagination" style="color:red;"></a></f>
+        </A>
     </nav>
 </Base>
 
