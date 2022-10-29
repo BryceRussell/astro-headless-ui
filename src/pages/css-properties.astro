@@ -33,11 +33,9 @@ import { ScrollProp, MouseProp, NoScriptProp } from "astro-headless-ui";
 
         <h2>NoScript Property and Class</h2>
         <p>Custom property for displaying styles when javascript is disabled</p>
-        <p style="margin:1rem 0;">
-            <strong>Toggle javascript on/off: </strong>
-            <span class="noscript-hide" style="text-decoration:underline">This text only visible when javascript is enabled</span>
-        </p>
-        <p style="color:var(--noscript, red);">This text is only red if javascript is disabled</p>
+        <p style="margin:1rem 0;"><strong>Toggle javascript on/off: </strong></p>
+        <p style="margin:.5rem 0;"><strong>'noscript-hide'</strong> class: <span class="noscript-hide" style="text-decoration:underline;color:green;">This text only visible when javascript is enabled</span></p>
+        <p style="color:var(--noscript, red);margin:.5rem 0;">This text is only red if javascript is disabled</p>
     </main>
 
     <NoScriptProp />
