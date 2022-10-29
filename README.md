@@ -9,17 +9,6 @@ A headless component library for Astro
 - **Breadcrumb**:  Site/URL hierarchy navigation 
 - **Map**: Experimental/For Fun, a component based absraction of mapping using slots
 - **A**: Active link, pass attributes to link if current url matches `href`
-
-### Wishlist
-
-**Server Side**:
-- Prose
-- Search
-- Headings Navigation
-- Table of Contents
-- Tab Navigation
-- Loaders
-
-**Client Side**:
-- Share Button
-- Clipboard
+- **ScrollProp**: Client side script that attaches the scroll X/Y position of the window or of an element to CSS variables
+- **MouseProp**: Client side script that attaches the mouses X/Y position inside the window or locally inside an element to CSS variables
+- **NoScriptProp**([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)): CSS variable that allows you to set a fallback style if javascript is is disabled in the browser
