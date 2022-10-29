@@ -63,6 +63,11 @@ function disabled(page: number) {
 		slot: slot
 	}
 
-	if (Astro.slots.has(slot)) return <Fragment set:html={Astro.slots.render(slot, [page])}/>
-	if (slot) return <Fragment set:html={Astro.slots.render('default', [page])}/>
+	if (Object.keys(Astro.slots).length !== 0) {
+		if (Astro.slots.has(slot)) return <Fragment set:html={Astro.slots.render(slot, [page])}/>
+		if (slot) return <Fragment set:html={Astro.slots.render('default', [page])}/>
+	}
+	if (slot === "active") return <span class="active">{page.number}</span>
+	if (slot === "disabled") return <span class="disabled">...</span>
+	if (slot) return <a href={page.href}>{page.number}</a>
 })}
