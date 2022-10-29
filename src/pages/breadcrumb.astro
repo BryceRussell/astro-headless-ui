@@ -37,9 +37,9 @@ import { Breadcrumb } from "astro-headless-ui";
                 <a href={url.href}>{url.text}</a>
                 <span style="font-family:monospace;font-size:1rem;">&gt;</span>
             )}
-            <last slot="last">{url => (
+            <active slot="active">{url => (
                 <span>{url.text}</span>
-            )}</last>
+            )}</active>
         </Breadcrumb>
         </nav>
         <h3>Default Collapse Test</h3>
@@ -49,7 +49,7 @@ import { Breadcrumb } from "astro-headless-ui";
         <h3>Collapse With Customized Slots</h3>
         <nav>
             <Breadcrumb collapse end="2" url="http://127.0.0.1:3000/posts/categories/javascript/how-to-use-javascript">
-                <disabled slot="disabled">{url => (
+                <disabled slot="disabled">{() => (
                     <span>...</span>
                     <span style="font-family:monospace;font-size:1rem;">&gt;</span>
                 )}</disabled>
@@ -57,14 +57,14 @@ import { Breadcrumb } from "astro-headless-ui";
                     <a href={url.href}>{url.text}</a>
                     <span style="font-family:monospace;font-size:1rem;">&gt;</span>
                 )}
-                <last slot="last">{url => (
+                <active slot="active">{url => (
                     <span>{url.text}</span>
-                )}</last>
+                )}</active>
             </Breadcrumb>
         </nav>
         <h3>Remove index from Default</h3>
         <nav>
-            <Breadcrumb collapse index={false} start="2" end="5" url="http://127.0.0.1:3000/This/is/an/example/of/a/really/long/path/to/test/collapsing"/>
+            <Breadcrumb collapse index={false} end="5" url="http://127.0.0.1:3000/This/is/an/example/of/a/really/long/path/to/test/collapsing"/>
         </nav>
     </section>
 </Base>

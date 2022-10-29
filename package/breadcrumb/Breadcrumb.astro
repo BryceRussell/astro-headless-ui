@@ -22,7 +22,7 @@ else url = _url
 const slugs = url.pathname.split('/');
 
 function disabled(i: number): boolean {
-    if (i+1 > +start && i < slugs.length - +end) return true
+    if (i+1 > (index?+start:+start+1) && i < slugs.length - +end) return true
     return false
 }
 
@@ -50,13 +50,12 @@ var previous: string = "";
     if (Object.keys(Astro.slots).length !== 0) {
         if (Astro.slots.has(''+i)) return <Fragment set:html={Astro.slots.render(''+i, [param])}/>
         if (Astro.slots.has(slug)) return <Fragment set:html={Astro.slots.render(slug, [param])}/>
-        if (Astro.slots.has('first') && i === 0) return <Fragment set:html={Astro.slots.render('first', [param])}/>
         if (Astro.slots.has('disabled') && collapse && disabled(i)) return !disabled(i-1)&&<Fragment set:html={Astro.slots.render('disabled', [param])}/>
-        if (Astro.slots.has('last') && i === slugs.length-1) return <Fragment set:html={Astro.slots.render('last', [param])}/>
+        if (Astro.slots.has('active') && i === slugs.length-1) return <Fragment set:html={Astro.slots.render('active', [param])}/>
         return <Fragment set:html={Astro.slots.render('default', [param])}/>
     }
     //Defaults if no slot is defined
-    if (collapse && disabled(i)) return !disabled(i-1)&&<span>... /</span>
-    if (i === slugs.length-1) return <span>{text}</span>
-    return <><a href={param.href}>{text}</a><span>/</span></>
+    if (collapse && disabled(i)) return !disabled(i-1)&&<><span class="disabled">...</span><span class="divider">/</span></>
+    if (i === slugs.length-1) return <span class="active">{text}</span>
+    return <><a href={param.href}>{text}</a><span class="divider">/</span></>
 })}
