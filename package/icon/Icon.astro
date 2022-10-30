@@ -1,0 +1,23 @@
+---
+import { HTMLAttributes } from 'astro/types';
+export interface Props extends HTMLAttributes<'div'> {
+    icon: string;
+    mode?: string;
+    inline?: boolean;
+    width?: string | number;
+    height?: string | number;
+    flip?: string;
+    rotate?: number | number;
+}
+const { 
+    ...attrs
+} = Astro.props as Props;
+---
+
+<iconify-icon {...attrs}>
+    <slot />
+</iconify-icon>
+
+<script>
+    import 'iconify-icon';
+</script>

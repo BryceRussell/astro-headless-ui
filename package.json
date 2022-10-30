@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^1.2.0",
-    "astro": "^1.5.2"
+    "astro": "^1.5.2",
+    "iconify-icon": "^1.0.1"
   },
   "workspaces": [
     "package"
