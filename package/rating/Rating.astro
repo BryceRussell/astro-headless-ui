@@ -1,0 +1,14 @@
+---
+export interface Props {
+    total?: string|number;
+    active?: string|number;
+}
+const { 
+    total=5,
+    active=0
+} = Astro.props as Props;
+---
+
+{[...Array(Math.floor(+active))].map(_ => <Fragment set:html={Astro.slots.render('active')}/>)}
+{ (+active - Math.floor(+active)) > 0 && <Fragment set:html={Astro.slots.render('half')}/>}
+{[...Array(Math.floor(+total - +active))].map(_ => <Fragment set:html={Astro.slots.render('disabled')}/>)}

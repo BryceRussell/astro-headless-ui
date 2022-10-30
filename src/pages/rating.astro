@@ -1,0 +1,47 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Rating, Icon } from "astro-headless-ui";
+---
+
+<Base>
+    <h1>Rating</h1>
+    <p>Display a rating/ratio, like a product rating 2/5 stars</p>
+    <p>This example uses <a href="https://docs.iconify.design/Icon/">Iconify</a></p>
+    <div>
+        <Rating total="5" active="2.5">
+            <active slot="active"><Icon icon="dashicons:star-filled"></Icon></active>
+            <half slot="half"><Icon icon="dashicons:star-half"></Icon></half>
+            <disabled slot="disabled"><Icon icon="dashicons:star-empty"></Icon></disabled>
+        </Rating>
+    </div>
+
+    <div>
+        <Rating total="10" active="5">
+            <active slot="active"><Icon icon="codicon:star-full"></Icon></active>
+            <half slot="half"><Icon icon="codicon:star-half"></Icon></half>
+            <disabled slot="disabled"><Icon icon="codicon:star-empty"></Icon></disabled>
+        </Rating>
+    </div>
+
+    <div>
+        <Rating total="9" active="4.5">
+            <active slot="active"><Icon icon="clarity:star-solid"></Icon></active>
+            <half slot="half"><Icon icon="clarity:half-star-solid"></Icon></half>
+            <disabled slot="disabled"><Icon icon="clarity:star-line"></Icon></disabled>
+        </Rating>
+    </div>
+
+    <div>
+        <Rating total="20" active="10">
+            <active slot="active"><Icon icon="bi:heart-fill"></Icon></active>
+            <half slot="half"><Icon icon="bi:heart-half"></Icon></half>
+            <disabled slot="disabled"><Icon icon="bi:heart"></Icon></disabled>
+        </Rating>
+    </div>
+</Base>
+
+<style is:global>
+    iconify-icon {
+        font-size: 2rem;
+    }
+</style>
