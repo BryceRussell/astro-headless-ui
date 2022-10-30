@@ -1,22 +1,25 @@
 ---
 export interface Props {
     selector?: string;
+    attach?: string;
     property?: string;
 }
 
 const {
     selector=":root",
+    attach=selector,
     property="scroll",
 } = Astro.props as Props
 ---
 
 <script define:vars={{
     s: selector,
+    a: attach,
     x: `--${property}X`,
     y: `--${property}Y`
 }}>
-    const t = document.querySelector(s)
-    const e = [":root", "html"].includes(s)?window:t
+    const t = document.querySelector(a)
+    const e = [":root", "html"].includes(s)?window:document.querySelector(s)
     e.addEventListener('scroll', () => {
         t.style.setProperty(y, t.scrollTop);
         t.style.setProperty(x, t.scrollLeft);

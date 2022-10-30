@@ -1,0 +1,44 @@
+---
+export interface Props {
+    attach?: string;
+    property?: string;
+}
+
+const {
+    attach=":root",
+    property="network"
+} = Astro.props as Props
+---
+
+<script define:vars={{
+    a: attach,
+    t: `--${property}-type`,
+    b: `--${property}-band`,
+    d: `--${property}-downlink`,
+    m: `--${property}-downlink-max`,
+    r: `--${property}-rtt`,
+    s: `--${property}-saveData`
+}}>
+    const n = navigator.connection
+    const e = document.querySelector(a)
+    function updateNetworkProps(i=navigator.connection) {
+        e.style.setProperty(t, `'${i.type}'`)
+        e.style.setProperty(b, `'${i.effectiveType}'`)
+        e.style.setProperty(d, i.downlink)
+        e.style.setProperty(m, i.downlinkMax)
+        e.style.setProperty(r, i.rtt)
+        e.style.setProperty(s, i.saveData?'initial':false)
+    }
+
+    e.style.setProperty(s, false)
+    if (n) {
+        updateNetworkProps()
+        navigator.connection.onchange = (v) => updateNetworkProps(v.target);
+    }
+</script>
+
+<style is:global>
+    .saveData-hide {
+        display: var(--network-saveData, none);
+    }
+</style>

@@ -1,13 +1,30 @@
 ---
 import Base from "@/layouts/Base.astro";
-import { ScrollProp, MouseProp, NoScriptProp } from "astro-headless-ui";
+import { ScrollProp, MouseProp, KeyboardProp, NetworkProp, NoScriptProp } from "astro-headless-ui";
 ---
 
 <Base>
     <main>
-    
         <h1>CSS Properties</h1>
-        <h2>Scroll Property</h2>
+
+        <p>A Collection of utility variables</p>
+
+        <hr>
+
+        <h2>HTML/CSS Only</h2>
+
+        <h3>NoScript Property and Class</h3>
+        <p>Custom property for displaying styles when javascript is disabled</p>
+        <p><strong>Toggle javascript on/off: </strong></p>
+        <p><strong>'noscript-hide'</strong> class: <span class="noscript-hide" style="text-decoration:underline;color:green;">This text only visible when javascript is enabled</span></p>
+        <p id="noscript" style="color:var(--noscript, red);">This text is only red if javascript is disabled</p>
+        <NoScriptProp />
+
+        <hr>
+
+        <h2>Client Side Scripts</h2>
+
+        <h3>Scroll Property</h3>
         <p>The top/left offsets of the scroll position inside the window or an element</p>
         <p id="scrollY">Window Scroll Y:</p>
         <p id="scrollX">Window Scroll X:</p>
@@ -20,8 +37,10 @@ import { ScrollProp, MouseProp, NoScriptProp } from "astro-headless-ui";
                 </div>
             </div>
         </div>
+        <ScrollProp />
+        <ScrollProp property="e-scroll" selector="#e-scroll"/>
 
-        <h2>Mouse Property</h2>
+        <h3>Mouse Properties</h3>
         <p>The X/Y position of the mouse inside the window or inside of an element</p>
         <p id="mouseX">Window Mouse X:</p>
         <p id="mouseY">Window Mouse Y:</p>
@@ -30,19 +49,32 @@ import { ScrollProp, MouseProp, NoScriptProp } from "astro-headless-ui";
             <p id="e-mouseX">Element Mouse X:</p>
             <p id="e-mouseY">Element Mouse Y:</p>
         </div>
+        <MouseProp />
+        <MouseProp property="e-mouse" selector="#e-mouse"/>
 
-        <h2>NoScript Property and Class</h2>
-        <p>Custom property for displaying styles when javascript is disabled</p>
-        <p style="margin:1rem 0;"><strong>Toggle javascript on/off: </strong></p>
-        <p style="margin:.5rem 0;"><strong>'noscript-hide'</strong> class: <span class="noscript-hide" style="text-decoration:underline;color:green;">This text only visible when javascript is enabled</span></p>
-        <p style="color:var(--noscript, red);margin:.5rem 0;">This text is only red if javascript is disabled</p>
+        <h3>Keyboard Properties</h3>
+        <p id="keyboard-key">Last key:</p>
+        <div>
+            <label for="e-keyboard" id="e-keyboard-key" style="margin-right:.25rem;">Last key in input:</label>
+            <input id="e-keyboard" />
+        </div>
+        <KeyboardProp />
+        <KeyboardProp selector="#e-keyboard" attach=":root" property="e-keyboard" />
+
+        <hr>
+
+        <h2>Limited Compatibility</h2>
+
+        <h3>Network Information Properties</h3>
+        <p><strong>Experimental</strong> does not work with <strong>Firefox</strong>: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation#browser_compatibility">compatibility table</a></p>
+        <p id="network-type">Network type:</p>
+        <p id="network-band">Network band:</p>
+        <p id="network-downlink">Network downlink:</p>
+        <p id="network-downlink-max">Network downlink maximum:</p>
+        <p id="network-rtt">Network round time trip:</p>
+        <p id="network-saveData" ><strong>'saveData-hide'</strong> class: <span class="saveData-hide" style="color:green;">This text is hidden if the user has set a reduced data usage option on the user agent.</span></p>
+        <NetworkProp />
     </main>
-
-    <NoScriptProp />
-    <ScrollProp />
-    <ScrollProp property="e-scroll" selector="#e-scroll"/>
-    <MouseProp />
-    <MouseProp property="e-mouse" selector="#e-mouse"/>
 </Base>
 
 <style is:global>
@@ -64,55 +96,97 @@ import { ScrollProp, MouseProp, NoScriptProp } from "astro-headless-ui";
         max-width: 75ch;
     }
 
+    h3 {
+        padding-bottom: .25rem;
+        border-bottom: 1px solid #eee;
+    }
+
     p {
-        margin: 0;
+        margin: 0.25rem 0;
+    }
+
+    hr {
+        width: 100%;
+        height: 3px;
+        background-color: black;
+    }
+
+    *::after {
+        margin-left: 0.25rem;
+    }
+
+    #noscript {
+        color: green;
     }
 
     #scrollY::after {
-        counter-reset: s var(--scrollY);
-        content: counter(s);
-        margin-left: 0.25rem;
+        counter-reset: c var(--scrollY);
+        content: counter(c);
     }
 
     #scrollX::after {
-        counter-reset: s var(--scrollX);
-        content: counter(s);
-        margin-left: 0.25rem;
+        counter-reset: c var(--scrollX);
+        content: counter(c);
     }
 
     #e-scrollY::after {
-        counter-reset: s var(--e-scrollY);
-        content: counter(s);
-        margin-left: 0.25rem;
+        counter-reset: c var(--e-scrollY);
+        content: counter(c);
     }
 
     #e-scrollX::after {
-        counter-reset: s var(--e-scrollX);
-        content: counter(s);
-        margin-left: 0.25rem;
+        counter-reset: c var(--e-scrollX);
+        content: counter(c);
     }
 
     #mouseY::after {
-        counter-reset: m var(--mouseY);
-        content: counter(m);
-        margin-left: 0.25rem;
+        counter-reset: c var(--mouseY);
+        content: counter(c);
     }
 
     #mouseX::after {
-        counter-reset: m var(--mouseX);
-        content: counter(m);
-        margin-left: 0.25rem;
+        counter-reset: c var(--mouseX);
+        content: counter(c);
     }
 
     #e-mouseY::after {
-        counter-reset: m var(--e-mouseY);
-        content: counter(m);
-        margin-left: 0.25rem;
+        counter-reset: c var(--e-mouseY);
+        content: counter(c);
     }
 
     #e-mouseX::after {
-        counter-reset: m var(--e-mouseX);
-        content: counter(m);
-        margin-left: 0.25rem;
+        counter-reset: c var(--e-mouseX);
+        content: counter(c);
+    }
+
+    #keyboard-key::after {
+        content: var(--keyboard-key);
+    }
+
+    #e-keyboard-key::after {
+        content: var(--e-keyboard-key);
+    }
+
+    #network-type::after {
+        content: var(--network-type);
+    }
+
+    #network-band::after {
+        content: var(--network-band);
+    }
+
+    #network-downlink::after {
+        counter-reset: c var(--network-downlink);
+        content: counter(c);
+    }
+
+    #network-downlink-max::after {
+        counter-reset: c var(--network-downlink-max);
+        content: counter(c);
+    }
+
+    #network-rtt::after {
+        counter-reset: c var(--network-rtt);
+        content: counter(c);
     }
 </style>

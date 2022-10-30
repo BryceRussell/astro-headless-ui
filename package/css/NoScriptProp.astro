@@ -12,14 +12,6 @@ const {
 } = Astro.props as Props
 ---
 
-<noscript>
-    <style is:inline set:html={`
-        ${selector} {
-            --${property}: initial !important;
-        }
-    `}/>
-</noscript>
-
 <style is:inline set:html={`
     ${selector} {
         --${property}: false;
@@ -28,3 +20,11 @@ const {
         display: var(--noscript, none);
     }
 `}/>
+
+<noscript>
+    <style is:inline set:html={`
+        ${selector} {
+            --${property}: initial !important;
+        }
+    `}/>
+</noscript>

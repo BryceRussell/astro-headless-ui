@@ -8,21 +8,20 @@ export interface Props {
 const {
     selector=":root",
     attach=selector,
-    property="mouse"
+    property="keyboard"
 } = Astro.props as Props
+
+// '${v.shiftKey?'SHIFT + ':''}${v.ctrlKey?'CTRL + ':''}${v.altKey?'ALT + ':''}${v.key}'`;
 ---
 
 <script define:vars={{
     s: selector,
     a: attach,
-    x: `--${property}X`,
-    y: `--${property}Y`
+    k: `--${property}-key`
 }}>
     const t = document.querySelector(a)
     const e = [":root", "html", "body"].includes(s)?window:document.querySelector(s)
-    const b = e===t
-    e.addEventListener('mousemove', (v) => {
-        t.style.setProperty(x, b?v.offsetX:v.clientX);
-        t.style.setProperty(y, b?v.offsetY:v.clientY);
+    e.addEventListener('keydown', (v) => {
+        !v.repeat&&t.style.setProperty(k, `'${v.key}'`)
     }, false);
 </script>
