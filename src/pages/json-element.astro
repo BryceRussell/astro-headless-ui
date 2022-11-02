@@ -1,0 +1,68 @@
+---
+import Base from '@/layouts/Base.astro';
+import { Element, A } from 'astro-headless-ui';
+---
+
+<Base>
+    <h1>JSON Elements</h1>
+    <p>Create elements using javscript object notation</p>
+    <h2>Native HTML Elements Test</h2>
+
+    <Element {...{
+        tag: 'p',
+        text: 'This is some parent text',
+        _child: {
+            tag: 'span',
+            text: 'This is some child text',
+        }
+    }}>
+    </Element>
+    <h2>Naviagtion element test</h2>
+    <Element {...{
+        tag: 'nav',
+        style: 'display:flex;flex-direction:column;gap:.25rem;margin:.5rem;',
+        _link1: {
+            tag: 'a',
+            href: '/home',
+            text: 'Home'
+        },
+        _link2: {
+            tag: 'a',
+            href: '/about',
+            text: 'About'
+        },
+        _link3: {
+            tag: 'a',
+            href: '/contact',
+            text: 'Contact'
+        }
+    }}/>
+
+    <h2>Empty/Null Child Tests</h2>
+    <Element {...{
+        tag: 'div',
+        text: 'Test null/undefined/empty objects',
+        _empty: {},
+        _null: null,
+        _undefined: undefined
+    }}>
+    </Element>
+
+    <h2>Astro component Test</h2>
+    <Element {...{
+        tag: A,
+        href: '/json-element',
+        _default: {
+            slot: 'default',
+            tag: 'a',
+            text: 'Default Slot',
+        },
+        _active: {
+            slot: 'active',
+            tag: 'a',
+            text: 'Active Slot',
+            style: 'color:red;'
+        }
+    }}>
+    </Element>
+</Base>

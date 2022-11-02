@@ -10,15 +10,15 @@ import { A } from "astro-headless-ui";
     <nav>
         <A href="/">
             <a href="/">Home</a>
-            <active slot="active"><a href="/" style="color:red;">Home</a></active>
+            <a slot="active" href="/" style="color:red;">Home</a>
         </A>
         <A href="/A">
             <a href="/A">Current</a>
-            <active slot="active"><a href="/A" style="color:red;">A (Current page)</a></active>
+            <a slot="active" href="/A" style="color:red;">A (Current page)</a>
         </A>
         <A href="/pagination">
             <a href="/pagination">Pagination</a>
-            <active slot="active"><a href="/pagination" style="color:red;"></a></active>
+            <a slot="active" href="/pagination" style="color:red;"></a>
         </A>
     </nav>
 </Base>

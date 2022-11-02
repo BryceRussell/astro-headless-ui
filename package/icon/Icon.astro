@@ -9,15 +9,14 @@ export interface Props extends HTMLAttributes<'div'> {
     flip?: string;
     rotate?: number | number;
 }
+
 const { 
     ...attrs
 } = Astro.props as Props;
 ---
 
+<script> import 'iconify-icon'; </script>
+
 <iconify-icon {...attrs}>
     <slot />
 </iconify-icon>
-
-<script>
-    import 'iconify-icon';
-</script>
