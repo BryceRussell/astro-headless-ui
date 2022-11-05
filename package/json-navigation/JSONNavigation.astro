@@ -1,0 +1,41 @@
+---
+import { HTMLAttributes } from 'astro/types';
+
+export interface Props {
+    links: Link[], // Array of Link objects to create navigation from
+    active: HTMLAttributes<'a'>, // Global active attributes (Applies to all elements)
+    replace?: boolean; // Replace the attrs slot param with a links local active attributes if defined
+}
+
+interface Link extends HTMLAttributes<'a'> {
+    text?: string; // Text inside a link
+    active?: Link, // Local active attributes (Applies only to element its deifned in)
+}
+
+const {
+    links,
+    active,
+    replace
+} = Astro.props
+---
+
+{ links.map(link => {
+    const {
+        active: _active,
+        text,
+        ...attrs
+    } = link
+
+    // Render Slots
+    if (Object.keys(Astro.slots).length > 0) {
+        if (Astro.slots.has('active') && Astro.url.pathname === attrs.href) return _active
+            ? <Fragment set:html={Astro.slots.render('active', [{ text: text, attrs: {...replace?{}:attrs, ..._active}}])}/>
+            : <Fragment set:html={Astro.slots.render('active', [{ text: text, attrs: {...attrs, ...active}}])}/>
+        return <Fragment set:html={Astro.slots.render('default', [{ text: text, attrs: attrs}])}/>
+    }
+    //Default Render (No Slots)
+    if (Astro.url.pathname === attrs.href) return _active 
+        ? <a {...{...replace?{}:attrs, ..._active}}>{text}</a>
+        : <a {...{...attrs, ...active}}>{text}</a>
+    return <a {...attrs}>{text}</a>
+})}

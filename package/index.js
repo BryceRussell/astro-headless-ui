@@ -2,10 +2,11 @@
 import Paginate from './pagination/Paginate.astro';
 import Pagination from './pagination/Pagination.astro';
 import Breadcrumb from './breadcrumb/Breadcrumb.astro';
-import A from './links/A.astro';
+import Link from './links/Link.astro';
 import Rating from './rating/Rating.astro';
 import Map from './map/Map.astro';
 import Element from './json-element/Element.astro';
+import JSONNavigation from './json-navigation/JSONNavigation.astro';
 // Client Side Components
 
 // Client Side Scripts
@@ -21,10 +22,11 @@ export {
     Paginate,
     Pagination,
     Breadcrumb,
-    A,
+    Link,
     Rating,
     Map,
     Element,
+    JSONNavigation,
 
     ScrollProp,
     MouseProp,

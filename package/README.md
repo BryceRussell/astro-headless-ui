@@ -27,10 +27,11 @@ import { Icon } from 'astro-icon';
 
 ### Server Side Components
 
-- **`<A>`**: Active link, use slots to define an alternative render if `href` prop matches `Astro.url.pathname`
 - **`<Paginate>`**: SSR version of Astro's SSG `paginate()`
 - **`<Pagination>`**: Multi page link navigation for paginated routes
-- **`<Breadcrumb>`**:  Site/URL hierarchy navigation 
+- **`<Breadcrumb>`**:  Site/URL hierarchy navigation
+- **`<JSONNavigation>`**: Create a list of links from an array of props/attributes, useful for configuration files
+- **`<Link>`**: use slots to define an alternative render if a link is 'active' (`href` prop matches `Astro.url.pathname`)
 - **`<Rating>`**: Display a ratio of elements 1/5, 2.5/5, 8/10. Useful for star ratings on products, posts, comments, etc
 
 ### Client Side Scripts

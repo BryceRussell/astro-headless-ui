@@ -27,47 +27,38 @@ function disabled(page: number) {
 	if(!collapse) return false;
 	//Skip current page
 	else if(+current === page) return false
-
 	//Calc End Pages
 	else if(page <= +start || page >= +total - (+end - 1)) return false;
 	//Calc Middle Pages
 	else if(Math.abs(page - +current) <= +middle) return false;
-
 	else return true;
 }
 ---
 
 { Array.from({ length: +total }, (_, i) => i + 1).map((i) => {
 	let slot: string;
-	//Active
 	if (+current === i) slot = 'active';
-	//Disabled
 	else if (i !== 1 && disabled(i) && !disabled(i - 1)) slot = 'disabled';
-
 	else if (!disabled(i)) {
-		//Firt link
 		if (i === 1) slot = 'first';
-		//Link Before Active Link
 		else if (i === +current - 1) slot = 'before';
-		//Link After Active Link
 		else if (i === +current + 1) slot = 'after';
-		///Last link
 		else if (i === +total) slot = 'last';
-		//All other links
 		else slot = 'link';
 	}
 
-	const page = {
+	const param = {
 		number: commas?Intl.NumberFormat('en-us').format(i):i,
 		href: i === 1?index?`${url}/`:`${url}/${i}`:`${url}/${i}`,
 		slot: slot
 	}
 
-	if (Object.keys(Astro.slots).length !== 0) {
-		if (Astro.slots.has(slot)) return <Fragment set:html={Astro.slots.render(slot, [page])}/>
-		if (slot) return <Fragment set:html={Astro.slots.render('default', [page])}/>
+
+	if (Object.keys(Astro.slots).length > 0) {
+		if (Astro.slots.has(slot)) return <Fragment set:html={Astro.slots.render(slot, [param])}/>
+		if (slot) return <Fragment set:html={Astro.slots.render('default', [param])}/>
 	}
-	if (slot === "active") return <span class="active">{page.number}</span>
+	if (slot === "active") return <span class="active">{param.number}</span>
 	if (slot === "disabled") return <span class="disabled">...</span>
-	if (slot) return <a href={page.href}>{page.number}</a>
+	if (slot) return <a href={param.href}>{param.number}</a>
 })}

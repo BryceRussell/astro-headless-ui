@@ -1,6 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { Element, A } from 'astro-headless-ui';
+import { Element, Link } from 'astro-headless-ui';
 ---
 
 <Base>
@@ -50,7 +50,7 @@ import { Element, A } from 'astro-headless-ui';
 
     <h2>Astro component Test</h2>
     <Element {...{
-        tag: A,
+        tag: Link,
         href: '/json-element',
         _default: {
             slot: 'default',

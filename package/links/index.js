@@ -1,3 +1,3 @@
-import A from './A.astro';
+import Link from './Link.astro';
 
-export { A };
+export { Link };
