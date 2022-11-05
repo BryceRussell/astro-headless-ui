@@ -14,12 +14,13 @@ npm install astro-headless-ui
 
 ```jsx
 ---
-import { Rating, Icon } from 'astro-headless-ui'
+import { Rating } from 'astro-headless-ui';
+import { Icon } from 'astro-icon';
 ---
 <Rating total="5" active="2.5">
-    <Icon slot="active" icon="codicon:star-full"></Icon>
-    <Icon slot="half" icon="codicon:star-half"></Icon>
-    <Icon slot="disabled" icon="codicon:star-empty"></Icon>
+    <Icon slot="active" name="codicon:star-full"></Icon>
+    <Icon slot="half" name="codicon:star-half"></Icon>
+    <Icon slot="disabled" name="codicon:star-empty"></Icon>
 </Rating>
 ```
 ## Component List
