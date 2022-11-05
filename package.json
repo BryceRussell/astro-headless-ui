@@ -17,5 +17,8 @@
   },
   "workspaces": [
     "package"
-  ]
+  ],
+  "devDependencies": {
+    "astro-icon": "^0.8.0"
+  }
 }

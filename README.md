@@ -32,13 +32,8 @@ import { Rating, Icon } from 'astro-headless-ui'
 - **`<Breadcrumb>`**:  Site/URL hierarchy navigation 
 - **`<Rating>`**: Display a ratio of elements 1/5, 2.5/5, 8/10. Useful for star ratings on products, posts, comments, etc
 
-### Client Side Components
-
-- **`<Icon>`**: Component wrapper for [`iconify-icon`](https://docs.iconify.design/iconify-icon/) web component, type support and automatic client side importing
-
 ### Client Side Scripts
 
-- **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)): CSS fallback variable, `false` if javascript is enabled, `initial` if javascript is diabled
 - **`<ScrollProp>`**: Access `scrollTop` and `scrollLeft` of window or element inside css variables
 - **`<MouseProp>`**: Access `clientX`/`clientY` of window or `offsetX`/`offsetY` of element inside css variables
 - **`<KeyboardProp>`**: Access last key pressed in window or element in a css variable
@@ -47,10 +42,11 @@ import { Rating, Icon } from 'astro-headless-ui'
 
 **Components**:
 
-- **`<Map>`**: Component based absraction of the Array prototype and mapping using slot API, similar syntax to solidjs `<For>` with extra features
+- **`<Map>`**: Similar to solidjs `<For>` component with extra features
 
 **Scripts**:
  
+- **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)) CSS fallback variable, `false` if javascript is enabled, `initial` if javascript is disabled
 - **`<NetworkProp>`**: Access [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation) inside css variables, does not currently work in [Firefox or Safari](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation#browser_compatibility)
 
 ## [Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)

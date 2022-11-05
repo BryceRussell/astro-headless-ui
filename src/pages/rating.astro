@@ -1,6 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
-import { Rating, Icon } from "astro-headless-ui";
+import { Rating } from "astro-headless-ui";
+import { Icon } from 'astro-icon';
 ---
 
 <Base>
@@ -9,39 +10,39 @@ import { Rating, Icon } from "astro-headless-ui";
     <p>This example uses <a href="https://docs.iconify.design">Iconify</a></p>
     <div>
         <Rating total="5" active="2.5">
-            <Icon slot="active" icon="dashicons:star-filled"></Icon>
-            <Icon slot="half" icon="dashicons:star-half"></Icon>
-            <Icon slot="disabled" icon="dashicons:star-empty"></Icon>
+            <Icon slot="active" name="dashicons:star-filled"></Icon>
+            <Icon slot="half" name="dashicons:star-half"></Icon>
+            <Icon slot="disabled" name="dashicons:star-empty"></Icon>
         </Rating>
     </div>
 
     <div>
         <Rating total="10" active="5">
-            <Icon slot="active" icon="codicon:star-full"></Icon>
-            <Icon slot="half" icon="codicon:star-half"></Icon>
-            <Icon slot="disabled" icon="codicon:star-empty"></Icon>
+            <Icon slot="active" name="codicon:star-full"></Icon>
+            <Icon slot="half" name="codicon:star-half"></Icon>
+            <Icon slot="disabled" name="codicon:star-empty"></Icon>
         </Rating>
     </div>
 
     <div>
         <Rating total="9" active="4.5">
-            <Icon slot="active" icon="clarity:star-solid"></Icon>
-            <Icon slot="half" icon="clarity:half-star-solid"></Icon>
-            <Icon slot="disabled" icon="clarity:star-line"></Icon>
+            <Icon slot="active" name="clarity:star-solid"></Icon>
+            <Icon slot="half" name="clarity:half-star-solid"></Icon>
+            <Icon slot="disabled" name="clarity:star-line"></Icon>
         </Rating>
     </div>
 
     <div>
         <Rating total="20" active="10">
-            <Icon slot="active" icon="bi:heart-fill"></Icon>
-            <Icon slot="half" icon="bi:heart-half"></Icon>
-            <Icon slot="disabled" icon="bi:heart"></Icon>
+            <Icon slot="active" name="bi:heart-fill"></Icon>
+            <Icon slot="half" name="bi:heart-half"></Icon>
+            <Icon slot="disabled" name="bi:heart"></Icon>
         </Rating>
     </div>
 </Base>
 
 <style is:global>
-    iconify-icon {
-        font-size: 2rem;
+    [astro-icon] {
+        height: 2rem;
     }
 </style>

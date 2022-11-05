@@ -4,7 +4,6 @@ import Pagination from './pagination/Pagination.astro';
 import Breadcrumb from './breadcrumb/Breadcrumb.astro';
 import A from './links/A.astro';
 import Rating from './rating/Rating.astro';
-import Icon from './icon/Icon.astro'
 import Map from './map/Map.astro';
 import Element from './json-element/Element.astro';
 // Client Side Components
@@ -24,7 +23,6 @@ export {
     Breadcrumb,
     A,
     Rating,
-    Icon,
     Map,
     Element,
 

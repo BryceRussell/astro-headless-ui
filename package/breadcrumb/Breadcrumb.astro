@@ -48,10 +48,10 @@ var previous: string = "";
     }
     //Render Slots
     if (Object.keys(Astro.slots).length !== 0) {
-        if (Astro.slots.has(''+i)) return <Fragment set:html={Astro.slots.render(''+i, [param])}/>
-        if (Astro.slots.has(slug)) return <Fragment set:html={Astro.slots.render(slug, [param])}/>
-        if (Astro.slots.has('disabled') && collapse && disabled(i)) return !disabled(i-1)&&<Fragment set:html={Astro.slots.render('disabled', [param])}/>
         if (Astro.slots.has('active') && i === slugs.length-1) return <Fragment set:html={Astro.slots.render('active', [param])}/>
+        if (Astro.slots.has('disabled') && collapse && disabled(i)) return !disabled(i-1)&&<Fragment set:html={Astro.slots.render('disabled', [param])}/>
+        if (Astro.slots.has(slug)) return <Fragment set:html={Astro.slots.render(slug, [param])}/>
+        if (Astro.slots.has(''+i)) return <Fragment set:html={Astro.slots.render(''+i, [param])}/>
         return <Fragment set:html={Astro.slots.render('default', [param])}/>
     }
     //Defaults if no slot is defined
