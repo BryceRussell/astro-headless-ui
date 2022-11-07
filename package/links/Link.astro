@@ -1,14 +1,23 @@
 ---
-export interface Props {
-    href: string;
+import { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'a'> {
+    text?: string;
+    active?: Props;
+    replace?: boolean;
 }
 
 const {
-    href
+    text,
+    active,
+    replace,
+    ...attrs
 } = Astro.props as Props
 ---
 
-{ Astro.url.pathname === href
-    ? <Fragment  set:html={Astro.slots.render('active')}/>
-    : <Fragment  set:html={Astro.slots.render('default')}/>
+{ Astro.url.pathname === attrs.href
+    ? Astro.slots.has('active')
+        ? <Fragment set:html={Astro.slots.render('active')}/>
+        : <a {...{...replace?{}:attrs, ...active}}>{text}<Fragment set:html={Astro.slots.render('default')}/></a>
+    : <a {...attrs}>{text}<Fragment set:html={Astro.slots.render('default')}/></a>
 }

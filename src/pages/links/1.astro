@@ -1,0 +1,70 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Navigation, Link } from "astro-headless-ui";
+
+const basicLinks = {
+    active: { style: 'color:red;' },
+    links: [
+    {
+            text: "Links",
+            href: "/links"
+        },
+        {
+            text: "Links 2 (Current Page)",
+            href: "/links/1"
+        },
+        {
+            text: "Links 3",
+            href: "/links/2"
+        },
+    ]
+}
+---
+
+<Base>
+    <h1>Navigation / Links</h1>
+    <p>Active link is highlighted in red</p>
+    <h2>Link tests</h2>
+    <h3>Using Slots</h3>
+    <nav>
+        <Link href="/links">
+            Links
+            <a slot="active" href="/links" style="color:red;">Links</a>
+        </Link>
+        <Link href="/links/1">
+            Links 2 (Current Page)
+            <a slot="active" href="/links/1" style="color:red;">Links 2 (Current Page)</a>
+        </Link>
+        <Link href="/links/2">
+            Links 3
+            <a slot="active" href="/links/2" style="color:red;">Links 3</a>
+        </Link>
+    </nav>
+    <h3>Using 'active' Prop</h3>
+    <nav>
+        <Link href="/links" active={{style:"color:red;"}}>Links</Link>
+        <Link href="/links/1" active={{style:"color:red;"}}>Links 2 (Current Page)</Link>
+        <Link href="/links/2" active={{style:"color:red;"}}>Links 3</Link>
+    </nav>
+    <h2>Navigation test</h2>
+    <h3>Default Render</h3>
+    <nav>
+        <Navigation {...basicLinks}/>
+    </nav>
+    <h3>Custom Render using Slots</h3>
+    <ul>
+        <Navigation {...basicLinks}>
+            {link => <li><a {...link.attrs}>{link.text}</a></li>}
+            <active slot="active">{link => <li><a {...link.attrs}>{link.text}</a></li>}</active>
+        </Navigation>
+    </ul>
+</Base>
+
+<style>
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+</style>
+

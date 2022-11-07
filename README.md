@@ -25,30 +25,31 @@ import { Icon } from 'astro-icon';
 ```
 ## Component List
 
-### Server Side Components
+### Components
 
-- **`<Paginate>`**: SSR version of Astro's SSG `paginate()`
+- **`<Link>`**: Detect if a link is 'active'
+- **`<Navigation>`**: Useful for generating a list if links from a config file, active link support
+- **`<Breadcrumb>`**: Site/URL hierarchy navigation
+- **`<Paginate>`**: Paginate an array of data (SSR version of Astro's SSG `paginate()`)
 - **`<Pagination>`**: Multi page link navigation for paginated routes
-- **`<Breadcrumb>`**:  Site/URL hierarchy navigation
-- **`<JSONNavigation>`**: Create a list of links from an array of props/attributes, useful for configuration files
-- **`<Link>`**: use slots to define an alternative render if a link is 'active' (`href` prop matches `Astro.url.pathname`)
 - **`<Rating>`**: Display a ratio of elements 1/5, 2.5/5, 8/10. Useful for star ratings on products, posts, comments, etc
 
-### Client Side Scripts
+### Scripts
 
 - **`<ScrollProp>`**: Access `scrollTop` and `scrollLeft` of window or element inside css variables
 - **`<MouseProp>`**: Access `clientX`/`clientY` of window or `offsetX`/`offsetY` of element inside css variables
 - **`<KeyboardProp>`**: Access last key pressed in window or element in a css variable
 
-### Experimental
+- **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)) CSS fallback variable, `false` if javascript is enabled, `initial` if javascript is disabled
+
+### Experimental / WIP
 
 **Components**:
 
-- **`<Map>`**: Similar to solidjs `<For>` component with extra features
+- **`<Map>`**: similar to solidjs `<For>` component with extra features
 
 **Scripts**:
- 
-- **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)) CSS fallback variable, `false` if javascript is enabled, `initial` if javascript is disabled
+
 - **`<NetworkProp>`**: Access [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation) inside css variables, does not currently work in [Firefox or Safari](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation#browser_compatibility)
 
 ## [Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)

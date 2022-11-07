@@ -6,7 +6,7 @@ import Link from './links/Link.astro';
 import Rating from './rating/Rating.astro';
 import Map from './map/Map.astro';
 import Element from './json-element/Element.astro';
-import JSONNavigation from './json-navigation/JSONNavigation.astro';
+import Navigation from './navigation/Navigation.astro';
 // Client Side Components
 
 // Client Side Scripts
@@ -26,7 +26,7 @@ export {
     Rating,
     Map,
     Element,
-    JSONNavigation,
+    Navigation,
 
     ScrollProp,
     MouseProp,
