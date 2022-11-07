@@ -12,7 +12,9 @@ A headless component library for Astro
 npm install astro-headless-ui
 ```
 
-```jsx
+**Product Star Rating**:
+
+```tsx
 ---
 import { Rating } from 'astro-headless-ui';
 import { Icon } from 'astro-icon';
@@ -23,26 +25,56 @@ import { Icon } from 'astro-icon';
     <Icon slot="disabled" name="codicon:star-empty"></Icon>
 </Rating>
 ```
-## Component List
 
-### Components
+**Paginate an array of posts with page navigation**:
+
+```tsx
+---
+const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+---
+<Paginate data={posts} size="10" page={Astro.params.page}>
+    { page => (
+        <section>
+            { page.data.map(post => (
+                <article>
+                    <h2>{post.id} - {post.title}</h2>
+                    <p>{post.body}</p>
+                </article>
+            ))}
+        </section>
+        <nav>
+            <Pagination url="/posts" total={page.last} current={page.current}>
+                <active slot="active">{page => <span>{page.number}</span>}</active>
+                <span slot="disabled">...</span>
+                {page => <a href={page.href}>{page.number}</a>}
+            </Pagination>
+        </nav>
+    )}
+</Paginate>
+```
+
+## [Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)
+
+## Components
+
+## Components
 
 - **`<Link>`**: Detect if a link is 'active'
 - **`<Navigation>`**: Useful for generating a list if links from a config file, active link support
 - **`<Breadcrumb>`**: Site/URL hierarchy navigation
 - **`<Paginate>`**: Paginate an array of data (SSR version of Astro's SSG `paginate()`)
 - **`<Pagination>`**: Multi page link navigation for paginated routes
-- **`<Rating>`**: Display a ratio of elements 1/5, 2.5/5, 8/10. Useful for star ratings on products, posts, comments, etc
+- **`<Rating>`**: Display a ratio of elements, useful for star ratings on products, posts, comments, etc
 
-### Scripts
+## Client Side Scripts
 
 - **`<ScrollProp>`**: Access `scrollTop` and `scrollLeft` of window or element inside css variables
 - **`<MouseProp>`**: Access `clientX`/`clientY` of window or `offsetX`/`offsetY` of element inside css variables
 - **`<KeyboardProp>`**: Access last key pressed in window or element in a css variable
-
 - **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)) CSS fallback variable, `false` if javascript is enabled, `initial` if javascript is disabled
 
-### Experimental / WIP
+## Experimental / WIP
 
 **Components**:
 
