@@ -33,7 +33,7 @@ import { Icon } from 'astro-icon';
 const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
 ---
-<Paginate data={posts} size="10" page={Astro.params.page}>
+<Paginate data={posts} page={Astro.params.page}>
     { page => (
         <section>
             { page.data.map(post => (
@@ -55,8 +55,6 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 ```
 
 ## [Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)
-
-## Components
 
 ## Components
 

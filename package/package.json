@@ -2,7 +2,7 @@
   "name": "astro-headless-ui",
   "author": "Bryce Russell",
   "license": "MIT",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A collection of headless components for Astro",
   "repository": {
     "url": "https://github.com/BryceRussell/astro-headless-elements"

@@ -58,8 +58,6 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 
 ## Components
 
-## Components
-
 - **`<Link>`**: Detect if a link is 'active'
 - **`<Navigation>`**: Useful for generating a list if links from a config file, active link support
 - **`<Breadcrumb>`**: Site/URL hierarchy navigation
