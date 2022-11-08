@@ -23,12 +23,13 @@ const pages = [...Array(last).keys()].map((n) => {
             end: end-1,
             size,
             total: data.length,
-            current: num,
+            current: num?num:undefined,
             last,
         }
 })
 ---
-{ (Number.isInteger(+page) && Astro.slots.has(''+page))
-    ? <Fragment set:html={Astro.slots.render(''+page, [pages[+page - 1]])}/>
-    : <Fragment set:html={Astro.slots.render('default', [pages[+page - 1]])}/>
-}
+{_ => {
+    if (!Number.isInteger(+page) || page > last) return <Fragment set:html={Astro.slots.render('error', [pages.pop()])}/>
+    if (Astro.slots.has(''+page)) return <Fragment set:html={Astro.slots.render(''+page, [pages[+page - 1]])}/>
+    return <Fragment set:html={Astro.slots.render('default', [pages[+page - 1]])}/>
+}}
