@@ -1,23 +1,39 @@
 ---
 import { HTMLAttributes } from 'astro/types';
 
+interface Active extends HTMLAttributes<'a'> {
+    text?: string;
+}
+
 export interface Props extends HTMLAttributes<'a'> {
     text?: string;
-    active?: Props;
-    replace?: boolean;
+    active?: Active;
+    mode?: 'join'|'spread'|'replace';
 }
 
 const {
     text,
     active,
-    replace,
+    mode="join",
     ...attrs
 } = Astro.props as Props
+
+var calc: Active = {text: text, ...attrs};
+if (mode === "join" && active) { 
+    for (const [key, val] of Object.entries(active)) {
+        if (!key) continue
+        if (calc[key]) calc[key] += val
+        else calc[key] = val
+    }
+}
+else if (mode === "spread" && active) calc = {...attrs, ...active}
+else if (mode === "replace" && active) calc = {...active};
 ---
 
-{ Astro.url.pathname === attrs.href
-    ? Astro.slots.has('active')
-        ? <Fragment set:html={Astro.slots.render('active')}/>
-        : <a {...{...replace?{}:attrs, ...active}}>{text}<Fragment set:html={Astro.slots.render('default')}/></a>
-    : <a {...attrs}>{text}<Fragment set:html={Astro.slots.render('default')}/></a>
-}
+{_ => {
+    if (Astro.url.pathname === attrs.href) {
+        if (Astro.slots.has('active')) return <Fragment set:html={Astro.slots.render('active')}/>
+        if (active) return <a {...calc}>{calc.text}<Fragment set:html={Astro.slots.render('default')}/></a>
+    }
+    return <a {...attrs}>{text}<Fragment set:html={Astro.slots.render('default')}/></a>
+}}

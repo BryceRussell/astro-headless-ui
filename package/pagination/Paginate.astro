@@ -14,18 +14,18 @@ const {
 const last = Math.max(1, Math.ceil(data.length / +size));
 
 const pages = [...Array(last).keys()].map((n) => {
-        const num = n + 1;
-        const start = +size === Infinity ? 0 : (num - 1) * +size;
-        const end = Math.min(start + +size, data.length);
-        return {
-            data: data.slice(start, end),
-            start,
-            end: end-1,
-            size,
-            total: data.length,
-            current: num?num:undefined,
-            last,
-        }
+    const num = n + 1;
+    const start = +size === Infinity ? 0 : (num - 1) * +size;
+    const end = Math.min(start + +size, data.length);
+    return {
+        data: data.slice(start, end),
+        start,
+        end: end-1,
+        size,
+        total: data.length,
+        current: num?num:undefined,
+        last,
+    }
 })
 ---
 {_ => {

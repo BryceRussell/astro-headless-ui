@@ -42,9 +42,9 @@ const basicLinks = {
     </nav>
     <h3>Using 'active' Prop</h3>
     <nav>
-        <Link href="/links" active={{style:"color:red;"}}>Links</Link>
-        <Link href="/links/1" active={{style:"color:red;"}}>Links 2 (Current Page)</Link>
-        <Link href="/links/2" active={{style:"color:red;"}}>Links 3</Link>
+        <Link href="/links" style="test:property;" active={{style:"color:red;"}}>Links (mode="join")</Link>
+        <Link href="/links/1" active={{style:"color:red;"}}>Links 2 (Current Page) (mode="spread")</Link>
+        <Link href="/links/2" active={{href:"/links/2", style:"color:red;"}}>Links 3 (mode="replace")</Link>
     </nav>
     <h2>Navigation test</h2>
     <h3>Default Render</h3>
@@ -54,8 +54,15 @@ const basicLinks = {
     <h3>Custom Render using Slots</h3>
     <ul>
         <Navigation {...basicLinks}>
-            {link => <li><a {...link.attrs}>{link.text}</a></li>}
-            <active slot="active">{link => <li><a {...link.attrs}>{link.text}</a></li>}</active>
+            {({active, ...link}) => <li><a {...link}>{link.text}</a></li>}
+            <active slot="active">
+                {({active, ...link}) => <li><a {...{...link, ...active}}>{link.text}</a></li>}
+            </active>
+        </Navigation>
+    </ul>
+    <ul>
+        <Navigation {...basicLinks}>
+            {link => <li><Link {...link}/></li>}
         </Navigation>
     </ul>
 </Base>

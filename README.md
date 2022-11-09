@@ -58,8 +58,8 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 
 ## Components
 
-- **`<Link>`**: Detect if a link is 'active'
-- **`<Navigation>`**: Useful for generating a list if links from a config file, active link support
+- **`<Link>`**: Pass attributes or define alternative render using slots if 'active'
+- **`<Navigation>`**: Generate list of links from an array of objects with attributes, useful for config files
 - **`<Breadcrumb>`**: Site/URL hierarchy navigation
 - **`<Paginate>`**: Paginate an array of data (SSR version of Astro's SSG `paginate()`)
 - **`<Pagination>`**: Multi page link navigation for paginated routes
@@ -70,7 +70,7 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 - **`<ScrollProp>`**: Access `scrollTop` and `scrollLeft` of window or element inside css variables
 - **`<MouseProp>`**: Access `clientX`/`clientY` of window or `offsetX`/`offsetY` of element inside css variables
 - **`<KeyboardProp>`**: Access last key pressed in window or element in a css variable
-- **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)) CSS fallback variable, `false` if javascript is enabled, `initial` if javascript is disabled
+- **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)) CSS javascript detector, variable that is `false` if enabled, `initial` if disabled
 
 ## Experimental / WIP
 
