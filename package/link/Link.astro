@@ -1,13 +1,13 @@
 ---
 import { HTMLAttributes } from 'astro/types';
 
-interface Active extends HTMLAttributes<'a'> {
+interface ActiveProps extends HTMLAttributes<'a'> {
     text?: string;
 }
 
 export interface Props extends HTMLAttributes<'a'> {
     text?: string;
-    active?: Active;
+    active?: ActiveProps;
     mode?: 'join'|'spread'|'replace';
 }
 
@@ -18,15 +18,16 @@ const {
     ...attrs
 } = Astro.props as Props
 
-var calc: Active = {text: text, ...attrs};
+var calc: ActiveProps = {text: text, ...attrs};
 if (mode === "join" && active) { 
     for (const [key, val] of Object.entries(active)) {
         if (!key) continue
+        if (key === "text") calc[key] = undefined;
         if (calc[key]) calc[key] += val
         else calc[key] = val
     }
 }
-else if (mode === "spread" && active) calc = {...attrs, ...active}
+else if (mode === "spread" && active) calc = {...calc, ...active}
 else if (mode === "replace" && active) calc = {...active};
 ---
 

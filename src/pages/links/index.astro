@@ -3,7 +3,7 @@ import Base from "@/layouts/Base.astro";
 import { Navigation, Link } from "astro-headless-ui";
 
 const basicLinks = {
-    active: { style: 'color:red;' },
+    active: { style: 'color:red;', text: "Active!!!" },
     links: [
         {
             text: "Links (Current Page)",
@@ -56,7 +56,7 @@ const basicLinks = {
         <Navigation {...basicLinks}>
             {({active, ...link}) => <li><a {...link}>{link.text}</a></li>}
             <active slot="active">
-                {({active, ...link}) => <li><a {...{...link, ...active}}>{link.text}</a></li>}
+                {({active, ...link}) => <li><a {...{...link, ...active}}>{active.text}</a></li>}
             </active>
         </Navigation>
     </ul>

@@ -58,7 +58,7 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 
 ## Components
 
-- **`<Link>`**: Pass attributes or define alternative render using slots if 'active'
+- **`<Link>`**: Active link component
 - **`<Navigation>`**: Generate list of links from an array of objects with attributes, useful for config files
 - **`<Breadcrumb>`**: Site/URL hierarchy navigation
 - **`<Paginate>`**: Paginate an array of data (SSR version of Astro's SSG `paginate()`)
