@@ -1,0 +1,5 @@
+---
+console.log(Astro.props)
+---
+
+<Fragment set:html={Astro.slots.render('default', [Astro.props.class])}/>

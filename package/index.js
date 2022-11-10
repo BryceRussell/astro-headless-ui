@@ -1,12 +1,13 @@
 // SSG/SSR Components
+import Link from './link/Link.astro';
+import Navigation from './navigation/Navigation.astro';
+import Breadcrumb from './breadcrumb/Breadcrumb.astro';
 import Paginate from './pagination/Paginate.astro';
 import Pagination from './pagination/Pagination.astro';
-import Breadcrumb from './breadcrumb/Breadcrumb.astro';
-import Link from './link/Link.astro';
 import Rating from './rating/Rating.astro';
 import Map from './map/Map.astro';
 import Element from './json-element/Element.astro';
-import Navigation from './navigation/Navigation.astro';
+import Scope from './scope/Scope.astro';
 // Client Side Components
 
 // Client Side Scripts
@@ -19,14 +20,15 @@ import NetworkProp from './scripts/NetworkProp.astro';
 
 
 export {
+    Link,
+    Navigation,
+    Breadcrumb,
     Paginate,
     Pagination,
-    Breadcrumb,
-    Link,
     Rating,
     Map,
     Element,
-    Navigation,
+    Scope,
 
     ScrollProp,
     MouseProp,
