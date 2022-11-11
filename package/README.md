@@ -76,6 +76,7 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 
 **Components**:
 
+- **`<AnimatedSpriteSheet>`**: Easy create a sprite sheet animation
 - **`<Map>`**: similar to solidjs `<For>` component with extra features
 
 **Scripts**:

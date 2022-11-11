@@ -1,44 +1,21 @@
 ---
 export interface Props {
-	from?: any;
-	filter?: any;
-	sort?: any;
-	slice?: any;
-	reverse?: boolean;
-	[index: string|number]: any;
+
 }
 
 const {
-	from,
-	filter,
-	sort,
-	reverse=false,
 	...input
 } = Astro.props as Props
 
-var array = input? Object.values(input):
-			from?Array.from(from):
-			[];
+var array = Object.values(input)
 
-Object.keys(Astro.props).forEach((key) => {
-	switch (key) {
-		case "reverse": if (Astro.props[key] === true) array = array.reverse()
-			break;
-		case "filter": array = array.filter(i => filter(i))
-			break;
-		case "sort": array = array.sort((a, b) => sort(a, b))
-			break;
-	}
-})
+const slots = Object.keys(Astro.slots)
+
+console.log(input)
 ---
 
-{ array.map(async(i) => <Fragment set:html={Astro.slots.render('default', [i])}/> )}
-
-{
-	Object.keys(Astro.slots)
-		.filter(i => Number.isInteger(+i))
-		.sort((a, b) => +a - +b)
-		.map(async(i) => <Fragment set:html={Astro.slots.render(i, [array.at(+i)])}/>
-)}
-
-<Fragment set:html={Astro.slots.render('last', [array.pop()])}/>
+{ array.map((item, i) => {
+	if (''+i in slots) return <Fragment set:html={Astro.slots.render(''+i, [array.at(i)])}/>
+	if (i === array.length -1 && Astro.slots.has('last')) return <Fragment set:html={Astro.slots.render('last', [array.pop()])}/>
+	return <Fragment set:html={Astro.slots.render('default', [item])}/>
+})}

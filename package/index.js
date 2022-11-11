@@ -8,6 +8,7 @@ import Rating from './rating/Rating.astro';
 import Map from './map/Map.astro';
 import Element from './json-element/Element.astro';
 import Scope from './scope/Scope.astro';
+import AnimatedSpriteSheet from './animated-spritesheet/AnimatedSpriteSheet.astro';
 // Client Side Components
 
 // Client Side Scripts
@@ -29,6 +30,7 @@ export {
     Map,
     Element,
     Scope,
+    AnimatedSpriteSheet,
 
     ScrollProp,
     MouseProp,
