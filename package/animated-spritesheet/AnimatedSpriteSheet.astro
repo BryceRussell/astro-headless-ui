@@ -36,20 +36,20 @@ const grid = cols>1&&rows>1?true:false
         animation:
             ${horizontal?`${name}-animation-x ${speed}ms steps(${cols}) infinite;`:''}
             ${vertical?`${name}-animation-y ${speed}ms steps(${rows}) infinite;`:''}
-            ${grid?`${name}-animation-x ${speed}ms steps(${cols}) infinite,${name}-animation-y ${speed * cols}ms steps(${rows}) infinite;`:''}
+            ${grid?`${name}-animation-x ${speed}ms steps(${cols}) infinite,${name}-animation-y ${speed * rows}ms steps(${rows}) infinite;`:''}
     }
 
     ${ horizontal || grid ? `    
         @keyframes ${name}-animation-x {
-            from {background-position-x: 0px;}
-            to { background-position-x: -${width}px; }
+            0% {background-position-x: 0px;}
+            100% { background-position-x: -${width}px; }
         }
     `:''}
 
     ${ vertical || grid ? `    
         @keyframes ${name}-animation-y {
-            from {background-position-y: 0px;}
-            to { background-position-y: -${height}px; }
+            0% {background-position-y: 0px;}
+            100% { background-position-y: -${height}px; }
         }   
     `:''}
 `}/>

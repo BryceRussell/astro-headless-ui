@@ -33,7 +33,7 @@ import { AnimatedSpriteSheet, ScrollProp } from 'astro-headless-ui';
             width={1098}
             cols={2}
             rows={4}
-            speed={250}
+            speed={300}
         />
         <AnimatedSpriteSheet
             url="/monster.png"
@@ -67,14 +67,6 @@ import { AnimatedSpriteSheet, ScrollProp } from 'astro-headless-ui';
             width={128}
             cols={4}
             rows={4}
-        />
-        <AnimatedSpriteSheet
-            url="/test-grid-long.png"
-            name="test-grid-long"
-            height={64}
-            width={256}
-            cols={8}
-            rows={2}
             speed={2000}
         />
         <AnimatedSpriteSheet
@@ -84,6 +76,15 @@ import { AnimatedSpriteSheet, ScrollProp } from 'astro-headless-ui';
             width={64}
             cols={2}
             rows={8}
+        />
+        <AnimatedSpriteSheet
+            url="/test-grid-long.png"
+            name="test-grid-long"
+            height={64}
+            width={256}
+            cols={8}
+            rows={2}
+            speed={4000}
         />
     </section>
     <ScrollProp />
