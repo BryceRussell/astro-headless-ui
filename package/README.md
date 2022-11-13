@@ -76,6 +76,6 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 - **`<MouseProp>`**: Access `clientX`/`clientY` of window or `offsetX`/`offsetY` of element inside css variables
 - **`<KeyboardProp>`**: Access last key pressed in window or element in a css variable
 - **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)) CSS javascript detector, variable that is `false` if enabled, `initial` if disabled
-- - **`<NetworkProp>`**: Access [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation) inside css variables, does not currently work in [Firefox or Safari](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation#browser_compatibility)
+- **`<NetworkProp>`**: Access [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation) inside css variables, does not currently work in [Firefox or Safari](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation#browser_compatibility)
 
 ## [Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)
