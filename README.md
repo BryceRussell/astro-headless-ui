@@ -56,6 +56,10 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 
 ## [Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)
 
+## Stylesheets
+
+- **`<AnimatedSpriteSheet>`**: Stylesheet template for animating spritesheets
+
 ## Components
 
 - **`<Link>`**: Active link component
@@ -64,6 +68,7 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 - **`<Paginate>`**: Paginate an array of data (SSR version of Astro's SSG `paginate()`)
 - **`<Pagination>`**: Multi page link navigation for paginated routes
 - **`<Rating>`**: Display a ratio of elements, useful for star ratings on products, posts, comments, etc
+- **`<Map>`**: Map over an array of data, use slots to target indexes for alternative render
 
 ## Client Side Scripts
 
@@ -71,16 +76,6 @@ const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
 - **`<MouseProp>`**: Access `clientX`/`clientY` of window or `offsetX`/`offsetY` of element inside css variables
 - **`<KeyboardProp>`**: Access last key pressed in window or element in a css variable
 - **`<NoScriptProp>`**: ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736)) CSS javascript detector, variable that is `false` if enabled, `initial` if disabled
-
-## Experimental / WIP
-
-**Components**:
-
-- **`<AnimatedSpriteSheet>`**: Easy create a sprite sheet animation
-- **`<Map>`**: Mapping component with similar syntax to solidjs `<For>` Component, use slots to target different indexes for alternative render
-
-**Scripts**:
-
-- **`<NetworkProp>`**: Access [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation) inside css variables, does not currently work in [Firefox or Safari](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation#browser_compatibility)
+- - **`<NetworkProp>`**: Access [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation) inside css variables, does not currently work in [Firefox or Safari](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation#browser_compatibility)
 
 ## [Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)
