@@ -6,6 +6,8 @@ export interface Props {
 	start?: string|number;
 	end?: string|number;
 	middle?: string|number;
+	before?: string|number;
+	after?: string|number;
 	index?: boolean;
 	commas?: boolean;
 	collapse?: boolean;
@@ -17,6 +19,8 @@ const {
 	start=2,
 	end=2,
 	middle=2,
+	before=middle,
+	after=middle,
 	index,
 	commas=true,
 	collapse=true
@@ -29,8 +33,8 @@ function disabled(page: number) {
 	else if(+current === page) return false
 	//Calc End Pages
 	else if(page <= +start || page >= +total - (+end - 1)) return false;
-	//Calc Middle Pages
-	else if(Math.abs(page - +current) <= +middle) return false;
+	//Calc before/after (middle) Pages
+	else if(page >= +current - +before && page <= +current + +after) return false;
 	else return true;
 }
 ---
