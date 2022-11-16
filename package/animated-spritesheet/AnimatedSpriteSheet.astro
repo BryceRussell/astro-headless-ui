@@ -7,6 +7,7 @@ export interface Props {
     height: number;
     width: number;
     speed?: number;
+    hide?: boolean;
 }
 
 const {
@@ -16,7 +17,8 @@ const {
     rows=1,
     height,
     width,
-    speed=1000
+    speed=1000,
+    hide=false
 } = Astro.props
 
 const horizontal = cols>1&&rows===1?true:false
@@ -24,9 +26,7 @@ const vertical = rows>1&&cols===1?true:false
 const grid = cols>1&&rows>1?true:false
 ---
 
-<div class={`${name}-animation`}>
-
-</div>
+{!hide && <div class={`${name}-animation`}></div>}
 
 <style set:html={`
     .${name}-animation {
