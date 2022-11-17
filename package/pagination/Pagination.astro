@@ -59,6 +59,7 @@ function disabled(page: number) {
 
 
 	if (Object.keys(Astro.slots).length > 0) {
+		if (Astro.slots.has(''+i)) return <Fragment set:html={Astro.slots.render(''+i, [param])}/>
 		if (Astro.slots.has(slot)) return <Fragment set:html={Astro.slots.render(slot, [param])}/>
 		if (slot) return <Fragment set:html={Astro.slots.render('default', [param])}/>
 	}
