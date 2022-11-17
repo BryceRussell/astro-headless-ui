@@ -14,5 +14,6 @@
     "astro-component",
     "headless",
     "ui"
-  ]
+  ],
+  "type": "module"
 }
