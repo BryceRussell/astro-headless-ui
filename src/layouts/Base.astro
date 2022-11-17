@@ -9,7 +9,7 @@ import { Breadcrumb } from 'astro-headless-ui';
 		<meta name="viewport" content="width=device-width" />
 	</head>
 	<body>
-		<nav>
+		<nav class="breadcrumb">
 			<Breadcrumb />
 		</nav>
 		<slot />
@@ -28,7 +28,7 @@ import { Breadcrumb } from 'astro-headless-ui';
         font-family: Arial, Helvetica, sans-serif;
     }
 
-	body > nav {
+	.breadcrumb {
 		display: flex;
 		gap: 0.25rem;
 	}
