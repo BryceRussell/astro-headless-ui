@@ -2,14 +2,13 @@
   "name": "astro-headless-ui",
   "author": "Bryce Russell",
   "license": "MIT",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A collection of headless components for Astro",
   "repository": {
-    "url": "https://github.com/BryceRussell/astro-headless-ui#readme"
+    "type": "git",
+    "url": "https://github.com/BryceRussell/astro-headless-ui"
   },
-  "bugs": {
-    "url": "https://github.com/BryceRussell/astro-headless-ui/issues"
-  },
+  "bugs": "https://github.com/BryceRussell/astro-headless-ui/issues",
   "keywords": [
     "astro",
     "astro-component",
