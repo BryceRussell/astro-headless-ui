@@ -17,8 +17,6 @@ import MouseProp from './scripts/MouseProp.astro';
 import KeyboardProp from './scripts/KeyboardProp.astro';
 import NetworkProp from './scripts/NetworkProp.astro';
 
-
-
 export {
     AnimatedSpriteSheet,
 
