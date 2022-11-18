@@ -1,14 +1,13 @@
+// Stylesheets
+import AnimatedSpriteSheet from './animated-spritesheet/AnimatedSpriteSheet.astro';
 // SSG/SSR Components
+import Rating from './rating/Rating.astro';
 import Link from './link/Link.astro';
 import Navigation from './navigation/Navigation.astro';
 import Breadcrumb from './breadcrumb/Breadcrumb.astro';
 import Paginate from './pagination/Paginate.astro';
 import Pagination from './pagination/Pagination.astro';
-import Rating from './rating/Rating.astro';
 import Map from './map/Map.astro';
-import Element from './json-element/Element.astro';
-import Scope from './scope/Scope.astro';
-import AnimatedSpriteSheet from './animated-spritesheet/AnimatedSpriteSheet.astro';
 // Client Side Components
 
 // Client Side Scripts
@@ -21,16 +20,15 @@ import NetworkProp from './scripts/NetworkProp.astro';
 
 
 export {
+    AnimatedSpriteSheet,
+
+    Rating,
     Link,
     Navigation,
     Breadcrumb,
     Paginate,
     Pagination,
-    Rating,
     Map,
-    Element,
-    Scope,
-    AnimatedSpriteSheet,
 
     ScrollProp,
     MouseProp,
