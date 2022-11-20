@@ -21,7 +21,7 @@ const {
 }}>
     const t = document.querySelector(a)
     const e = [":root", "html", "body"].includes(s)?window:document.querySelector(s)
-    e.addEventListener('keydown', (v) => {
+    e.addEventListener('keydown', v => {
         !v.repeat&&t.style.setProperty(k, `'${v.key}'`)
     }, false);
 </script>

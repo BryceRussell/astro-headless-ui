@@ -15,8 +15,8 @@ const {
 <script define:vars={{
     s: selector,
     a: attach,
-    x: `--${property}X`,
-    y: `--${property}Y`
+    x: `--${property}-X`,
+    y: `--${property}-Y`
 }}>
     const t = document.querySelector(a)
     const e = [":root", "html"].includes(s)?window:document.querySelector(s)
