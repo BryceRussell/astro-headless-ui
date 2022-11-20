@@ -4,11 +4,11 @@
 
 A headless component library for Astro
 
-#### [Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)
+**[Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)**
 
-#### [Examples](https://github.com/BryceRussell/astro-headless-ui/wiki#examples)
+**[Examples](https://github.com/BryceRussell/astro-headless-ui/wiki#examples)**
 
-#### [Changelog](https://github.com/BryceRussell/astro-headless-ui/wiki/*Changelog)
+**[Changelog](https://github.com/BryceRussell/astro-headless-ui/wiki/*Changelog)**
 
 ## Stylesheets
 
