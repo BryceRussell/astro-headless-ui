@@ -8,18 +8,21 @@ export interface Props {
 }
 
 const {
-    url: _url=Astro.url,
     index="Home",
     collapse=false,
     start=1,
     end=3
 } = Astro.props as Props
 
-var url: URL;
-if (typeof _url === 'string') url = new URL(_url)
-else url = _url
+let {
+    url=Astro.url,
+} = Astro.props as Props
 
-const slugs = url.pathname.split('/');
+if (typeof url === 'string') url = new URL(url)
+
+const slugs = url.pathname.endsWith('/')
+    ? url.pathname.slice(0, -1).split('/')
+    : url.pathname.split('/');
 
 function disabled(i: number): boolean {
     if (i+1 > (index?+start:+start+1) && i < slugs.length - +end) return true
