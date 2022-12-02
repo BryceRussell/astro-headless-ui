@@ -23,6 +23,11 @@ A headless component library for Astro
 - **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
 - **`<Map>`**: Same as `.map()` with ability to target indexes  using slots
+
+##  Client Side Components
+
+- **`<ThemeToggle>`**: Simple Theme toggle button/script
+
 ## Scripts
 
 - **`<ScrollProp>`**: Access scroll position of window or element inside CSS

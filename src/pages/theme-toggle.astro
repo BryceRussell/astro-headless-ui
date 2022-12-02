@@ -1,0 +1,16 @@
+---
+import Base from "@/layouts/Base.astro";
+
+import { ThemeToggle } from 'astro-headless-ui';
+import { Icon } from 'astro-icon';
+---
+
+<Base>
+    <h1>Theme Toggle</h1>
+    <p>Inspect the body tag and watch the 'dark' class toggle on and off when button is clicked</p>
+    <p>Theme is also persistant across pages usinf sessionStorage and detects system preference changes</p>
+    <ThemeToggle style="height:2rem;width:2rem;">
+        <Icon name="ri:sun-foggy-line"/>
+        <Icon name="ri:moon-cloudy-line"/>
+    </ThemeToggle>
+</Base>

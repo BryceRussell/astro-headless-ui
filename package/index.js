@@ -9,7 +9,7 @@ import Paginate from './pagination/Paginate.astro';
 import Pagination from './pagination/Pagination.astro';
 import Map from './map/Map.astro';
 // Client Side Components
-
+import ThemeToggle from './theme-toggle/ThemeToggle.astro';
 // Client Side Scripts
 import NoScriptProp from './scripts/NoScriptProp.astro';
 import ScrollProp from './scripts/ScrollProp.astro';
@@ -27,6 +27,8 @@ export {
     Paginate,
     Pagination,
     Map,
+
+    ThemeToggle,
 
     ScrollProp,
     MouseProp,

@@ -1,0 +1,52 @@
+---
+import { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'button'> {
+    
+}
+
+const {
+    ...attrs
+} = Astro.props as Props
+
+const _attrs: Props = {
+    id: 'theme-toggle',
+    onclick: 'toggleTheme()',
+    'aria-label': 'toggle theme',
+    ...attrs
+}
+---
+<style is:inline set:html={`
+    #${_attrs.id} {
+        display: block;
+        position: relative;
+    } #${_attrs.id} *:nth-child(1) {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        transition: height 250ms;
+    } #${_attrs.id} *:nth-child(2) {
+        position: absolute;
+        inset: 0;
+        height: 0;
+        width: 100%;
+        transition: height 250ms;
+    } body.dark #${_attrs.id} *:nth-child(1) {
+        height: 0;
+    } body.dark #${_attrs.id} *:nth-child(2) {
+        height: 100%;
+    }
+`}/>
+
+<button {..._attrs}>
+    <slot />
+</button>
+
+<script is:inline>
+    sessionStorage.getItem('dark') === 'true' && document.body.classList.add('dark');
+    function toggleTheme(toggle=document.body.classList.contains('dark')) { toggle
+        ? (document.body.classList.remove('dark'), sessionStorage.setItem('dark', 'false'))
+        : (document.body.classList.add('dark'), sessionStorage.setItem('dark', 'true')) }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => toggleTheme(!e.matches))
+</script>
