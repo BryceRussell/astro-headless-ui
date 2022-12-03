@@ -1,42 +1,57 @@
 ---
-import { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from 'astro/types';
 
 export interface Props extends HTMLAttributes<'button'> {
-    
+    animation?: 'height'|'width'|'opacity';
+    speed?: number|string;
 }
-
+    
 const {
+    animation='height',
+    speed='250',
     ...attrs
 } = Astro.props as Props
+
+if (!Number.isInteger(+speed)) console.warn("<ThemeToggle>: 'speed' prop must be an integer")
 
 const _attrs: Props = {
     id: 'theme-toggle',
     onclick: 'toggleTheme()',
-    'aria-label': 'toggle theme',
+    'aria-label': 'toggle dark mode',
     ...attrs
 }
+
+if (!_attrs.id) console.warn("<ThemeToggle>: 'id' attribute must be defined for stylesheet to work")
+
+const height = animation === 'height'
+const width = animation === 'width'
+const opacity = animation === 'opacity'
 ---
 <style is:inline set:html={`
     #${_attrs.id} {
-        display: block;
         position: relative;
+        display: block;
+        outline: none;
+        border: none;
+        background-color: transparent;
     } #${_attrs.id} *:nth-child(1) {
         position: absolute;
         inset: 0;
         height: 100%;
         width: 100%;
-        transition: height 250ms;
+        ${animation?`transition: ${animation} ${speed}ms;`:''}
     } #${_attrs.id} *:nth-child(2) {
         position: absolute;
         inset: 0;
-        height: 0;
-        width: 100%;
-        transition: height 250ms;
-    } body.dark #${_attrs.id} *:nth-child(1) {
-        height: 0;
+        height: ${height?'0':'100%'};
+        width: ${width?'0':'100%'};${opacity?`
+        opacity: 0;`:''}
+        ${animation?`transition: ${animation} ${speed}ms;`:''}
+    } ${animation?`body.dark #${_attrs.id} *:nth-child(1) {
+        ${animation}: 0;
     } body.dark #${_attrs.id} *:nth-child(2) {
-        height: 100%;
-    }
+        ${animation}: 100%;
+    }`:''}
 `}/>
 
 <button {..._attrs}>
@@ -45,8 +60,8 @@ const _attrs: Props = {
 
 <script is:inline>
     sessionStorage.getItem('dark') === 'true' && document.body.classList.add('dark');
-    function toggleTheme(toggle=document.body.classList.contains('dark')) { toggle
-        ? (document.body.classList.remove('dark'), sessionStorage.setItem('dark', 'false'))
-        : (document.body.classList.add('dark'), sessionStorage.setItem('dark', 'true')) }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => toggleTheme(!e.matches))
+    function toggleTheme(toggle=!document.body.classList.contains('dark')) { toggle
+        ? (document.body.classList.add('dark'), sessionStorage.setItem('dark', 'true'))
+        : (document.body.classList.remove('dark'), sessionStorage.setItem('dark', 'false')) }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => toggleTheme(e.matches))
 </script>
