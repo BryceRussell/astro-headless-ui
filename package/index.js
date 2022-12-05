@@ -10,6 +10,7 @@ import Pagination from './pagination/Pagination.astro';
 import Map from './map/Map.astro';
 // Client Side Components
 import ThemeToggle from './theme-toggle/ThemeToggle.astro';
+import ThemeIcon from './theme-toggle/ThemeIcon.astro';
 // Client Side Scripts
 import NoScriptProp from './scripts/NoScriptProp.astro';
 import ScrollProp from './scripts/ScrollProp.astro';
@@ -29,6 +30,7 @@ export {
     Map,
 
     ThemeToggle,
+    ThemeIcon,
 
     ScrollProp,
     MouseProp,

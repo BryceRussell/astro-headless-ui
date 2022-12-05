@@ -3,7 +3,7 @@
   "author": "Bryce Russell",
   "license": "MIT",
   "version": "0.0.14",
-  "description": "A collection of headless components and utilities for Astro",
+  "description": "A collection of headless components and utilities for Astro. Breadcrumb, Pagination, ThemeToggle, and more!",
   "repository": {
     "type": "git",
     "url": "https://github.com/BryceRussell/astro-headless-ui"
@@ -13,7 +13,9 @@
     "astro",
     "astro-component",
     "headless",
-    "ui"
+    "ui",
+    "pagination",
+    "breadcrumb"
   ],
   "type": "module"
 }

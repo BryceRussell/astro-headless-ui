@@ -13,6 +13,7 @@ A headless component library for Astro
 ## Stylesheets
 
 - **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Stylesheet template for animating spritesheets
+- **`<ThemeIcon>`** Animated icon switch on theme change, display icon related to current theme
 
 ## Components
 
@@ -26,7 +27,7 @@ A headless component library for Astro
 
 ##  Client Side Components
 
-- **`<ThemeToggle>`**: Simple Theme toggle button/script
+- **`<ThemeToggle>`**: Dark theme toggle button/script
 
 ## Scripts
 
