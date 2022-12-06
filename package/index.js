@@ -1,16 +1,16 @@
 // Stylesheets
-import AnimatedSpriteSheet from './animated-spritesheet/AnimatedSpriteSheet.astro';
-// SSG/SSR Components
-import Rating from './rating/Rating.astro';
-import Link from './link/Link.astro';
-import Navigation from './navigation/Navigation.astro';
-import Breadcrumb from './breadcrumb/Breadcrumb.astro';
-import Paginate from './pagination/Paginate.astro';
-import Pagination from './pagination/Pagination.astro';
-import Map from './map/Map.astro';
+import AnimatedSpriteSheet from './style-components/AnimatedSpriteSheet.astro';
+import ThemeIcon from './style-components/ThemeIcon.astro';
+// Components
+import Rating from './components/Rating.astro';
+import Link from './components/Link.astro';
+import Navigation from './components/Navigation.astro';
+import Breadcrumb from './components/Breadcrumb.astro';
+import Paginate from './components/Paginate.astro';
+import Pagination from './components/Pagination.astro';
+import Map from './components/Map.astro';
 // Client Side Components
-import ThemeToggle from './theme-toggle/ThemeToggle.astro';
-import ThemeIcon from './theme-toggle/ThemeIcon.astro';
+import ThemeToggle from './client-components/ThemeToggle.astro';
 // Client Side Scripts
 import NoScriptProp from './scripts/NoScriptProp.astro';
 import ScrollProp from './scripts/ScrollProp.astro';
@@ -20,6 +20,7 @@ import NetworkProp from './scripts/NetworkProp.astro';
 
 export {
     AnimatedSpriteSheet,
+    ThemeIcon,
 
     Rating,
     Link,
@@ -30,7 +31,6 @@ export {
     Map,
 
     ThemeToggle,
-    ThemeIcon,
 
     ScrollProp,
     MouseProp,

@@ -10,6 +10,7 @@ export interface Props extends HTMLAttributes<'span'> {
 }
     
 const {
+    is: Is='span',
     size="1rem",
     name='theme-icons',
     theme="body.dark",
@@ -26,8 +27,8 @@ const width = animation === 'width'
 const opacity = animation === 'opacity'
 ---
 
-<span class:list={[name, _class]} {...attrs}>
+<Is {...attrs} class:list={[name, _class]}>
     <slot />
-</span>
+</Is>
 
 <style set:html={`.${name}{position:relative;display:block;height:${size};width:${size};}.${name} *:nth-child(1){position:absolute;inset:0;height:100%;width:100%;${animation?`transition:${animation} ${speed}ms;`:''}}.${name} *:nth-child(2){position:absolute;inset:0;height:${height?'0':'100%'};width:${width?'0':'100%'};${opacity?`opacity:0;`:''}${animation?`transition:${animation} ${speed}ms;`:''}}${theme} .${name} *:nth-child(1){${animation}:0;}${theme} .${name} *:nth-child(2){${animation}:100%;}`}/>

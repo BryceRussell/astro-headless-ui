@@ -10,7 +10,7 @@ A headless component library for Astro
 
 **[Changelog](https://github.com/BryceRussell/astro-headless-ui/wiki/*Changelog)**
 
-## Stylesheets
+## Style Components
 
 - **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Stylesheet template for animating spritesheets
 - **`<ThemeIcon>`** Animated icon switch on theme change, display icon related to current theme
@@ -25,11 +25,11 @@ A headless component library for Astro
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
 - **`<Map>`**: Same as `.map()` with ability to target indexes  using slots
 
-##  Client Side Components
+## Client Components
 
 - **`<ThemeToggle>`**: Dark theme toggle button/script
 
-## Scripts
+## Client Scripts
 
 - **`<ScrollProp>`**: Access scroll position of window or element inside CSS
 - **`<MouseProp>`**: Access mouse position of window/element inside CSS
