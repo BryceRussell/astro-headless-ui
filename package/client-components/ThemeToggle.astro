@@ -1,26 +1,53 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import { hashId } from '../utility/util';
 
-export interface Props extends HTMLAttributes<'button'> {}
+export interface Props extends HTMLAttributes<'button'> {
+    selector?: string;
+    scope?: string;
+    theme?: string;
+    dark?: boolean;
+    hide?: boolean;
+}
     
-const { 
+const {
+    selector: _selector='body',
+    scope: _scope=hashId(_selector),
+    theme: _theme='dark',
+    dark: _dark,
+    hide=false,
     ...attrs
 } = Astro.props as Props
 
 const _attrs: Props = {
-    onclick: 'toggleTheme()',
-    'aria-label': 'toggle dark theme',
+    onclick: `${_scope}${_theme}()`,
+    'aria-label': `Toggle ${_theme} theme`,
     ...attrs
 }
 ---
-<script is:inline>
-    sessionStorage.getItem('dark') === 'true' && document.body.classList.add('dark');
-    function toggleTheme(toggle=!document.body.classList.contains('dark')) { toggle
-        ? (document.body.classList.add('dark'), sessionStorage.setItem('dark', 'true'))
-        : (document.body.classList.remove('dark'), sessionStorage.setItem('dark', 'false')) }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => toggleTheme(e.matches))
+
+<script define:vars={{
+    sel: _selector,
+    scope: _scope,
+    theme: _theme,
+    dark: _dark
+}}>
+    const classes = document.querySelector(sel).classList || document.body.classList
+    dark && window.matchMedia('(prefers-color-scheme: dark)').matches && sessionStorage.getItem(scope) === null && sessionStorage.setItem(scope, theme)
+    sessionStorage.getItem(scope) === theme && classes.add(theme)
+    window.themes = window.themes || {}; window.themes[sel] = window.themes[sel] || []
+    !window.themes[sel].includes(theme) && window.themes[sel].push(theme)
+    window[`${scope}${theme}`] = (toggle=!classes.contains(theme)) => {
+        classes.forEach(c => c !== theme && window.themes[sel].includes(c) && classes.remove(c))
+        toggle
+            ? (classes.add(theme), sessionStorage.setItem(scope, theme))
+            : (classes.remove(theme), sessionStorage.setItem(scope, ''))
+    }
+    dark && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', v => window[`${scope}${theme}`](v.matches))
 </script>
 
-<button {..._attrs}>
-    <slot />
-</button>
+{ !hide && 
+    <button {..._attrs}>
+        <slot />
+    </button>
+}

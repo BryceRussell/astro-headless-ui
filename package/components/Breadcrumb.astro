@@ -50,7 +50,7 @@ var previous: string = "";
         text
     }
     //Render Slots
-    if (Object.keys(Astro.slots).length > 0) {
+    if (!!Object.keys(Astro.slots).length) {
         if (Astro.slots.has('active') && i === slugs.length-1) return <Fragment set:html={Astro.slots.render('active', [param])}/>
         if (Astro.slots.has('disabled') && collapse && disabled(i)) return !disabled(i-1)&&<Fragment set:html={Astro.slots.render('disabled', [param])}/>
         if (Astro.slots.has(slug)) return <Fragment set:html={Astro.slots.render(slug, [param])}/>

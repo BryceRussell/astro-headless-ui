@@ -12,7 +12,8 @@ import { Map } from "astro-headless-ui";
             <h3>Default</h3>
             {i => <li>{i}</li>}
             <five slot="5">{i => <><h3>Index # 5</h3><li>Index # 5: {i}</li></>}</five>
-            <last slot="last">{i => <><h3>Last</h3><li>Last Item: {i}</li></>}</last>
+            <test slot="-2">{i => <><h3>Second to Last</h3><li>Second to Last Item: {i}</li></>}</test>
+            <last slot="-1">{i => <><h3>Last</h3><li>Last Item: {i}</li></>}</last>
         </Map>
     </ul>
 </Base>

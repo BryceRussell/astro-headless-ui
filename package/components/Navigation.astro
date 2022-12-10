@@ -29,7 +29,7 @@ const {
 
 { links.map(link => {
     const attrs = { active, mode, ...defaults, ...link };
-    if (Object.keys(Astro.slots).length > 0) {
+    if (!!Object.keys(Astro.slots).length) {
         if (Astro.url.pathname === link.href && Astro.slots.has('active')) return <Fragment set:html={Astro.slots.render('active', [attrs])}/>
         return <Fragment set:html={Astro.slots.render('default', [attrs])}/>
     }

@@ -6,16 +6,26 @@ import { Icon } from 'astro-icon';
 ---
 
 <Base>
-    <h1>Theme Toggle</h1>
+    <h1>ThemeToggle Examples</h1>
     <p>Inspect the body tag and watch the 'dark' class toggle on and off when button is clicked</p>
     <p>Theme is also persistant across pages usinf sessionStorage and detects system preference changes</p>
     <h2>Toggle Button</h2>
     <section>
-        <ThemeToggle>Toggle Dark Mode</ThemeToggle>
+        <ThemeToggle dark>Toggle Dark Theme</ThemeToggle>
+        <ThemeToggle theme="blue">Toggle Blue Theme</ThemeToggle>
+        <ThemeToggle theme="green">Toggle Green Theme</ThemeToggle>
+        <ThemeToggle theme="red">Toggle Red Theme</ThemeToggle>
     </section>
-    <h2>Icon Example</h2>
+    <section class="container" style="margin:2rem 1rem;padding:5rem;">
+        <h2>Scoped Themes</h2>
+        <ThemeToggle selector="section.container">Toggle Dark Theme</ThemeToggle>
+        <ThemeToggle selector="section.container" theme="blue" dark>Toggle Blue Theme</ThemeToggle>
+        <ThemeToggle selector="section.container" theme="green">Toggle Green Theme</ThemeToggle>
+        <ThemeToggle selector="section.container" theme="red">Toggle Red Theme</ThemeToggle>
+    </section>
+    <h2>ToggleIcon Example</h2>
     <section> 
-        <ThemeToggle style="padding:3rem;">
+        <ThemeToggle dark style="padding:3rem;">
             <ThemeIcon size="5rem"> 
                 <Icon name="ri:sun-foggy-line"/>
                 <Icon name="ri:moon-cloudy-line"/>
@@ -24,11 +34,70 @@ import { Icon } from 'astro-icon';
     </section>
     <h3>Variation</h3>
     <section> 
-        <ThemeToggle style="padding:.5rem;">
-            <ThemeIcon name="no-animation" speed={0}> 
+        <ThemeToggle dark style="padding:.5rem;">
+            <ThemeIcon name="no-animation" size="2rem" speed={0}> 
                 <Icon name="ri:sun-foggy-line"/>
                 <Icon name="ri:moon-cloudy-line"/>
             </ThemeIcon>
         </ThemeToggle>
     </section>
+    <h3>Alt theme</h3>
+    <section> 
+        <ThemeToggle theme="green" style="background-color:#bbb;padding:2rem;border-radius:3px;border:2px solid gray;">
+            <ThemeIcon theme="body.green" name="green-icons" speed={0}> 
+                <Icon name="twemoji:white-circle"/>
+                <Icon name="twemoji:green-circle"/>
+            </ThemeIcon>
+        </ThemeToggle>
+    </section>
 </Base>
+
+<style is:global>
+    body {
+        --bg: #fff;
+        background-color: var(--bg);
+        color: var(--color)
+    }
+
+    body.blue {
+        --bg: rgb(99, 133, 201);
+    }
+
+    body.dark {
+        --bg: #444;
+        --color: #fff;
+    }
+
+    body.green {
+        --bg: rgb(116, 204, 121);
+    }
+
+    body.red {
+        --bg: rgb(225, 132, 132);
+    }
+
+    /* ---- Scoped Theme ---- */
+
+    section.container {
+        --bg-2: #fff;
+        background-color: var(--bg-2);
+        color: var(--color-2, #000)
+    }
+
+    section.container.blue {
+        --bg-2: rgb(99, 133, 201);
+    }
+
+    section.container.dark {
+        --bg-2: #444;
+        --color-2: #fff;
+    }
+
+    section.container.green {
+        --bg-2: rgb(116, 204, 121);
+    }
+
+    section.container.red {
+        --bg-2: rgb(225, 132, 132);
+    }
+</style>
