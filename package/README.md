@@ -52,8 +52,6 @@ Client side scripts that do not include HTML
 
 ## Utility Functions
 
-```
-import {} from 'astro-headless-ui/util';
-```
+`astro-headless-ui/util`
 
-- **hashId()**: Create a hash from a string, for scoping CSS, HTML elements, and `<script>`s
+- **`hashId()`**: Create a hash from a string, for scoping CSS, HTML elements, and `<script>`s
