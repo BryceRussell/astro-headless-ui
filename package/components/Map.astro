@@ -8,6 +8,6 @@ const array = Object.entries(Astro.props).map((([key,val]) => {
 
 { array.map((item, i) => {
 	if (Astro.slots.has(''+i)) return <Fragment set:html={Astro.slots.render(''+i, [array.at(i)])}/>
-	if (Astro.slots.has(''+(i - array.length))) return <Fragment set:html={Astro.slots.render(''+(i - array.length), [array.at(-i)])}/>
+	if (Astro.slots.has(''+(i - array.length))) return <Fragment set:html={Astro.slots.render(''+(i - array.length), [array.at(i)])}/>
 	return <Fragment set:html={Astro.slots.render('default', [item])}/>
 })}

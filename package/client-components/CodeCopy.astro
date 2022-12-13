@@ -1,0 +1,63 @@
+---
+import { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'button'> {
+    selector?: string;
+    active?: string;
+    duration?: number;
+    padding?: string;
+    paddingX?: string;
+    paddingY?: string;
+}
+
+const {
+    selector='pre',
+    active='copied',
+    duration=2000,
+    padding='.5rem',
+    paddingX=padding,
+    paddingY=padding,
+    ..._attrs
+} = Astro.props
+
+const attrs = {
+    style: `position:absolute;top:${paddingY};right:${paddingX};`,
+    'aria-label': 'copy code',
+    ..._attrs
+}
+---
+
+<script define:vars={{
+    selector,
+    attrs,
+    active,
+    duration,
+    inner: await Astro.slots.render('default')
+}}>
+    const copy = document.createElement("button")
+    Object.entries(attrs).forEach(([key, val]) => copy.setAttribute(key, val))
+
+    function deepCloneCopy(e, i) {
+        let _copy = copy.cloneNode()
+        _copy.innerHTML = inner
+        i > 0 && _copy.removeChild(_copy.querySelector('style'))
+        _copy.addEventListener("click", e => {
+            const target = e.currentTarget
+            let code = target.previousSibling.innerText;
+            if (!code) return
+            navigator.clipboard.writeText(code);
+		    target.classList.add(active);
+            if (target._timerId) clearTimeout(target._timerId)
+            target._timerId = setTimeout(() => target.classList.remove(active), duration);
+        })
+        return _copy
+    }
+
+    document.querySelectorAll(selector).forEach((e, i) => {
+        const wrapper = document.createElement("div")
+        wrapper.style.position = 'relative'
+        e.parentNode.insertBefore(wrapper, e.nextSibling)
+        wrapper.append(e)
+        wrapper.append(deepCloneCopy(e, i))
+    });
+</script>

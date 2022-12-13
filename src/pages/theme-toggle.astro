@@ -1,54 +1,54 @@
 ---
 import Base from "@/layouts/Base.astro";
 
-import { ThemeToggle, ThemeIcon } from 'astro-headless-ui';
+import { MultiThemeToggle, IconSwitch } from 'astro-headless-ui';
 import { Icon } from 'astro-icon';
 ---
 
 <Base>
-    <h1>ThemeToggle Examples</h1>
+    <h1>MultiThemeToggle Examples</h1>
     <p>Inspect the body tag and watch the 'dark' class toggle on and off when button is clicked</p>
     <p>Theme is also persistant across pages usinf sessionStorage and detects system preference changes</p>
     <h2>Toggle Button</h2>
     <section>
-        <ThemeToggle dark>Toggle Dark Theme</ThemeToggle>
-        <ThemeToggle theme="blue">Toggle Blue Theme</ThemeToggle>
-        <ThemeToggle theme="green">Toggle Green Theme</ThemeToggle>
-        <ThemeToggle theme="red">Toggle Red Theme</ThemeToggle>
+        <MultiThemeToggle dark>Toggle Dark Theme</MultiThemeToggle>
+        <MultiThemeToggle theme="blue">Toggle Blue Theme</MultiThemeToggle>
+        <MultiThemeToggle theme="green">Toggle Green Theme</MultiThemeToggle>
+        <MultiThemeToggle theme="red">Toggle Red Theme</MultiThemeToggle>
     </section>
     <section class="container" style="margin:2rem 1rem;padding:5rem;">
         <h2>Scoped Themes</h2>
-        <ThemeToggle selector="section.container">Toggle Dark Theme</ThemeToggle>
-        <ThemeToggle selector="section.container" theme="blue" dark>Toggle Blue Theme</ThemeToggle>
-        <ThemeToggle selector="section.container" theme="green">Toggle Green Theme</ThemeToggle>
-        <ThemeToggle selector="section.container" theme="red">Toggle Red Theme</ThemeToggle>
+        <MultiThemeToggle selector="section.container">Toggle Dark Theme</MultiThemeToggle>
+        <MultiThemeToggle selector="section.container" theme="blue" dark>Toggle Blue Theme</MultiThemeToggle>
+        <MultiThemeToggle selector="section.container" theme="green">Toggle Green Theme</MultiThemeToggle>
+        <MultiThemeToggle selector="section.container" theme="red">Toggle Red Theme</MultiThemeToggle>
     </section>
     <h2>ToggleIcon Example</h2>
     <section> 
-        <ThemeToggle dark style="padding:3rem;">
-            <ThemeIcon size="5rem"> 
+        <MultiThemeToggle dark style="padding:3rem;">
+            <IconSwitch size="5rem"> 
                 <Icon name="ri:sun-foggy-line"/>
                 <Icon name="ri:moon-cloudy-line"/>
-            </ThemeIcon>
-        </ThemeToggle>
+            </IconSwitch>
+        </MultiThemeToggle>
     </section>
     <h3>Variation</h3>
     <section> 
-        <ThemeToggle dark style="padding:.5rem;">
-            <ThemeIcon name="no-animation" size="2rem" speed={0}> 
+        <MultiThemeToggle dark style="padding:.5rem;">
+            <IconSwitch name="no-animation" size="2rem" speed={0}> 
                 <Icon name="ri:sun-foggy-line"/>
                 <Icon name="ri:moon-cloudy-line"/>
-            </ThemeIcon>
-        </ThemeToggle>
+            </IconSwitch>
+        </MultiThemeToggle>
     </section>
     <h3>Alt theme</h3>
     <section> 
-        <ThemeToggle theme="green" style="background-color:#bbb;padding:2rem;border-radius:3px;border:2px solid gray;">
-            <ThemeIcon theme="body.green" name="green-icons" speed={0}> 
+        <MultiThemeToggle theme="green" style="background-color:#bbb;padding:2rem;border-radius:3px;border:2px solid gray;">
+            <IconSwitch name="green-icons" selector="body.green" speed={0}> 
                 <Icon name="twemoji:white-circle"/>
                 <Icon name="twemoji:green-circle"/>
-            </ThemeIcon>
-        </ThemeToggle>
+            </IconSwitch>
+        </MultiThemeToggle>
     </section>
 </Base>
 

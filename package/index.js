@@ -1,6 +1,6 @@
 // Stylesheets
 import AnimatedSpriteSheet from './style-components/AnimatedSpriteSheet.astro';
-import ThemeIcon from './style-components/ThemeIcon.astro';
+import IconSwitch from './style-components/IconSwitch.astro';
 // Components
 import Rating from './components/Rating.astro';
 import Link from './components/Link.astro';
@@ -10,7 +10,9 @@ import Paginate from './components/Paginate.astro';
 import Pagination from './components/Pagination.astro';
 import Map from './components/Map.astro';
 // Client Side Components
-import ThemeToggle from './client-components/ThemeToggle.astro';
+import DarkThemeToggle from './client-components/DarkThemeToggle.astro';
+import MultiThemeToggle from './client-components/MultiThemeToggle.astro';
+import CodeCopy from './client-components/CodeCopy.astro';
 // Client Side Scripts
 import NoScriptProp from './scripts/NoScriptProp.astro';
 import ScrollProp from './scripts/ScrollProp.astro';
@@ -20,7 +22,7 @@ import NetworkProp from './scripts/NetworkProp.astro';
 
 export {
     AnimatedSpriteSheet,
-    ThemeIcon,
+    IconSwitch,
 
     Rating,
     Link,
@@ -30,7 +32,9 @@ export {
     Pagination,
     Map,
 
-    ThemeToggle,
+    DarkThemeToggle,
+    MultiThemeToggle,
+    CodeCopy,
 
     ScrollProp,
     MouseProp,

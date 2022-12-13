@@ -1,8 +1,8 @@
 import * as crypto from 'crypto';
 
-export function hashId(input: string, length: number = 5, start: number = 0) {
-    // Enforce a maximum value on start
-    if (start > 32 - length) start = 32 - length;
+export function hashId(input: string, length: number = 5, shift: number = 0) {
+    // Enforce a maximum value on shift
+    if (shift > 32 - length) shift = 32 - length;
 
     // Create a hash of the input string using the SHA-256 algorithm
     const hash = crypto.createHash('sha256').update(input).digest();
@@ -12,7 +12,7 @@ export function hashId(input: string, length: number = 5, start: number = 0) {
     
     // Loop through each byte of the hash
     let result = '';
-    for (let i = start; i < hash.length; i++) {
+    for (let i = shift; i < hash.length; i++) {
         // Map the byte to a letter using the lookup table
         const letter = lookup[hash[i] % lookup.length];
         // Add the letter to the result string

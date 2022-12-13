@@ -1,4 +1,4 @@
 import AnimatedSpriteSheet from './AnimatedSpriteSheet.astro';
-import ThemIcon from './ThemeIcon.astro';
+import IconSwitch from './IconSwitch.astro';
 
-export { AnimatedSpriteSheet, ThemIcon };
+export { AnimatedSpriteSheet, IconSwitch };

@@ -1,6 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { Map } from "astro-headless-ui";
+import { hashId } from 'astro-headless-ui/util';
 ---
 
 <Base>
@@ -14,6 +15,19 @@ import { Map } from "astro-headless-ui";
             <five slot="5">{i => <><h3>Index # 5</h3><li>Index # 5: {i}</li></>}</five>
             <test slot="-2">{i => <><h3>Second to Last</h3><li>Second to Last Item: {i}</li></>}</test>
             <last slot="-1">{i => <><h3>Last</h3><li>Last Item: {i}</li></>}</last>
+        </Map>
+    </ul>
+    <ul>
+        <Map {...['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']}>
+            {i => (
+                <li>
+                    <ul>                        
+                        <Map {...i}>
+                            {i => <li>{i}</li>}
+                        </Map>
+                    </ul>
+                </li>
+            )}
         </Map>
     </ul>
 </Base>

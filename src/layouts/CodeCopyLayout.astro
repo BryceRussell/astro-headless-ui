@@ -1,0 +1,24 @@
+---
+import Base from "./Base.astro";
+import { CodeCopy, IconSwitch } from "astro-headless-ui";
+import { Icon } from "astro-icon";
+---
+
+<Base>
+    <main style="max-width:100ch;margin: 0 auto;">
+        <slot />
+    </main>
+    <CodeCopy class="teeest">
+        <IconSwitch name="copy-icons" selector="button.copied" size="1.5rem">
+            <Icon name="fluent:clipboard-20-regular"/>
+            <Icon name="fluent:clipboard-task-20-regular"/>
+        </IconSwitch>
+    </CodeCopy>
+</Base>
+
+<style is:global>
+    pre.astro-code {
+        position: relative;
+        padding: 1rem;
+    }
+</style>
