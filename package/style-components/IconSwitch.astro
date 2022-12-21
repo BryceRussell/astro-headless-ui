@@ -2,33 +2,38 @@
 import type { HTMLAttributes } from 'astro/types';
 
 export interface Props extends HTMLAttributes<'span'> {
-    size?: string;
+    as?: string;
+    default?: string;
+    active?: string;
     name?: string;
-    selector?: string;
+    size?: string;
     animation?: 'height'|'width'|'opacity';
-    speed?: number|string;
+    speed?: number;
+    hide?: boolean;
 }
     
 const {
-    is: Is='span',
-    selector="body.dark",
-    name='theme-icons',
-    animation='height',
-    speed='250',
+    as: As='span',
+    default: _default,
+    active='',
+    name='icon-toggle',
     size="1rem",
+    animation='height',
+    speed=250,
+    hide=false,
     class: _class,
     ...attrs
 } = Astro.props as Props
-
-if (!Number.isInteger(+speed)) console.warn("<IconSwitch>: 'speed' prop must be a number or string number")
 
 const height = animation === 'height'
 const width = animation === 'width'
 const opacity = animation === 'opacity'
 ---
 
-<Is {...attrs} class:list={[name, _class]}>
-    <slot />
-</Is>
+{ !hide &&
+    <As {...attrs} class:list={[name, _class]}>
+        <slot />
+    </As>
+}
 
-<style set:html={`.${name}{position:relative;display:inline-block;height:${size};width:${size};}.${name} *:nth-child(1){position:absolute;top:0;right:0;height:100%;width:100%;${animation?`transition:${animation} ${speed}ms;`:''}}.${name} *:nth-child(2){position:absolute;top:0;right:0;height:${height?'0':'100%'};width:${width?'0':'100%'};${opacity?`opacity:0;`:''}${animation?`transition:${animation} ${speed}ms;`:''}}${selector} .${name} *:nth-child(1){${animation}:0;}${selector} .${name} *:nth-child(2){${animation}:100%;}`}/>
+<style set:html={`${_default?`${_default} `:''}.${name}{position:relative;display:inline-block;${size?`height:${size};width:${size};`:''}}${_default?`${_default} `:''}.${name} *:nth-child(1){position:absolute;top:0;right:0;height:100%;width:100%;${animation?`transition:${animation} ${speed}ms;`:''}}${_default?`${_default} `:''}.${name} *:nth-child(2){position:absolute;top:0;right:0;height:${height?'0':'100%'};width:${width?'0':'100%'};${opacity?`opacity:0;`:''}${animation?`transition:${animation} ${speed}ms;`:''}}${active} .${name} *:nth-child(1){${animation}:0;}${active} .${name} *:nth-child(2){${animation}:100%;}`}/>

@@ -1,14 +1,6 @@
 // CSS properties
-import ScrollProp from './ScrollProp.astro';
-import MouseProp from './MouseProp.astro';
-import KeyboarProp from './KeyboarProp.astro';
-import NoScriptProp from './NoScriptProp.astro';
-import NetworkProp from './NetworkProp.astro';
-
-export {
-    ScrollProp,
-    MouseProp,
-    KeyboarProp,
-    NoScriptProp,
-    NetworkProp
-};
+export { default as ScrollProp } from './ScrollProp.astro';
+export { default as MouseProp } from './MouseProp.astro';
+export { default as KeyboardProp } from './KeyboardProp.astro';
+export { default as NoScriptProp } from './NoScriptProp.astro';
+export { default as NetworkProp } from './NetworkProp.astro';

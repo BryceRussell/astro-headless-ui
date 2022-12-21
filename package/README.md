@@ -18,7 +18,7 @@ A headless component library for Astro
 HTML Element with an attached stylesheet
 
 - **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Stylesheet template for animating spritesheets
-- **`<IconSwitch>`** Animated icon switch, used to display current theme, copy button state, and more using icons
+- **[`<IconSwitch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/IconSwitch)** Animated icon switch, used to display current theme, copy button state, and more using icons
 
 ## Components
 
@@ -30,7 +30,7 @@ HTML generator
 - **[`<Breadcrumb>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Breadcrumb)**: Site/URL hierarchy navigation
 - **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
-- **`<Map>`**: `.map()` with extra features, easier to do nested mapping
+- **`<Map>`**: `.map()` with extra features, makes nested mapping easier
 
 ## Client Components
 

@@ -1,17 +1,7 @@
-import Breadcrumb from './Breadcrumb.astro';
-import Link from './Link.astro';
-import Map from './Map.astro';
-import Navigation from './Navigation.astro';
-import Paginate from './Paginate.astro';
-import Pagination from './Pagination.astro';
-import Rating from './Rating.astro';
-
-export {
-    Breadcrumb,
-    Link,
-    Map,
-    Navigation,
-    Paginate,
-    Pagination,
-    Rating
-};
+export { default as Breadcrumb } from './Breadcrumb.astro';
+export { default as Link } from './Link.astro';
+export { default as Map } from './Map.astro';
+export { default as Navigation } from './Navigation.astro';
+export { default as Paginate } from './Paginate.astro';
+export { default as Pagination } from './Pagination.astro';
+export { default as Rating } from './Rating.astro';

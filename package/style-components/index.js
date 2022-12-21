@@ -1,4 +1,2 @@
-import AnimatedSpriteSheet from './AnimatedSpriteSheet.astro';
-import IconSwitch from './IconSwitch.astro';
-
-export { AnimatedSpriteSheet, IconSwitch };
+export { default as AnimatedSpriteSheet } from './AnimatedSpriteSheet.astro';
+export { default as IconSwitch } from './IconSwitch.astro';

@@ -1,6 +1,6 @@
 ---
-import { HTMLAttributes } from 'astro/types';
-import { Link } from '../index';
+import type { HTMLAttributes } from 'astro/types';
+import Link from './Link.astro';
 
 interface ActiveProps extends HTMLAttributes<'a'> {
     text?: string;

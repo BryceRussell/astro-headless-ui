@@ -1,9 +1,3 @@
-import DarkThemeToggle from './DarkThemeToggle.astro';
-import MultiThemeToggle from './MultiThemeToggle.astro';
-import CodeCopy from './CodeCopy.astro';
-
-export {
-    DarkThemeToggle,
-    MultiThemeToggle,
-    CodeCopy
-}
+export { default as DarkThemeToggle } from './DarkThemeToggle.astro';
+export { default as MultiThemeToggle } from './MultiThemeToggle.astro';
+export { default as CodeCopy } from './CodeCopy.astro';

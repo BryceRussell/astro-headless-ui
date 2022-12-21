@@ -26,7 +26,7 @@ import { Icon } from 'astro-icon';
     <h2>ToggleIcon Example</h2>
     <section> 
         <MultiThemeToggle dark style="padding:3rem;">
-            <IconSwitch size="5rem"> 
+            <IconSwitch active="body.dark" size="5rem"> 
                 <Icon name="ri:sun-foggy-line"/>
                 <Icon name="ri:moon-cloudy-line"/>
             </IconSwitch>
@@ -35,7 +35,7 @@ import { Icon } from 'astro-icon';
     <h3>Variation</h3>
     <section> 
         <MultiThemeToggle dark style="padding:.5rem;">
-            <IconSwitch name="no-animation" size="2rem" speed={0}> 
+            <IconSwitch name="no-animation" active="body.dark" size="2rem" speed={0}> 
                 <Icon name="ri:sun-foggy-line"/>
                 <Icon name="ri:moon-cloudy-line"/>
             </IconSwitch>
@@ -44,7 +44,7 @@ import { Icon } from 'astro-icon';
     <h3>Alt theme</h3>
     <section> 
         <MultiThemeToggle theme="green" style="background-color:#bbb;padding:2rem;border-radius:3px;border:2px solid gray;">
-            <IconSwitch name="green-icons" selector="body.green" speed={0}> 
+            <IconSwitch name="green-icons" active="body.green" speed={0}> 
                 <Icon name="twemoji:white-circle"/>
                 <Icon name="twemoji:green-circle"/>
             </IconSwitch>
