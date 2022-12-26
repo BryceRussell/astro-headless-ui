@@ -2,7 +2,7 @@
   "name": "astro-headless-ui",
   "author": "Bryce Russell",
   "license": "MIT",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "A collection of headless components and utilities for Astro. Pagination, Breadcrumb, Themes, Copy buttons, and more!",
   "repository": {
     "type": "git",
@@ -17,5 +17,12 @@
     "pagination",
     "breadcrumb"
   ],
-  "type": "module"
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./style-components": "./style-components/index.ts",
+    "./components": "./components/index.ts",
+    "./client-components": "./client-components/index.ts",
+    "./scripts": "./scripts/index.ts"
+  }
 }

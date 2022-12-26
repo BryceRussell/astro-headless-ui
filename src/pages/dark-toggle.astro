@@ -1,0 +1,32 @@
+---
+import Base from "@/layouts/Base.astro";
+
+import { DarkThemeToggle, IconSwitch } from 'astro-headless-ui';
+import { Icon } from 'astro-icon';
+---
+
+<Base>
+    <DarkThemeToggle >
+        Toggle dark theme
+    </DarkThemeToggle>
+
+    <DarkThemeToggle style="padding:3rem;">
+        <IconSwitch active="body.dark" size="5rem"> 
+            <Icon name="ri:sun-foggy-line"/>
+            <Icon name="ri:moon-cloudy-line"/>
+        </IconSwitch>
+    </DarkThemeToggle>
+</Base>
+
+<style is:global>
+    body {
+        --bg: #fff;
+        background-color: var(--bg);
+        color: var(--color)
+    }
+
+    body.dark {
+        --bg: #444;
+        --color: #fff;
+    }
+</style>

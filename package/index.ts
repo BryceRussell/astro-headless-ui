@@ -1,3 +1,4 @@
+declare module 'astro-headless-ui';
 // Stylesheets
 export { default as AnimatedSpriteSheet } from './style-components/AnimatedSpriteSheet.astro';
 export { default as IconSwitch } from './style-components/IconSwitch.astro';
@@ -18,4 +19,4 @@ export { default as NoScriptProp } from './scripts/NoScriptProp.astro';
 export { default as ScrollProp } from './scripts/ScrollProp.astro';
 export { default as MouseProp } from './scripts/MouseProp.astro';
 export { default as KeyboardProp } from './scripts/KeyboardProp.astro';
-//export { default as NetworkProp } from './scripts/NetworkProp.astro';
+export { default as NetworkProp } from './scripts/NetworkProp.astro';
