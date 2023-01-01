@@ -17,6 +17,7 @@ A headless component library for Astro
 
 HTML Element with an attached stylesheet
 
+- **`<NoScriptProp>`**: CSS javascript detector ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736))
 - **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Stylesheet template for animating spritesheets
 - **[`<IconSwitch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/IconSwitch)** Animated icon switch, used to display current theme, copy button state, and more using icons
 
@@ -44,11 +45,8 @@ HTML Element with client side interactivity using `<script>`
 
 Client side scripts that do not include HTML
 
-- **`<NoScriptProp>`**: CSS javascript detector ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736))
 - **`<ScrollProp>`**: Access scroll position of window or element inside CSS properties
 - **`<MouseProp>`**: Access mouse position of window/element inside CSS properties
-- **`<KeyboardProp>`**: Access last key pressed in window or element inside CSS property
-- **`<NetworkProp>`**: Access [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation) inside CSS properties
 
 ## Utility Functions
 

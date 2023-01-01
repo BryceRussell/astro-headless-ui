@@ -1,0 +1,50 @@
+---
+/*
+    1 Parses md to html
+    2 parse html to HAST tree
+    3 use 'transform' prop to transform hast tree
+    4 Rerender HAST tree to HTML
+
+    The ida for this component is that you can use either raw md, HTML, or HAST 
+    Then you can use the transform the HAST and rerender to HTML
+
+    Moved to archive because
+        - More proof of concept / experimental
+        - Acts like more like a function than component
+        - SLOW/Impractical md -> html -> HAST -> transform(HAST) -> HTML
+*/
+import { toHtml } from 'hast-util-to-html';
+import { fromHtml } from 'hast-util-from-html';
+import type { Root, Parent } from 'hast';
+import type { Options as ToOptions } from 'hast-util-to-html';
+import type { Options as FromOptions } from 'hast-util-from-html';
+import { renderMarkdown } from '@astrojs/markdown-remark'
+
+type Child = Parent['children'][number]
+type Node = Child | Root
+type Tree = Node | Node[]
+
+interface Props {
+    md?: string;
+    html?: string;
+    tree?: Tree;
+    mdOptions?: {};
+    toOptions?: ToOptions;
+    fromOptions?: FromOptions;
+    transform?: (tree: Tree) => Tree;
+}
+
+const {
+    md,
+    mdOptions={},
+    html=await renderMarkdown(md, mdOptions).then(r => r.code),
+    fromOptions={
+        fragment: true
+    },
+    tree=fromHtml(html, fromOptions),
+    toOptions,
+    transform
+} = Astro.props as Props
+---
+
+<Fragment set:html={toHtml(transform ? transform(tree) : tree, toOptions)}/>

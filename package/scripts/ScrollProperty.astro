@@ -2,21 +2,25 @@
 export interface Props {
     selector?: string;
     attach?: string;
-    property?: string;
+    base?: string;
+    x?: string;
+    y?: string;
 }
 
 const {
     selector=":root",
     attach=selector,
-    property="scroll",
+    base="scroll",
+    x=`--${base}-X`,
+    y=`--${base}-Y`
 } = Astro.props as Props
 ---
 
 <script define:vars={{
     s: selector,
     a: attach,
-    x: `--${property}-X`,
-    y: `--${property}-Y`
+    x,
+    y
 }}>
     const t = document.querySelector(a)
     const e = [":root", "html"].includes(s)?window:document.querySelector(s)

@@ -1,0 +1,24 @@
+---
+export interface Props {
+    name?: string;
+    default?: string;
+    key?: string;
+    obj?: Record<string, any>;
+}
+
+const {
+    name,
+    default: _default='default',
+    key,
+    obj
+} = Astro.props as Props
+---
+
+{ Astro.slots.has(name)
+    ? obj && (obj[name] || obj[key])
+        ? <Fragment set:html={Astro.slots.render(name, [obj[name] || obj[key]])}/>
+        : <Fragment set:html={Astro.slots.render(name)}/>
+    : obj && obj[key]
+        ? <Fragment set:html={Astro.slots.render(_default, [obj[key]])}/>
+        : <Fragment set:html={Astro.slots.render(_default)}/>
+}

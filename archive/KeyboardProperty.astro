@@ -1,0 +1,37 @@
+---
+/*
+    Access last key pressed in element inside a css property
+
+    Useful for creating an overlay that shows keypress
+
+    Moved to archive because:
+        - Never finished API, to include shift/alt/crtl keys
+        - Too niche/speacialized
+        - Created really early and mostly forgotten about
+*/
+export interface Props {
+    selector?: string;
+    attach?: string;
+    property?: string;
+}
+
+const {
+    selector=":root",
+    attach=selector,
+    property="keyboard"
+} = Astro.props as Props
+
+// '${v.shiftKey?'SHIFT + ':''}${v.ctrlKey?'CTRL + ':''}${v.altKey?'ALT + ':''}${v.key}'`;
+---
+
+<script define:vars={{
+    s: selector,
+    a: attach,
+    k: `--${property}-key`
+}}>
+    const t = document.querySelector(a)
+    const e = [":root", "html", "body"].includes(s)?window:document.querySelector(s)
+    e.addEventListener('keydown', v => {
+        !v.repeat&&t.style.setProperty(k, `'${v.key}'`)
+    }, false);
+</script>

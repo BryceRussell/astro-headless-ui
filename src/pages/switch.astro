@@ -1,0 +1,33 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Switch } from 'astro-headless-ui';
+
+const value = ''+(Math.floor(Math.random() * 6) + 1)
+---
+
+<Base>
+    <Switch name={value}>
+        <h1>Default</h1>
+        <h1 slot='1'>First</h1>
+        <h1 slot='2'>Second</h1>
+        <h1 slot='3'>Third</h1>
+        <h1 slot='4'>Fourth</h1>
+        <h1 slot='5'>Fith</h1>
+    </Switch>
+    <Switch name={value} key="" obj={{
+            '1': 'Default',
+            '11': 'One',
+            '12': 'Two',
+            '13': 'Three',
+            '14': 'Four',
+            '15': 'Five'
+        }}
+    >
+        <h1>{v => <h1>{v}</h1>}</h1>
+        <h1 slot='1'>{v => <h1>1: {v}</h1>}</h1>
+        <h1 slot='2'>{v => <h1>2: {v}</h1>}</h1>
+        <h1 slot='3'>{v => <h1>3: {v}</h1>}</h1>
+        <h1 slot='4'>{v => <h1>4: {v}</h1>}</h1>
+        <h1 slot='5'>{v => <h1>5: {v}</h1>}</h1>
+    </Switch>
+</Base>

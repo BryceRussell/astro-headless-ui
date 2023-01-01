@@ -1,22 +1,24 @@
 ---
 export interface Props {
     selector?: string;
-    property?: string;
-    className?: string;
+    name?: string;
+    class?: string;
+    default?: string;
 }
 
 const {
     selector=":root",
-    property="noscript",
-    className="noscript-hide",
+    name="noscript",
+    class: _class=`${name}-hide`,
+    default: _default='false'
 } = Astro.props as Props
 ---
 
 <style is:inline set:html={`
     ${selector} {
-        --${property}: false;
+        --${name}: ${_default};
     }
-    .${className} {
+    .${_class} {
         display: var(--noscript, none);
     }
 `}/>
@@ -24,7 +26,7 @@ const {
 <noscript>
     <style is:inline set:html={`
         ${selector} {
-            --${property}: initial !important;
+            --${name}: initial !important;
         }
     `}/>
 </noscript>

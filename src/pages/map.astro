@@ -1,7 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { Map } from "astro-headless-ui";
-import { hashId } from 'astro-headless-ui/util';
 ---
 
 <Base>
@@ -21,7 +20,8 @@ import { hashId } from 'astro-headless-ui/util';
         <Map {...['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']}>
             {i => (
                 <li>
-                    <ul>                        
+                    {i}
+                    <ul>                       
                         <Map {...i}>
                             {i => <li>{i}</li>}
                         </Map>

@@ -1,6 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
-import { ScrollProp, MouseProp, KeyboardProp, NetworkProp, NoScriptProp } from "astro-headless-ui";
+import { ScrollProperty, MouseProperty, NoScriptProperty } from "astro-headless-ui";
 ---
 
 <Base>
@@ -18,7 +18,7 @@ import { ScrollProp, MouseProp, KeyboardProp, NetworkProp, NoScriptProp } from "
         <p><strong>Toggle javascript on/off: </strong></p>
         <p><strong>'noscript-hide'</strong> class: <span class="noscript-hide" style="text-decoration:underline;color:green;">This text only visible when javascript is enabled</span></p>
         <p id="noscript" style="color:var(--noscript, red);">This text is only red if javascript is disabled</p>
-        <NoScriptProp />
+        <NoScriptProperty />
 
         <hr>
 
@@ -37,8 +37,8 @@ import { ScrollProp, MouseProp, KeyboardProp, NetworkProp, NoScriptProp } from "
                 </div>
             </div>
         </div>
-        <ScrollProp />
-        <ScrollProp property="e-scroll" selector="#e-scroll"/>
+        <ScrollProperty />
+        <ScrollProperty base="e-scroll" selector="#e-scroll"/>
 
         <h3>Mouse Properties</h3>
         <p>The X/Y position of the mouse inside the window or inside of an element</p>
@@ -49,31 +49,8 @@ import { ScrollProp, MouseProp, KeyboardProp, NetworkProp, NoScriptProp } from "
             <p id="e-mouseX">Element Mouse X:</p>
             <p id="e-mouseY">Element Mouse Y:</p>
         </div>
-        <MouseProp />
-        <MouseProp property="e-mouse" selector="#e-mouse"/>
-
-        <h3>Keyboard Properties</h3>
-        <p id="keyboard-key">Last key:</p>
-        <div>
-            <label for="e-keyboard" id="e-keyboard-key" style="margin-right:.25rem;">Last key in input:</label>
-            <input id="e-keyboard" />
-        </div>
-        <KeyboardProp />
-        <KeyboardProp selector="#e-keyboard" attach=":root" property="e-keyboard" />
-
-        <hr>
-
-        <h2>Limited Compatibility</h2>
-
-        <h3>Network Information Properties</h3>
-        <p><strong>Experimental</strong> does not work with <strong>Firefox</strong>: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation#browser_compatibility">compatibility table</a></p>
-        <p id="network-type">Network type:</p>
-        <p id="network-band">Network band:</p>
-        <p id="network-downlink">Network downlink:</p>
-        <p id="network-downlink-max">Network downlink maximum:</p>
-        <p id="network-rtt">Network round time trip:</p>
-        <p id="network-saveData" ><strong>'saveData-hide'</strong> class: <span class="saveData-hide" style="color:green;">This text is hidden if the user has set a reduced data usage option on the user agent.</span></p>
-        <NetworkProp />
+        <MouseProperty />
+        <MouseProperty base="e-mouse" selector="#e-mouse"/>
     </main>
 </Base>
 
@@ -120,73 +97,42 @@ import { ScrollProp, MouseProp, KeyboardProp, NetworkProp, NoScriptProp } from "
     }
 
     #scrollY::after {
-        counter-reset: c var(--scrollY);
+        counter-reset: c var(--scroll-Y);
         content: counter(c);
     }
 
     #scrollX::after {
-        counter-reset: c var(--scrollX);
+        counter-reset: c var(--scroll-X);
         content: counter(c);
     }
 
     #e-scrollY::after {
-        counter-reset: c var(--e-scrollY);
+        counter-reset: c var(--e-scroll-Y);
         content: counter(c);
     }
 
     #e-scrollX::after {
-        counter-reset: c var(--e-scrollX);
+        counter-reset: c var(--e-scroll-X);
         content: counter(c);
     }
 
     #mouseY::after {
-        counter-reset: c var(--mouseY);
+        counter-reset: c var(--mouse-Y);
         content: counter(c);
     }
 
     #mouseX::after {
-        counter-reset: c var(--mouseX);
+        counter-reset: c var(--mouse-X);
         content: counter(c);
     }
 
     #e-mouseY::after {
-        counter-reset: c var(--e-mouseY);
+        counter-reset: c var(--e-mouse-Y);
         content: counter(c);
     }
 
     #e-mouseX::after {
-        counter-reset: c var(--e-mouseX);
-        content: counter(c);
-    }
-
-    #keyboard-key::after {
-        content: var(--keyboard-key);
-    }
-
-    #e-keyboard-key::after {
-        content: var(--e-keyboard-key);
-    }
-
-    #network-type::after {
-        content: var(--network-type);
-    }
-
-    #network-band::after {
-        content: var(--network-band);
-    }
-
-    #network-downlink::after {
-        counter-reset: c var(--network-downlink);
-        content: counter(c);
-    }
-
-    #network-downlink-max::after {
-        counter-reset: c var(--network-downlink-max);
-        content: counter(c);
-    }
-
-    #network-rtt::after {
-        counter-reset: c var(--network-rtt);
+        counter-reset: c var(--e-mouse-X);
         content: counter(c);
     }
 </style>
