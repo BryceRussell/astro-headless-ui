@@ -18,7 +18,7 @@ A headless component library for Astro
 HTML Element with an attached stylesheet
 
 - **`<NoScriptProp>`**: CSS javascript detector ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736))
-- **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Stylesheet template for animating spritesheets
+- **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Animate spritesheets
 - **[`<IconSwitch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/IconSwitch)** Animated icon switch, used to display current theme, copy button state, and more using icons
 
 ## Components
@@ -31,11 +31,12 @@ HTML generator
 - **[`<Breadcrumb>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Breadcrumb)**: Site/URL hierarchy navigation
 - **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
-- **`<Map>`**: `.map()` with extra features, makes nested mapping easier
+- **`<Map>`**: `.map()` with extra features using named slots, makes nested mapping easier
+- **`<Switch>`**: Uses named slots like a switch statement
 
 ## Client Components
 
-HTML Element with client side interactivity using `<script>`
+HTML element with client side interactivity using `<script>`
 
 - **[`<DarkThemeToggle>`](https://github.com/BryceRussell/astro-headless-ui/wiki/DarkThemeToggle)**: Dark theme toggle button/script
 - **[`<MultiThemeToggle>`](https://github.com/BryceRussell/astro-headless-ui/wiki/MultiThemeToggle)**: Multi theme toggle button/script
@@ -43,12 +44,12 @@ HTML Element with client side interactivity using `<script>`
 
 ## Client Scripts
 
-Client side scripts that do not include HTML
+Client side script that does not include HTML
 
 - **`<ScrollProp>`**: Access scroll position of window or element inside CSS properties
 - **`<MouseProp>`**: Access mouse position of window/element inside CSS properties
 
-## Utility Functions
+## Utility
 
 `astro-headless-ui/util`
 
