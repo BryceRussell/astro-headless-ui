@@ -18,9 +18,9 @@ const {
     ${selector} {
         --${name}: ${_default};
     }
-    .${_class} {
+    ${_class && _default === 'false' ? `.${_class} {
         display: var(--noscript, none);
-    }
+    }`:''}
 `}/>
 
 <noscript>
