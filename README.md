@@ -17,7 +17,7 @@ A headless component library for Astro
 
 HTML Element with an attached stylesheet
 
-- **`<NoScriptProp>`**: CSS javascript detector ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736))
+- **[`<NoScriptProp>`](https://github.com/BryceRussell/astro-headless-ui/wiki/NoScriptProperty)**: CSS javascript detector ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736))
 - **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Animate spritesheets
 - **[`<IconSwitch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/IconSwitch)** Animated icon switch, used to display current theme, copy button state, and more using icons
 
