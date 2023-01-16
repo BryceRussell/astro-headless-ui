@@ -1,6 +1,6 @@
 ---
 import Base from "./Base.astro";
-import { CodeCopy, IconSwitch } from "astro-headless-ui";
+import { CodeCopy, IconSwitcher } from "astro-headless-ui";
 import { Icon } from "astro-icon";
 ---
 
@@ -9,10 +9,10 @@ import { Icon } from "astro-icon";
         <slot />
     </main>
     <CodeCopy class="teeest">
-        <IconSwitch name="copy-icons" active="button.copied" size="1.5rem">
+        <IconSwitcher name="copy-icons" active="button.copied" size="1.5rem">
             <Icon name="fluent:clipboard-20-regular"/>
             <Icon name="fluent:clipboard-task-20-regular"/>
-        </IconSwitch>
+        </IconSwitcher>
     </CodeCopy>
 </Base>
 

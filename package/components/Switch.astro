@@ -12,13 +12,33 @@ const {
     key,
     obj
 } = Astro.props as Props
+
+
+let html;
+if (!name) {
+    html = await Astro.slots.render('default');
+    const slots = Object.keys(Astro.slots)
+        .filter(i => Number.isInteger(+i))
+        .sort((a, b) => +a - +b)
+    for (let slot of slots) {
+        let _html = await Astro.slots.render(slot)
+        if (_html) {
+            html = _html
+            break
+        }
+    }
+}
 ---
 
-{ Astro.slots.has(name)
-    ? obj && (obj[name] || obj[key])
-        ? <Fragment set:html={Astro.slots.render(name, [obj[name] || obj[key]])}/>
-        : <Fragment set:html={Astro.slots.render(name)}/>
-    : obj && obj[key]
-        ? <Fragment set:html={Astro.slots.render(_default, [obj[key]])}/>
-        : <Fragment set:html={Astro.slots.render(_default)}/>
-}
+
+{() => {
+    return !name
+        ? <Fragment set:html={html}/>
+        : Astro.slots.has(name)
+            ? obj && (obj[name] || obj[key])
+                ? <Fragment set:html={Astro.slots.render(name, [obj[name] || obj[key]])}/>
+                : <Fragment set:html={Astro.slots.render(name)}/>
+            : obj && obj[key]
+                ? <Fragment set:html={Astro.slots.render(_default, [obj[key]])}/>
+                : <Fragment set:html={Astro.slots.render(_default)}/>
+}}

@@ -1,7 +1,7 @@
 // Stylesheets
 export { default as NoScriptProperty } from './style-components/NoScriptProperty.astro';
 export { default as AnimatedSpriteSheet } from './style-components/AnimatedSpriteSheet.astro';
-export { default as IconSwitch } from './style-components/IconSwitch.astro';
+export { default as IconSwitcher } from './style-components/IconSwitcher.astro';
 // Components
 export { default as Rating } from './components/Rating.astro';
 export { default as Link } from './components/Link.astro';
@@ -10,6 +10,7 @@ export { default as Breadcrumb } from './components/Breadcrumb.astro';
 export { default as Paginate } from './components/Paginate.astro';
 export { default as Pagination } from './components/Pagination.astro';
 export { default as TableOfContents } from './components/TableOfContents.astro';
+export { default as Show } from './components/Show.astro';
 export { default as Map } from './components/Map.astro';
 export { default as Switch } from './components/Switch.astro';
 // Client Side Components

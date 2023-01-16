@@ -1,7 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 
-import { DarkThemeToggle, IconSwitch } from 'astro-headless-ui';
+import { DarkThemeToggle, IconSwitcher } from 'astro-headless-ui';
 import { Icon } from 'astro-icon';
 ---
 
@@ -11,10 +11,10 @@ import { Icon } from 'astro-icon';
     </DarkThemeToggle>
 
     <DarkThemeToggle style="padding:3rem;">
-        <IconSwitch active="body.dark" size="5rem"> 
+        <IconSwitcher active="body.dark" size="5rem"> 
             <Icon name="ri:sun-foggy-line"/>
             <Icon name="ri:moon-cloudy-line"/>
-        </IconSwitch>
+        </IconSwitcher>
     </DarkThemeToggle>
 </Base>
 

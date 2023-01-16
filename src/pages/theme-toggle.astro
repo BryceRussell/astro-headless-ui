@@ -1,7 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 
-import { MultiThemeToggle, IconSwitch } from 'astro-headless-ui';
+import { MultiThemeToggle, IconSwitcher } from 'astro-headless-ui';
 import { Icon } from 'astro-icon';
 ---
 
@@ -26,28 +26,28 @@ import { Icon } from 'astro-icon';
     <h2>ToggleIcon Example</h2>
     <section> 
         <MultiThemeToggle dark style="padding:3rem;">
-            <IconSwitch active="body.dark" size="5rem"> 
+            <IconSwitcher active="body.dark" size="5rem"> 
                 <Icon name="ri:sun-foggy-line"/>
                 <Icon name="ri:moon-cloudy-line"/>
-            </IconSwitch>
+            </IconSwitcher>
         </MultiThemeToggle>
     </section>
     <h3>Variation</h3>
     <section> 
         <MultiThemeToggle dark style="padding:.5rem;">
-            <IconSwitch name="no-animation" active="body.dark" size="2rem" speed={0}> 
+            <IconSwitcher name="no-animation" active="body.dark" size="2rem" speed={0}> 
                 <Icon name="ri:sun-foggy-line"/>
                 <Icon name="ri:moon-cloudy-line"/>
-            </IconSwitch>
+            </IconSwitcher>
         </MultiThemeToggle>
     </section>
     <h3>Alt theme</h3>
     <section> 
         <MultiThemeToggle theme="green" style="background-color:#bbb;padding:2rem;border-radius:3px;border:2px solid gray;">
-            <IconSwitch name="green-icons" active="body.green" speed={0}> 
+            <IconSwitcher name="green-icons" active="body.green" speed={0}> 
                 <Icon name="twemoji:white-circle"/>
                 <Icon name="twemoji:green-circle"/>
-            </IconSwitch>
+            </IconSwitcher>
         </MultiThemeToggle>
     </section>
 </Base>

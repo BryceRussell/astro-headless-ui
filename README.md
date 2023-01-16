@@ -7,19 +7,21 @@ A headless component library for Astro
 
 > **Note**: This project is a work in progress, components with documentation are finished, if there are any changes they will be recorded in the wiki changelog
 
-**[Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)**
+## **[Documentation](https://github.com/BryceRussell/astro-headless-ui/wiki)**
 
 **[Examples](https://github.com/BryceRussell/astro-headless-ui/wiki#examples)**
 
 **[Changelog](https://github.com/BryceRussell/astro-headless-ui/wiki/*Changelog)**
 
+**[Submit an issue for bugs or suggestions](https://github.com/BryceRussell/astro-headless-ui/issues/new)**
+
 ## Style Components
 
 HTML Element with an attached stylesheet
 
-- **[`<NoScriptProp>`](https://github.com/BryceRussell/astro-headless-ui/wiki/NoScriptProperty)**: CSS javascript detector ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736))
-- **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Animate spritesheets
-- **[`<IconSwitch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/IconSwitch)** Animated icon switch, used to display current theme, copy button state, and more using icons
+- **[`<NoScriptProperty>`](https://github.com/BryceRussell/astro-headless-ui/wiki/NoScriptProperty)**: CSS javascript detector ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736))
+- **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Animates a spritesheet as a background image on an element using css
+- **[`<IconSwitcher>`](https://github.com/BryceRussell/astro-headless-ui/wiki/IconSwitch)** Animated icon switcher, used to display current theme, copy button state, and more using icons
 
 ## Components
 
@@ -31,23 +33,24 @@ HTML generator
 - **[`<Breadcrumb>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Breadcrumb)**: Site/URL hierarchy navigation
 - **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
+- **`<Show>`**: acts like a conditional/ternary statement, mostly used for `<Switch/>`
+- **`<Switch>`**: Astro implementation of `<Switch>` from SolidJS with extra features using slots
 - **`<Map>`**: `.map()` with extra features using named slots, makes nested mapping easier
-- **`<Switch>`**: Uses named slots like a switch statement
 
 ## Client Components
 
 HTML element with client side interactivity using `<script>`
 
 - **[`<DarkThemeToggle>`](https://github.com/BryceRussell/astro-headless-ui/wiki/DarkThemeToggle)**: Dark theme toggle button/script
-- **[`<MultiThemeToggle>`](https://github.com/BryceRussell/astro-headless-ui/wiki/MultiThemeToggle)**: Multi theme toggle button/script
-- **`<CopyCode>`**: Code copying button attached to all selected codeblocks
+- **[`<MultiThemeToggle>`](https://github.com/BryceRussell/astro-headless-ui/wiki/MultiThemeToggle)**: Multi theme toggle button(s)/script
+- **`<CopyCode>`**: Attaches a button that copies code to all selected codeblocks
 
 ## Client Scripts
 
 Client side script that does not include HTML
 
-- **`<ScrollProp>`**: Access scroll position of window or element inside CSS properties
-- **`<MouseProp>`**: Access mouse position of window/element inside CSS properties
+- **`<ScrollProperty>`**: Access scroll position of window or element inside CSS as custom properties
+- **`<MouseProperty>`**: Access mouse position of window/element inside CSS as custom properties
 
 ## Utility
 
