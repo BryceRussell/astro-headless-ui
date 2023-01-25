@@ -1,12 +1,22 @@
 ---
-const array = Object.entries(Astro.props)
-	.filter(([i]) => Number.isInteger(+i))
-	.sort((a, b) => +a[0] - +b[0])
-	.map(([_, val]) => val)
+export interface Props {
+	loop?: number;
+}
+
+const {
+	loop
+} = Astro.props as Props
+
+const array = loop
+	? [...Array(loop).keys()]
+	: Object.entries(Astro.props)
+		.filter(([i]) => Number.isInteger(+i))
+		.sort((a, b) => +a[0] - +b[0])
+		.map(([_, val]) => val)
 ---
 
 { array.map((item, i) => {
-	if (Astro.slots.has(''+i)) return <Fragment set:html={Astro.slots.render(''+i, [array.at(i), i])}/>
-	if (Astro.slots.has(''+(i - array.length))) return <Fragment set:html={Astro.slots.render(''+(i - array.length), [array.at(i), i])}/>
+	if (Astro.slots.has(''+i)) return <Fragment set:html={Astro.slots.render(''+i, [array.at(i), i, array])}/>
+	if (Astro.slots.has(''+(i - array.length))) return <Fragment set:html={Astro.slots.render(''+(i - array.length), [array.at(i), i, array])}/>
 	return <Fragment set:html={Astro.slots.render('default', [item, i])}/>
 })}

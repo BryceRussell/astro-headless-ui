@@ -6,7 +6,6 @@ import { Map } from "astro-headless-ui";
 <Base>
     <h1>Map</h1>
     <p>Mapping component with similar syntax to solidjs 'For' Component, use slots to target different indexes for alternative render</p>
-
     <ul>
         <Map {...['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']}>
             <h3>Default</h3>
@@ -16,6 +15,15 @@ import { Map } from "astro-headless-ui";
             <last slot="-1">{i => <><h3>Last</h3><li>Last Item: {i}</li></>}</last>
         </Map>
     </ul>
+    <h2>Loop test</h2>
+    <ul>
+        <Map loop={5}>
+            <h3>Default</h3>
+            {i => <li>{i}</li>}
+            <h3 slot="1">This is two</h3>
+        </Map>
+    </ul>
+    <h2>Nested testing</h2>
     <ul>
         <Map {...['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']}>
             {i => (

@@ -8,7 +8,11 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "readme": "copy /Y \"./README.md\" \"./package/README.md\"",
+    "patch": "copy /Y \"./README.md\" \"./package/README.md\" && npm version patch && npm publish",
+    "minor": "copy /Y \"./README.md\" \"./package/README.md\" && npm version minor && npm publish",
+    "major": "copy /Y \"./README.md\" \"./package/README.md\" && npm version major && npm publish"
   },
   "dependencies": {
     "@astrojs/netlify": "^1.2.0",

@@ -27,15 +27,15 @@ HTML Element with an attached stylesheet
 
 HTML generator
 
-- **[`<Rating>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Rating)**: Display a fraction using elements, useful for star ratings on products, posts, etc
-- **[`<Link>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Link)**: Active link component
+- **[`<Rating>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Rating)**: Display a ratio using elements, useful for star ratings on products, posts, etc
+- **[`<Link>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Link)**: Active link component, used in [`<Navigation>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Navigation) to generate link navigations
 - **[`<Navigation>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Navigation)**: Generate a list of links using props, useful for config files
 - **[`<Breadcrumb>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Breadcrumb)**: Site/URL hierarchy navigation
 - **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
-- **`<Show>`**: acts like a conditional/ternary statement, mostly used for `<Switch/>`
-- **`<Switch>`**: Astro implementation of `<Switch>` from SolidJS with extra features using slots
-- **`<Map>`**: `.map()` with extra features using named slots, makes nested mapping easier
+- **[`<Show>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Show)**: acts like a conditional/ternary statement, mostly used for `<Switch/>`
+- **[`<Switch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Switch)**: Advanced conditional rendering, similar to [SolidJS `<Switch>`](https://www.solidjs.com/docs/latest/api#switchmatch) with extra features using slots
+- **[`<Map>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Map)**: `.map()` with extra features using named slots, also makes nested mapping easier
 
 ## Client Components
 

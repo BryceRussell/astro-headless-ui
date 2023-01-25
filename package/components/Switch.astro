@@ -3,20 +3,20 @@ export interface Props {
     name?: string;
     default?: string;
     key?: string;
-    obj?: Record<string, any>;
+    args?: Record<string, any>;
 }
 
 const {
     name,
     default: _default='default',
-    key,
-    obj
+    key=_default,
+    args
 } = Astro.props as Props
 
 
 let html;
 if (!name) {
-    html = await Astro.slots.render('default');
+    html = await Astro.slots.render(_default);
     const slots = Object.keys(Astro.slots)
         .filter(i => Number.isInteger(+i))
         .sort((a, b) => +a - +b)
@@ -35,10 +35,10 @@ if (!name) {
     return !name
         ? <Fragment set:html={html}/>
         : Astro.slots.has(name)
-            ? obj && (obj[name] || obj[key])
-                ? <Fragment set:html={Astro.slots.render(name, [obj[name] || obj[key]])}/>
+            ? args && (args[name] || args[key])
+                ? <Fragment set:html={Astro.slots.render(name, [args[name] || args[key]])}/>
                 : <Fragment set:html={Astro.slots.render(name)}/>
-            : obj && obj[key]
-                ? <Fragment set:html={Astro.slots.render(_default, [obj[key]])}/>
+            : args && args[key]
+                ? <Fragment set:html={Astro.slots.render(_default, [args[key]])}/>
                 : <Fragment set:html={Astro.slots.render(_default)}/>
 }}
