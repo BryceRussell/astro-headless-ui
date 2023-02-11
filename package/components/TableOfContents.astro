@@ -1,9 +1,12 @@
 ---
 import type { MarkdownHeading } from 'astro';
+import type { HTMLAttributes } from 'astro/types';
 
-export interface Props {
+interface Links extends MarkdownHeading, HTMLAttributes<'a'> {};
+
+export interface Props extends HTMLAttributes<'ol'> {
     url?: string;
-    headings?: MarkdownHeading[];
+    headings?: Array<Links>;
     depth?: number;
     max?: number;
 }
@@ -12,34 +15,28 @@ const {
     url=Astro.url.pathname,
     headings=[],
     depth=1,
-    max=6
+    max=6,
+    ...attrs
 } = Astro.props
 
 const equalDepth = headings.filter(h => h.depth === +depth);
 ---
 
-<ul data-depth={depth}>
+<ol {...attrs} data-depth={depth}>
     { equalDepth.map((heading, i) => {
+        const { slug, text, depth: _depth, ..._attrs} = heading
         const start = headings.indexOf(heading) + 1
         const end = headings.indexOf(equalDepth[i + 1])
         const subHeadings = headings.slice(start, end === -1 ? undefined : end)
-        const _props= { 
+        const _props = { 
             url, 
             headings: subHeadings, 
-            depth: heading.depth + 1,
+            depth: _depth + 1,
             max
         }
-        const param = {
-            heading,
-            subHeadings,
-            ...Astro.props
-        } 
         return <li>
-            {Astro.slots.default
-               ? <Fragment set:html={Astro.slots.render('default', [param])}/>
-               : <a href={`${url}#${heading.slug}`}>{heading.text}</a>
-            }
+            <a {...{href: `${url}#${slug}`, ..._attrs}}>{text}</a>
             <Astro.self {..._props}/>
         </li>
     })}
-</ul>
+</ol>
