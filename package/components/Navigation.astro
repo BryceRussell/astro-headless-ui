@@ -9,26 +9,23 @@ interface ActiveProps extends HTMLAttributes<'a'> {
 interface LinkProps extends HTMLAttributes<'a'> {
     text?: string;
     active?: ActiveProps;
-    mode?: 'join'|'spread'|'replace';
 }
 
 export interface Props {
     links: LinkProps[]; // Array of Link objects to create navigation from
     defaults?: LinkProps;
     active?: ActiveProps; // Global active attributes (Applies to all elements)
-    mode?: 'join'|'spread'|'replace';
 }
 
 const {
     links,
     defaults,
-    active,
-    mode
+    active
 } = Astro.props
 ---
 
 { links.map(link => {
-    const attrs = { active, mode, ...defaults, ...link };
+    const attrs = { active, ...defaults, ...link };
     if (!!Object.keys(Astro.slots).length) {
         if (Astro.url.pathname === link.href && Astro.slots.has('active')) return <Fragment set:html={Astro.slots.render('active', [attrs])}/>
         return <Fragment set:html={Astro.slots.render('default', [attrs])}/>

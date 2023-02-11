@@ -1,40 +1,26 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-interface ActiveProps extends HTMLAttributes<'a'> {
+interface Link extends HTMLAttributes<'a'> {
     text?: string;
 }
 
-export interface Props extends HTMLAttributes<'a'> {
-    text?: string;
-    active?: ActiveProps;
-    mode?: 'join'|'spread'|'replace';
+export interface Props extends Link {
+    active?: Link;
 }
 
 const {
     text,
     active,
-    mode="join",
+    class: _class,
     ...attrs
 } = Astro.props as Props
-
-var calc: ActiveProps = {text: text, ...attrs};
-if (mode === "join" && active) { 
-    for (const [key, val] of Object.entries(active)) {
-        if (!key) continue
-        if (key === "text") calc[key] = undefined;
-        if (calc[key]) calc[key] += val
-        else calc[key] = val
-    }
-}
-else if (mode === "spread" && active) calc = {...calc, ...active}
-else if (mode === "replace" && active) calc = {...active};
 ---
 
-{_ => {
+{() => {
     if (Astro.url.pathname === attrs.href) {
         if (Astro.slots.has('active')) return <Fragment set:html={Astro.slots.render('active')}/>
-        if (active) return <a {...calc}>{calc.text}<Fragment set:html={Astro.slots.render('default')}/></a>
+        if (active) return <a class:list={[_class, active.class]} {...{...attrs, ...active}}>{active.text||text}<Fragment set:html={Astro.slots.render('default')}/></a>
     }
-    return <a {...attrs}>{text}<Fragment set:html={Astro.slots.render('default')}/></a>
+    return <a class:list={_class} {...attrs}>{text}<Fragment set:html={Astro.slots.render('default')}/></a>
 }}
