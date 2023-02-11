@@ -9,6 +9,6 @@ const {
 } = Astro.props as Props;
 ---
 
-{[...Array(Math.floor(+active))].map(_ => <Fragment set:html={Astro.slots.render('active')}/>)}
+{[...Array(Math.floor(+active))].map(() => <Fragment set:html={Astro.slots.render('active')}/>)}
 { (+active - Math.floor(+active)) > 0 && <Fragment set:html={Astro.slots.render('half')}/>}
-{[...Array(Math.floor(+total - +active))].map(_ => <Fragment set:html={Astro.slots.render('disabled')}/>)}
+{[...Array(Math.floor(+total - +active))].map(() => <Fragment set:html={Astro.slots.render('disabled')}/>)}

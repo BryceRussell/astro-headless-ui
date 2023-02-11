@@ -10,7 +10,7 @@ export { default as Breadcrumb } from './components/Breadcrumb.astro';
 export { default as Paginate } from './components/Paginate.astro';
 export { default as Pagination } from './components/Pagination.astro';
 export { default as TableOfContents } from './components/TableOfContents.astro';
-export { default as Show } from './components/Show.astro';
+export { default as When } from './components/When.astro';
 export { default as Map } from './components/Map.astro';
 export { default as Switch } from './components/Switch.astro';
 // Client Side Components
