@@ -2,43 +2,42 @@
 export interface Props {
     name?: string;
     default?: string;
-    key?: string;
+    arg?: string;
     args?: Record<string, any>;
 }
 
 const {
     name,
     default: _default='default',
-    key=_default,
+    arg=_default,
     args
 } = Astro.props as Props
 
+let html: string;
+let isDefault: boolean;
 
-let html;
 if (!name) {
-    html = await Astro.slots.render(_default);
-    const slots = Object.keys(Astro.slots)
-        .filter(i => Number.isInteger(+i))
-        .sort((a, b) => +a - +b)
-    for (let slot of slots) {
-        let _html = await Astro.slots.render(slot)
-        if (_html) {
-            html = _html
-            break
-        }
+    for (let slot in Astro.slots) {
+        html = await Astro.slots.render(slot)
+        if (html) break
     }
+}
+else if (Astro.slots.has(name)) html = await Astro.slots.render(name)
+
+if (!html) {
+    html = await Astro.slots.render(_default)
+    isDefault = true
 }
 ---
 
 
 {() => {
-    return !name
-        ? <Fragment set:html={html}/>
-        : Astro.slots.has(name)
-            ? args && (args[name] || args[key])
-                ? <Fragment set:html={Astro.slots.render(name, [args[name] || args[key]])}/>
-                : <Fragment set:html={Astro.slots.render(name)}/>
-            : args && args[key]
-                ? <Fragment set:html={Astro.slots.render(_default, [args[key]])}/>
-                : <Fragment set:html={Astro.slots.render(_default)}/>
+    if (!name) return <Fragment set:html={html}/>
+    return isDefault
+        ? args && args[arg]
+            ? <Fragment set:html={Astro.slots.render(_default, [args[arg]])}/>
+            : <Fragment set:html={Astro.slots.render(_default)}/>
+        : args && (args[name] || args[arg])
+            ? <Fragment set:html={Astro.slots.render(name, [args[name] || args[arg]])}/>
+            : <Fragment set:html={Astro.slots.render(name)}/>
 }}
