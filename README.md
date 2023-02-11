@@ -59,4 +59,4 @@ Client side script that does not include HTML
 
 `astro-headless-ui/util`
 
-- **`hashId()`**: Create a hash from a string, for scoping CSS, HTML elements, and `<script>`s
+- **`hashId()`**: Create a hash from a string, for scoping CSS, HTML elements, and `<script>` tags
