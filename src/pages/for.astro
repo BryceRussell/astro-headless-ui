@@ -1,41 +1,41 @@
 ---
 import Base from "@/layouts/Base.astro";
-import { Map } from "astro-headless-ui";
+import { For } from "astro-headless-ui";
 ---
 
 <Base>
-    <h1>Map</h1>
-    <p>Mapping component with similar syntax to solidjs 'For' Component, use slots to target different indexes for alternative render</p>
+    <h1>For</h1>
+    <p>mapping component with similar syntax to solidjs 'For' Component, use slots to target different indexes for alternative render</p>
     <ul>
-        <Map {...['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']}>
+        <For {...['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']}>
             <h3>Default</h3>
             {i => <li>{i}</li>}
             <five slot="5">{i => <><h3>Index # 5</h3><li>Index # 5: {i}</li></>}</five>
             <test slot="-2">{i => <><h3>Second to Last</h3><li>Second to Last Item: {i}</li></>}</test>
             <last slot="-1">{i => <><h3>Last</h3><li>Last Item: {i}</li></>}</last>
-        </Map>
+        </For>
     </ul>
     <h2>Loop test</h2>
     <ul>
-        <Map loop={5}>
+        <For loop={5}>
             <h3>Default</h3>
             {i => <li>{i}</li>}
             <h3 slot="1">This is two</h3>
-        </Map>
+        </For>
     </ul>
     <h2>Nested testing</h2>
     <ul>
-        <Map {...['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']}>
+        <For {...['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']}>
             {i => (
                 <li>
                     {i}
                     <ul>                       
-                        <Map {...i}>
+                        <For {...i}>
                             {i => <li>{i}</li>}
-                        </Map>
+                        </For>
                     </ul>
                 </li>
             )}
-        </Map>
+        </For>
     </ul>
 </Base>

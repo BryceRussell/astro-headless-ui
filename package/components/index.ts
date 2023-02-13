@@ -6,5 +6,5 @@ export { default as Paginate } from './Paginate.astro';
 export { default as Pagination } from './Pagination.astro';
 export { default as TableOfContents } from './TableOfContents.astro';
 export { default as When } from './When.astro';
-export { default as Map } from './Map.astro';
+export { default as For } from './For.astro';
 export { default as Switch } from './Switch.astro';

@@ -11,7 +11,7 @@ export { default as Paginate } from './components/Paginate.astro';
 export { default as Pagination } from './components/Pagination.astro';
 export { default as TableOfContents } from './components/TableOfContents.astro';
 export { default as When } from './components/When.astro';
-export { default as Map } from './components/Map.astro';
+export { default as For } from './components/For.astro';
 export { default as Switch } from './components/Switch.astro';
 // Client Side Components
 export { default as DarkThemeToggle } from './client-components/DarkThemeToggle.astro';
