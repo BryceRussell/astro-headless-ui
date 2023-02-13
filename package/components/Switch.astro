@@ -14,30 +14,24 @@ const {
 } = Astro.props as Props
 
 let html: string;
-let isDefault: boolean;
 
-if (!name) {
+if (name) {
+    if (Astro.slots.has(name)) html = args && (args[name] || args[arg])
+        ? (await Astro.slots.render(name, [args[name] || args[arg]]))
+        : (await Astro.slots.render(name))
+}
+else {
     for (let slot in Astro.slots) {
         html = await Astro.slots.render(slot)
         if (html) break
     }
 }
-else if (Astro.slots.has(name)) html = await Astro.slots.render(name)
 
 if (!html) {
-    html = await Astro.slots.render(_default)
-    isDefault = true
+    html = args && args[arg]
+        ? (await Astro.slots.render(_default, [args[arg]]))
+        : (await Astro.slots.render(_default))
 }
 ---
 
-
-{() => {
-    if (!name) return <Fragment set:html={html}/>
-    return isDefault
-        ? args && args[arg]
-            ? <Fragment set:html={Astro.slots.render(_default, [args[arg]])}/>
-            : <Fragment set:html={Astro.slots.render(_default)}/>
-        : args && (args[name] || args[arg])
-            ? <Fragment set:html={Astro.slots.render(name, [args[name] || args[arg]])}/>
-            : <Fragment set:html={Astro.slots.render(name)}/>
-}}
+<Fragment set:html={html}/>
