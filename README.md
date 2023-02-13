@@ -32,9 +32,11 @@ Generates structured HTML
 - **[`<Navigation>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Navigation)**: Generate a list of links using props, useful for config files
 - **`<TableOfContents>`**: Generates a tabe of contents
 - **[`<Breadcrumb>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Breadcrumb)**: Site/URL hierarchy navigation
-- **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
-<br>
+- **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
+
+### Flow Components
+
 - **[`<When>`](https://github.com/BryceRussell/astro-headless-ui/wiki/When)**: acts like a conditional/ternary statement, mostly used for `<Switch/>`
 - **[`<Switch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Switch)**: Advanced conditional rendering, similar to [SolidJS `<Switch>`](https://www.solidjs.com/docs/latest/api#switchmatch) with extra features using slots
 - **[`<Map>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Map)**: `.map()` in component form with extra features, similar to [SolidJS `<For>`](https://www.solidjs.com/docs/latest/api#for)
@@ -58,4 +60,4 @@ Client side script that does not include HTML
 
 `astro-headless-ui/util`
 
-- **`hashId()`**: Create a hash from a string, for scoping CSS, HTML elements, and `<script>`s
+- **`hashId()`**: Create a hash from a string, for scoping CSS, HTML elements, and `<script>` tags
