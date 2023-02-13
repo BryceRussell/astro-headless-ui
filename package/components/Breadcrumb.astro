@@ -8,24 +8,19 @@ export interface Props {
 }
 
 const {
+    url=Astro.url,
     index="Home",
     collapse=false,
     start=1,
     end=3
 } = Astro.props as Props
 
-let {
-    url=Astro.url,
-} = Astro.props as Props
-
-if (typeof url === 'string') url = new URL(url)
-
-const slugs = url.pathname.endsWith('/')
-    ? url.pathname.slice(0, -1).split('/')
-    : url.pathname.split('/');
+const slugs = ( typeof url === 'string' ? new URL(url) : url ).pathname
+    .replace(/\/$/, "")
+    .split('/')
 
 function disabled(i: number): boolean {
-    if (i+1 > (index?+start:+start+1) && i < slugs.length - +end) return true
+    if (i+1 > ( index ? +start : +start+1 ) && i < slugs.length - +end) return true
     return false
 }
 

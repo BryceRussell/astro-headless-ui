@@ -10,22 +10,22 @@ const bool = true
 <Base>
     <h2>When</h2>
         <When when={true}>
-            <h3>This is True</h3>
-            <h3 slot="false">This is False</h3>
+            <p>This is True</p>
+            <p slot="false">This is False</p>
         </When>
         <When>
-            <h3>This is True</h3>
-            <h3 slot="false">This is False</h3>
+            <p>This is True</p>
+            <p slot="false">This is False</p>
         </When>
     <hr>
     <h2>Switch</h2>
     <Switch name={value}>
-        <h1>Default</h1>
-        <h1 slot='1'>First</h1>
-        <h1 slot='2'>Second</h1>
-        <h1 slot='3'>Third</h1>
-        <h1 slot='4'>Fourth</h1>
-        <h1 slot='5'>Fith</h1>
+        <p>Default</p>
+        <p slot='1'>First</p>
+        <p slot='2'>Second</p>
+        <p slot='3'>Third</p>
+        <p slot='4'>Fourth</p>
+        <p slot='5'>Fith</p>
     </Switch>
     <Switch name={value} arg="0" args={{
             '0': 'Default',
@@ -36,34 +36,45 @@ const bool = true
             '5': 'Five'
         }}
     >
-        <h1>{v => <h1>{v}</h1>}</h1>
-        <h1 slot='1'>{v => <h1>1: {v}</h1>}</h1>
-        <h1 slot='2'>{v => <h1>2: {v}</h1>}</h1>
-        <h1 slot='3'>{v => <h1>3: {v}</h1>}</h1>
-        <h1 slot='4'>{v => <h1>4: {v}</h1>}</h1>
-        <h1 slot='5'>{v => <h1>5: {v}</h1>}</h1>
+        <p>{v => <p>{v}</p>}</p>
+        <p slot='1'>{v => <p>1: {v}</p>}</p>
+        <p slot='2'>{v => <p>2: {v}</p>}</p>
+        <p slot='3'>{v => <p>3: {v}</p>}</p>
+        <p slot='4'>{v => <p>4: {v}</p>}</p>
+        <p slot='5'>{v => <p>5: {v}</p>}</p>
     </Switch>
-    <hr>
     <h2>Ordered Switch</h2>
     <Switch>
-        <h3>Default is True</h3>
+        <p>Default is True</p>
         <When slot="1">
-            <h3>1 is True</h3>
+            <p>1 is True</p>
         </When>
-        <When slot="2" when={true}>
-            <h3>2 is True</h3>
+        <When slot="2">
+            <p>2 is True</p>
         </When>
         <When slot="3">
-            <h3>3 is True</h3>
+            <p>3 is True</p>
+        </When>
+    </Switch>
+    <Switch>
+        <p>Default is True</p>
+        <When slot="1">
+            <p>1 is True</p>
+        </When>
+        <When slot="2">
+            <p>2 is True</p>
+        </When>
+        <When slot="3">
+            <p>3 is True</p>
         </When>
         <When slot="4">
-            <h3>4 is True</h3>
+            <p>4 is True</p>
         </When>
-        <When slot="5">
-            <h3>5 is True</h3>
+        <When slot="5" one={true} two={true}>
+            <p>5 is True</p>
         </When>
         <When slot="6">
-            <h3>6 is True</h3>
+            <p>6 is True</p>
         </When>
     </Switch>
 </Base>

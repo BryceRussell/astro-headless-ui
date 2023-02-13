@@ -2,19 +2,15 @@
 import type { HTMLAttributes } from 'astro/types';
 import Link from './Link.astro';
 
-interface ActiveProps extends HTMLAttributes<'a'> {
-    text?: string;
-}
-
 interface LinkProps extends HTMLAttributes<'a'> {
     text?: string;
-    active?: ActiveProps;
+    active?: LinkProps;
 }
 
 export interface Props {
-    links: LinkProps[]; // Array of Link objects to create navigation from
+    links: LinkProps[];
     defaults?: LinkProps;
-    active?: ActiveProps; // Global active attributes (Applies to all elements)
+    active?: LinkProps;
 }
 
 const {

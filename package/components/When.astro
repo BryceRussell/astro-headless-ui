@@ -1,8 +1,8 @@
 ---
-const props = Object.entries(Astro.props).filter(([k, v]) => !['slot'].includes(k))
+const props = Object.entries(Astro.props).filter(([k, _]) => !['slot'].includes(k))
 ---
 
-{ Boolean(!!props.length && props.every(([k, v]) => Boolean(v)))
+{ Boolean(!!props.length && props.every(([_, v]) => Boolean(v)))
     ? <slot />
     : <slot name="false"/>
 }
