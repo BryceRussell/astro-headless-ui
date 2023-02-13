@@ -44,6 +44,8 @@ const attrs = {
     duration
 }}>
     const copy = document.querySelector('#'+template).content.children[0]
+    const wrapper = document.createElement("div")
+    wrapper.style.position = 'relative'
 
     function deepCloneCopy(i) {
         let _copy = copy.cloneNode(true)
@@ -61,10 +63,9 @@ const attrs = {
     }
 
     document.querySelectorAll(selector).forEach((e, i) => {
-        const wrapper = document.createElement("div")
-        wrapper.style.position = 'relative'
-        e.parentNode.insertBefore(wrapper, e.nextSibling)
-        wrapper.append(e)
-        wrapper.append(deepCloneCopy(i))
+        const newWrapper = wrapper.cloneNode(false);
+        e.parentNode.insertBefore(newWrapper, e);
+        newWrapper.append(e);
+        newWrapper.append(deepCloneCopy(i));
     });
 </script>
