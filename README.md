@@ -54,7 +54,7 @@ HTML element with client side interactivity using `<script>`
 Client side script that does not include HTML
 
 - **`<ScrollProperty>`**: Access scroll position of window or element inside CSS as custom properties
-- **`<MouseProperty>`**: Access mouse position of window/element inside CSS as custom properties
+- **`<MouseProperty>`**: Access mouse position of window or element inside CSS as custom properties
 
 ## Utility
 
