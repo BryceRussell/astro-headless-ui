@@ -30,7 +30,7 @@ Generates structured HTML
 - **[`<Rating>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Rating)**: Display a ratio using elements, useful for star ratings on products, posts, etc
 - **[`<Link>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Link)**: Active link component, used in [`<Navigation>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Navigation) to generate link navigations
 - **[`<Navigation>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Navigation)**: Generate a list of links using props, useful for config files
-- **`<TableOfContents>`**: Generates a tabe of contents
+- **`<TableOfContents>`**: Generates a table of contents
 - **[`<Breadcrumb>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Breadcrumb)**: Site/URL hierarchy navigation
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
 - **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
