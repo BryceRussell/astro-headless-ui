@@ -48,7 +48,6 @@ var previous: string = "";
         slug,
         text
     }
-    console.log(param)
     //Render Slots
     if (!!Object.keys(Astro.slots).length) {
         if (Astro.slots.has('active') && i === slugs.length-1) return <Fragment set:html={Astro.slots.render('active', [param])}/>
