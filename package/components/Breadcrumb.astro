@@ -40,10 +40,15 @@ var previous: string = "";
 
     //Parameter passed to slots
     const param = {
-        href: i===0?'/':previous.slice(0,-1),
+        href: i===0
+            ? '/'
+            : previous
+                .replace(/^([^/])/, "/$1")
+                .replace(/\/$/, ''),
         slug,
         text
     }
+    console.log(param)
     //Render Slots
     if (!!Object.keys(Astro.slots).length) {
         if (Astro.slots.has('active') && i === slugs.length-1) return <Fragment set:html={Astro.slots.render('active', [param])}/>
