@@ -28,6 +28,9 @@ var previous: string = "";
 ---
 
 { slugs.map((slug, i) => {
+    //Increment href for links
+    previous = `${previous}${slug}/`
+
     //Index link logic
     let text: string = slug;
     if (i === 0) {
@@ -35,15 +38,11 @@ var previous: string = "";
         text = ''+index
     }
 
-    //Increment href for links
-    previous = `${previous}${slug}/`
-
     //Parameter passed to slots
     const param = {
         href: i===0
             ? '/'
             : previous
-                .replace(/^([^/])/, "/$1")
                 .replace(/\/$/, ''),
         slug,
         text
