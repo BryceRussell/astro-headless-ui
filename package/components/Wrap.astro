@@ -1,0 +1,19 @@
+---
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  wrap: boolean
+  as: string
+}
+
+const {
+  wrap,
+  as: As,
+  ...attrs
+} = Astro.props
+---
+
+{ wrap
+  ? <As {...attrs}>
+      <slot />
+    </As>
+  : <slot />
+}

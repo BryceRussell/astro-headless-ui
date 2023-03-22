@@ -35,8 +35,9 @@ Generates structured HTML
 - **[`<Pagination>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Pagination)**: Page navigation for paginated routes
 - **[`<Paginate>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Paginate)**: SSR component version of Astro's SSG [`paginate()`](https://docs.astro.build/en/core-concepts/routing/#pagination)
 
-### Flow Components
+### Utility / Flow Components
 
+- **[`<Wrap>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Wrap)**: Conditionally wrap a component
 - **[`<When>`](https://github.com/BryceRussell/astro-headless-ui/wiki/When)**: acts like a conditional/ternary statement, mostly used for `<Switch/>`
 - **[`<Switch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Switch)**: Advanced conditional rendering, similar to [SolidJS `<Switch>`](https://www.solidjs.com/docs/latest/api#switchmatch) with extra features using slots
 - **[`<For>`](https://github.com/BryceRussell/astro-headless-ui/wiki/For)**: `.map()` in component form with extra features, similar to [SolidJS `<For>`](https://www.solidjs.com/docs/latest/api#for)

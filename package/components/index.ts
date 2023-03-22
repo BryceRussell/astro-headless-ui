@@ -5,6 +5,7 @@ export { default as Breadcrumb } from './Breadcrumb.astro';
 export { default as Paginate } from './Paginate.astro';
 export { default as Pagination } from './Pagination.astro';
 export { default as TableOfContents } from './TableOfContents.astro';
+export { default as Wrap } from './Wrap.astro';
 export { default as When } from './When.astro';
 export { default as For } from './For.astro';
 export { default as Switch } from './Switch.astro';
