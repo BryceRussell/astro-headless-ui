@@ -1,19 +1,24 @@
 ---
+import type { Page } from 'astro';
+
 export interface Props {
     data: any[];
     size?: string | number;
     page: string | number;
 }
 
+const { pathname } = Astro.url
 const {
     data=[],
     size=10,
     page=1
 } = Astro.props
 
-const last = Math.max(1, Math.ceil(data.length / +size));
+const lastPage = Math.max(1, Math.ceil(data.length / +size));
 
-const pages = [...Array(last).keys()].map((n) => {
+const createRelativeURL = (relativeNumber: number, ) => pathname.replaceAll(/[^\\/]+\/?$/g, ()=>`${relativeNumber}`)
+
+const pages = [...Array(lastPage).keys()].map((n) => {
     const num = n + 1;
     const start = +size === Infinity ? 0 : (num - 1) * +size;
     const end = Math.min(start + +size, data.length);
@@ -23,13 +28,18 @@ const pages = [...Array(last).keys()].map((n) => {
         end: end-1,
         size,
         total: data.length,
-        current: num?num:undefined,
-        last,
-    }
+        currentPage: num?num:undefined,
+        lastPage,
+        url: {
+            current: pathname,
+            [num && num !== 1 && 'prev']: createRelativeURL(num - 1),
+            [num && num !== lastPage && 'next']: createRelativeURL(num + 1),
+        }
+    } as Page
 })
 ---
 {_ => {
-    if (!Number.isInteger(+page) || page > last) return <Fragment set:html={Astro.slots.render('error', [pages.pop()])}/>
+    if (!Number.isInteger(+page) || +page > lastPage) return <Fragment set:html={Astro.slots.render('error', [pages.pop()])}/>
     if (Astro.slots.has(''+page)) return <Fragment set:html={Astro.slots.render(''+page, [pages[+page - 1]])}/>
     return <Fragment set:html={Astro.slots.render('default', [pages[+page - 1]])}/>
 }}
