@@ -19,10 +19,8 @@ const pathname = Astro.url.pathname.replace(/\/$/, '')
 
 const lastPage = Math.max(1, Math.ceil(data.length / +size))
 
-const createRelativeURL = (difference: number) => 
-    +page === 1
-        ? `${pathname}/${+page + difference}`
-        : pathname.replace(/\d+\/?$/, ''+(+page + difference))
+const createRelativeURL = (difference: number) =>
+    pathname.replace(/\/\d+\/?$/, '') + `/${+page + difference}`
 
 const pages = [...Array(lastPage).keys()].map((n) => {
     const num = n + 1;
@@ -44,7 +42,7 @@ const pages = [...Array(lastPage).keys()].map((n) => {
     } as Page
 })
 
-if (debug) console.log(pages[+page-1])
+if (debug) console.log(pages[+page - 1])
 ---
 {_ => {
     if (!Number.isInteger(+page) || +page > lastPage) return <Fragment set:html={Astro.slots.render('error', [pages.pop()])}/>
