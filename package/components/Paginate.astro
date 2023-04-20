@@ -1,6 +1,8 @@
 ---
 import type { Page } from 'astro';
 
+interface PageWithDepreciated extends Page { current: number, last: number }
+
 export interface Props {
     data: any[];
     size?: string | number;
@@ -33,13 +35,15 @@ const pages = [...Array(lastPage).keys()].map((n) => {
         size: +size,
         total: data.length,
         currentPage: num,
+        current: num, // Depreceated, remove when 0.1.0 relases
         lastPage,
+        last: lastPage,  // Depreceated, remove when 0.1.0 relases
         url: {
             current: pathname,
             prev: (num && num !== 1 && createRelativeURL(-1)) || undefined,
             next: (num && num !== lastPage && createRelativeURL(1)) || undefined,
         }
-    } as Page
+    } as PageWithDepreciated
 })
 
 if (debug) console.log(pages[+page - 1])
