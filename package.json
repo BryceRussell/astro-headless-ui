@@ -15,9 +15,8 @@
     "major": "copy /Y \"./README.md\" \"./package/README.md\" && cd package && npm version major && npm publish && cd ../"
   },
   "dependencies": {
-    "@astrojs/netlify": "^1.2.0",
     "@astrojs/node": "^5.0.0",
-    "astro": "^2.0.0",
+    "astro": "^2.3.0",
     "iconify-icon": "^1.0.1"
   },
   "workspaces": [
