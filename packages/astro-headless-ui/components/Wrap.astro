@@ -1,19 +1,20 @@
 ---
-export interface Props extends astroHTML.JSX.HTMLAttributes {
-  wrap: boolean
-  as: string
+interface Props {
+  children: any;
+  [key: string]: any;
 }
 
-const {
-  wrap,
-  as: As,
-  ...attrs
-} = Astro.props
+const values = Object.entries(Astro.props).filter(
+  ([k, _]) => !["slot"].includes(k)
+);
+
+let slot = await Astro.slots.render("default");
+
+if (!!values.length && !values.every(([_, v]) => !!v))
+  slot = slot.replace(
+    /^(?:\s*)<[^>]+>(\s*(?:<))?|((?:>)\s*)?<\/[^>]+>(?:\s*)$/g,
+    ""
+  );
 ---
 
-{ wrap
-  ? <As {...attrs}>
-      <slot />
-    </As>
-  : <slot />
-}
+<Fragment set:html={slot} />

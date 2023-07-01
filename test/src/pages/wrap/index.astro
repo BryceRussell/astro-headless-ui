@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/Base.astro";
+import { Wrap } from "astro-headless-ui";
+---
+
+<Base>
+    <Wrap>
+      <div class="true" data-testid="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={true}>
+      <div class="true" data-testid="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={false}>
+      <div class="false" data-testid="false">
+        False
+      </div>
+    </Wrap>
+    <Wrap wrap={null}>
+      <div class="false" data-testid="false">
+        False
+      </div>
+    </Wrap>
+    <Wrap wrap={undefined}>
+      <div class="false" data-testid="false">
+        False
+      </div>
+    </Wrap>
+</Base>
