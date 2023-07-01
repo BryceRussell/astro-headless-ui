@@ -1,29 +1,14 @@
 {
-  "name": "@example/minimal",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "astrocraft-root",
   "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "readme": "copy /Y \"./README.md\" \"./package/README.md\"",
-    "patch": "copy /Y \"./README.md\" \"./package/README.md\" && cd package && npm version patch && npm publish && cd ../",
-    "minor": "copy /Y \"./README.md\" \"./package/README.md\" && cd package && npm version minor && npm publish && cd ../",
-    "major": "copy /Y \"./README.md\" \"./package/README.md\" && cd package && npm version major && npm publish && cd ../"
-  },
-  "dependencies": {
-    "@astrojs/node": "^5.0.0",
-    "astro": "^2.3.0",
-    "iconify-icon": "^1.0.1"
-  },
-  "workspaces": [
-    "package"
-  ],
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "license": "MIT",
   "devDependencies": {
-    "@types/node": "^18.11.12",
-    "astro-icon": "^0.8.0"
-  }
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.1",
+    "astro": "^2.5.0"
+  },
+  "packageManager": "pnpm@8.2.0"
 }
