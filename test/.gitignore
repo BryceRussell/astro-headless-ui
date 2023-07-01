@@ -19,3 +19,9 @@ pnpm-debug.log*
 .DS_Store
 
 .checklist
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/

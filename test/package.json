@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "concurrently \"astro dev\" \"npx playwright test --ui\"",
     "readme": "copy /Y \"./README.md\" \"./package/README.md\"",
     "patch": "copy /Y \"./README.md\" \"./package/README.md\" && cd package && npm version patch && npm publish && cd ../",
     "minor": "copy /Y \"./README.md\" \"./package/README.md\" && cd package && npm version minor && npm publish && cd ../",
@@ -20,8 +21,9 @@
     "astro-headless-ui": "workspace:*"
   },
   "devDependencies": {
+    "@playwright/test": "^1.35.1",
     "@types/node": "^18.16.19",
     "astro-icon": "^0.8.1",
-    "vitest": "^0.32.2"
+    "concurrently": "^8.2.0"
   }
 }
