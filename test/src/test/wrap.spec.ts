@@ -1,16 +1,23 @@
 import { test, expect } from '@playwright/test';
 
-test('wrap', async ({ page }) => {
+test('true', async ({ page }) => {
   await page.goto("http://localhost:3000/wrap");
 
-  // 'true'
-  await expect(page.locator('.true')).not.toHaveCount(0);
+  await expect(page.locator('.true')).toHaveCount(7);
   
   for (const trueElement of await page.locator('.true').all()) {
-    await expect(trueElement).toHaveClass('true')
     await expect(trueElement).toHaveText('True')
   }
+});
 
-  // 'false'
+test('false', async ({ page }) => {
+  await page.goto("http://localhost:3000/wrap");
+
   await expect(page.locator('.false')).toHaveCount(0);
+  
+  await expect(page.locator('.false-child')).toHaveCount(2);
+
+  for (const falseElement of await page.locator('.false-child').all()) {
+    await expect(falseElement).toHaveText('False')
+  }
 });

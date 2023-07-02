@@ -4,29 +4,62 @@ import { Wrap } from "astro-headless-ui";
 ---
 
 <Base>
+  <!-- True -->
     <Wrap>
-      <div class="true" data-testid="true">
+      <div class="true">
         True
       </div>
     </Wrap>
     <Wrap wrap={true}>
-      <div class="true" data-testid="true">
+      <div class="true">
         True
       </div>
     </Wrap>
+    <Wrap wrap={'true'}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={1}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={[1,2,3]}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={{}}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap one={false} two={true} three={false}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+
+    <!-- False -->
     <Wrap wrap={false}>
-      <div class="false" data-testid="false">
+      <div class="false">
         False
       </div>
     </Wrap>
-    <Wrap wrap={null}>
-      <div class="false" data-testid="false">
+    <Wrap wrap={''}>
+      <div class="false">
         False
       </div>
     </Wrap>
-    <Wrap wrap={undefined}>
-      <div class="false" data-testid="false">
-        False
+    <Wrap one={0} two={NaN}>
+      <div class="false">
+        <span class="false-child">False</span>
+      </div>
+    </Wrap>
+    <Wrap one={null} two={undefined}>
+      <div class="false">
+        <span class="false-child">False</span>
       </div>
     </Wrap>
 </Base>

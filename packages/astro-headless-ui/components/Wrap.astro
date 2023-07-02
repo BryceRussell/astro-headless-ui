@@ -10,9 +10,9 @@ const values = Object.entries(Astro.props).filter(
 
 let slot = await Astro.slots.render("default");
 
-if (!!values.length && !values.every(([_, v]) => !!v))
+if (!!values.length && !values.some(([_, v]) => !!v))
   slot = slot.replace(
-    /^(?:\s*)<[^>]+>(\s*(?:<))?|((?:>)\s*)?<\/[^>]+>(?:\s*)$/g,
+    /^\s*<[^>]+>\s*|\s*<\s*\/[^>]+>\s*$/g,
     ""
   );
 ---
