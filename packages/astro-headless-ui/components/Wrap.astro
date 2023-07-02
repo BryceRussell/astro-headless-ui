@@ -4,13 +4,11 @@ interface Props {
   [key: string]: any;
 }
 
-const values = Object.entries(Astro.props).filter(
-  ([k, _]) => !["slot"].includes(k)
-);
+const values = Object.values(Astro.props)
 
 let slot = await Astro.slots.render("default");
 
-if (!!values.length && !values.every(([_, v]) => !!v))
+if (!!values.length && !values.every(v => !!v))
   slot = slot.replace(
     /^\s*<[^>]+>\s*|\s*<\s*\/[^>]+>\s*$/g,
     ""
