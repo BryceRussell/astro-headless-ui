@@ -2,22 +2,24 @@
 export interface Props {
     name?: string;
     default?: string;
-    arg?: string;
+    defaultKey?: string;
     args?: Record<string, any>;
 }
 
 const {
-    name,
     default: _default='default',
-    arg=_default,
+    defaultKey=_default,
     args
 } = Astro.props as Props
 
+let { name } = Astro.props
+
 let html: string;
 
-if (name) {
-    if (Astro.slots.has(name)) html = args && (args[name] || args[arg])
-        ? (await Astro.slots.render(name, [args[name] || args[arg]]))
+if (name !== undefined) {
+    if (!name) name = _default
+    if (Astro.slots.has(name)) html = args && (args[name] || args[defaultKey])
+        ? (await Astro.slots.render(name, [args[name] || args[defaultKey]]))
         : (await Astro.slots.render(name))
 }
 else {
@@ -27,9 +29,9 @@ else {
     }
 }
 
-if (!html) {
-    html = args && args[arg]
-        ? (await Astro.slots.render(_default, [args[arg]]))
+if (!html!) {
+    html = args && args[defaultKey]
+        ? (await Astro.slots.render(_default, [args[defaultKey]]))
         : (await Astro.slots.render(_default))
 }
 ---

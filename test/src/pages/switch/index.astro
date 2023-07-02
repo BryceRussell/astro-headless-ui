@@ -1,0 +1,147 @@
+---
+import Base from "../../layouts/Base.astro";
+import { Switch, When } from "astro-headless-ui";
+---
+
+<Base>
+  <!-- When Switch -->
+  <div class="when-switch">
+    <Switch>
+      <h1 class="no-show">Default</h1>
+      <When slot="1">
+          <h1 class="no-show">One</h1>
+      </When>
+      <When slot="2" is={true}>
+          <h1 class="result">Two</h1>
+      </When>
+      <When slot="3">
+          <h1 class="no-show">Three</h1>
+      </When>
+    </Switch>
+  </div>
+  <div class="when-switch-default">
+    <Switch>
+      <h1 class="result">Default</h1>
+      <When slot="1" is={false}>
+          <h1 class="no-show">One</h1>
+      </When>
+      <When slot="2" is={false}>
+          <h1 class="no-show">Two</h1>
+      </When>
+      <When slot="3" is={false}>
+          <h1 class="no-show">Three</h1>
+      </When>
+    </Switch>
+  </div>
+  <div class="when-switch-custom-default">
+    <Switch default="custom">
+      <h1 slot="custom" class="result">Default</h1>
+      <When slot="1" is={false}>
+          <h1 class="no-show">One</h1>
+      </When>
+      <When slot="2" is={false}>
+          <h1 class="no-show">Two</h1>
+      </When>
+      <When slot="3" is={false}>
+          <h1 class="no-show">Three</h1>
+      </When>
+    </Switch>
+  </div>
+
+
+
+  <!-- Name Switches -->
+  <div class="name-switch">
+    <Switch name="2">
+      <h1 class="no-show">Default</h1>
+      <h1 slot="1" class="no-show">One</h1>
+      <h1 slot="2" class="result">Two</h1>
+      <h1 slot="3" class="no-show">Three</h1>
+    </Switch>
+  </div>
+  <div class="name-switch-default">
+    <Switch name="">
+      <h1 class="result-1">Default</h1>
+      <When slot="1">
+          <h1 class="no-show">One</h1>
+      </When>
+      <When slot="2">
+          <h1 class="no-show">Two</h1>
+      </When>
+      <When slot="3">
+          <h1 class="no-show">Three</h1>
+      </When>
+    </Switch>
+    <Switch name="999">
+      <h1 class="result-2">Default</h1>
+      <When slot="1">
+          <h1 class="no-show">One</h1>
+      </When>
+      <When slot="2">
+          <h1 class="no-show">Two</h1>
+      </When>
+      <When slot="3">
+          <h1 class="no-show">Three</h1>
+      </When>
+    </Switch>
+  </div>
+  <div class="name-switch-custom-default">
+    <Switch name="" default="custom">
+      <h1 slot="custom" class="result">Default</h1>
+      <When slot="1">
+          <h1 class="no-show">One</h1>
+      </When>
+      <When slot="2">
+          <h1 class="no-show">Two</h1>
+      </When>
+      <When slot="3">
+          <h1 class="no-show">Three</h1>
+      </When>
+    </Switch>
+  </div>
+  <div class="name-switch-slot-functions">
+    <Switch name="2" args={{
+      'default': 'Default',
+      '1': 'One',
+      '2': 'Two',
+      '3': 'Three'
+    }}>
+      {n => <h1 class="no-show">{n}</h1>}
+      <one slot='1'>{n => <h1 class="no-show">{n}</h1>}</one>
+      <two slot='2'>{n => <h1 class="result">{n}</h1>}</two>
+      <three slot='3'>{n => <h1 class="no-show">{n}</h1>}</three>
+    </Switch>
+  </div>
+  <div class="name-switch-slot-function-custom-default">
+    <Switch name="" default="custom" args={{
+      'custom': 'Default',
+      '1': 'One',
+      '2': 'Two',
+      '3': 'Three'
+    }}>
+      <custom slot="custom">{n => <h1 class="result">{n}</h1>}</custom>
+      <one slot='1'>{n => <h1 class="no-show">{n}</h1>}</one>
+      <two slot='2'>{n => <h1 class="no-show">{n}</h1>}</two>
+      <three slot='3'>{n => <h1 class="no-show">{n}</h1>}</three>
+    </Switch>
+  </div>
+  <div class="name-switch-slot-function-custom-default-and-key">
+    <Switch name="" default="custom" defaultKey="2" args={{
+      '1': 'One',
+      '2': 'Default',
+      '3': 'Three'
+    }}>
+      <custom slot="custom">{n => <h1 class="result">{n}</h1>}</custom>
+      <one slot='1'>{n => <h1 class="no-show">{n}</h1>}</one>
+      <two slot='2'>{n => <h1 class="no-show">{n}</h1>}</two>
+      <three slot='3'>{n => <h1 class="no-show">{n}</h1>}</three>
+    </Switch>
+  </div>
+</Base>
+
+<style>
+  .no-show {
+    border: 2px solid red;
+    color: red;
+  }
+</style>
