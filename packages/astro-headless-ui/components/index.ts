@@ -1,4 +1,5 @@
 export { default as Rating } from './Rating.astro';
+export { default as Ratio } from './Ratio.astro';
 export { default as Link } from './Link.astro';
 export { default as Navigation } from './Navigation.astro';
 export { default as Breadcrumb } from './Breadcrumb.astro';
