@@ -4,10 +4,10 @@ interface Props {
   [key: string]: any;
 }
 
-const values = Object.values(Astro.props)
+const values = Object.entries(Astro.props).filter(([k, _]) => !['slot', 'class'].includes(k))
 ---
 
-{ !(!!values.length && !values.every(v => !!v))
+{ !!(!!values.length && values.every(([_, v]) => !!v))
     ? <slot />
     : <slot name="false"/>
 }
