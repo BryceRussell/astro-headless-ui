@@ -20,6 +20,6 @@ test('name switch', async ({ page }) => {
   await expect(page.locator('.name-switch-slot-function-custom-default-and-key .result')).toHaveText('Default');
 });
 
-test('render error', async ({ page }) => {
+test('incorrect render', async ({ page }) => {
   await expect(page.locator('.no-show')).toHaveCount(0);
 });

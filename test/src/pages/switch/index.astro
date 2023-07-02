@@ -106,10 +106,10 @@ import { Switch, When } from "astro-headless-ui";
       '2': 'Two',
       '3': 'Three'
     }}>
-      {n => <h1 class="no-show">{n}</h1>}
-      <one slot='1'>{n => <h1 class="no-show">{n}</h1>}</one>
-      <two slot='2'>{n => <h1 class="result">{n}</h1>}</two>
-      <three slot='3'>{n => <h1 class="no-show">{n}</h1>}</three>
+      {(n: string) => <h1 class="no-show">{n}</h1>}
+      <one slot='1'>{(n: string) => <h1 class="no-show">{n}</h1>}</one>
+      <two slot='2'>{(n: string) => <h1 class="result">{n}</h1>}</two>
+      <three slot='3'>{(n: string) => <h1 class="no-show">{n}</h1>}</three>
     </Switch>
   </div>
   <div class="name-switch-slot-function-custom-default">
@@ -119,10 +119,10 @@ import { Switch, When } from "astro-headless-ui";
       '2': 'Two',
       '3': 'Three'
     }}>
-      <custom slot="custom">{n => <h1 class="result">{n}</h1>}</custom>
-      <one slot='1'>{n => <h1 class="no-show">{n}</h1>}</one>
-      <two slot='2'>{n => <h1 class="no-show">{n}</h1>}</two>
-      <three slot='3'>{n => <h1 class="no-show">{n}</h1>}</three>
+      <custom slot="custom">{(n: string) => <h1 class="result">{n}</h1>}</custom>
+      <one slot='1'>{(n: string) => <h1 class="no-show">{n}</h1>}</one>
+      <two slot='2'>{(n: string) => <h1 class="no-show">{n}</h1>}</two>
+      <three slot='3'>{(n: string) => <h1 class="no-show">{n}</h1>}</three>
     </Switch>
   </div>
   <div class="name-switch-slot-function-custom-default-and-key">
@@ -131,10 +131,10 @@ import { Switch, When } from "astro-headless-ui";
       '2': 'Default',
       '3': 'Three'
     }}>
-      <custom slot="custom">{n => <h1 class="result">{n}</h1>}</custom>
-      <one slot='1'>{n => <h1 class="no-show">{n}</h1>}</one>
-      <two slot='2'>{n => <h1 class="no-show">{n}</h1>}</two>
-      <three slot='3'>{n => <h1 class="no-show">{n}</h1>}</three>
+      <custom slot="custom">{(n: string) => <h1 class="result">{n}</h1>}</custom>
+      <one slot='1'>{(n: string) => <h1 class="no-show">{n}</h1>}</one>
+      <two slot='2'>{(n: string) => <h1 class="no-show">{n}</h1>}</two>
+      <three slot='3'>{(n: string) => <h1 class="no-show">{n}</h1>}</three>
     </Switch>
   </div>
 </Base>
