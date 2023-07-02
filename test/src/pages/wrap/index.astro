@@ -35,7 +35,7 @@ import { Wrap } from "astro-headless-ui";
         True
       </div>
     </Wrap>
-    <Wrap one={false} two={true} three={false}>
+    <Wrap one={true} two={true} three={true}>
       <div class="true">
         True
       </div>
@@ -58,6 +58,11 @@ import { Wrap } from "astro-headless-ui";
       </div>
     </Wrap>
     <Wrap one={null} two={undefined}>
+      <div class="false">
+        <span class="false-child">False</span>
+      </div>
+    </Wrap>
+    <Wrap one={false} two={true} three={false}>
       <div class="false">
         <span class="false-child">False</span>
       </div>
