@@ -5,10 +5,7 @@ import { When } from "astro-headless-ui";
 
 <Base>
   <!-- True -->
-  <When>
-    <div class="true">True</div>
-  </When>
-  <When one={true}>
+  <When is={true}>
     <div class="true">True</div>
   </When>
   <When one="true" two={1} three={{}} four={[1,2,3]}>
@@ -16,7 +13,10 @@ import { When } from "astro-headless-ui";
   </When>
 
   <!-- False -->
-  <When one={false}>
+  <When>
+    <div class="no-show">False</div>
+  </When>
+  <When is={false}>
     <div class="no-show">
       False
     </div>
@@ -46,3 +46,10 @@ import { When } from "astro-headless-ui";
     </When>
   </div>
 </Base>
+
+<style>
+  .no-show {
+    border: 2px solid red;
+    color: red;
+  }
+</style>
