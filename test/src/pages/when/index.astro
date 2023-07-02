@@ -1,0 +1,48 @@
+---
+import Base from "../../layouts/Base.astro";
+import { When } from "astro-headless-ui";
+---
+
+<Base>
+  <!-- True -->
+  <When>
+    <div class="true">True</div>
+  </When>
+  <When one={true}>
+    <div class="true">True</div>
+  </When>
+  <When one="true" two={1} three={{}} four={[1,2,3]}>
+    <div class="true">True</div>
+  </When>
+
+  <!-- False -->
+  <When one={false}>
+    <div class="no-show">
+      False
+    </div>
+  </When>
+  <When one="" two={0} three={NaN} four={null} five={undefined}>
+    <div class="no-show">
+      False
+    </div>
+  </When>
+  <When one={false} two={true} three={false}>
+    <div class="no-show">
+      False
+    </div>
+  </When>
+
+  <!-- Conditional -->
+  <div class="conditional-true">
+    <When one={true} two={true} three={true}>
+      <div class="result">True</div>
+      <div slot="false" class="no-show">False</div>
+    </When>
+  </div>
+  <div class="conditional-false">
+    <When one={false} two={true} three={false}>
+      <div class="no-show">True</div>
+      <div slot="false" class="result">False</div>
+    </When>
+  </div>
+</Base>
