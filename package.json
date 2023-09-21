@@ -1,7 +1,7 @@
 {
   "name": "@example/minimal",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -15,15 +15,15 @@
     "major": "copy /Y \"./README.md\" \"./package/README.md\" && cd package && npm version major && npm publish && cd ../"
   },
   "dependencies": {
-    "@astrojs/node": "^5.0.0",
-    "astro": "^2.3.0",
-    "iconify-icon": "^1.0.1"
+    "@astrojs/node": "^6.0.0",
+    "astro": "^3.1.1",
+    "iconify-icon": "^1.0.8"
   },
   "workspaces": [
     "package"
   ],
   "devDependencies": {
-    "@types/node": "^18.11.12",
-    "astro-icon": "^0.8.0"
+    "@types/node": "^20.6.3",
+    "astro-icon": "^0.8.1"
   }
 }
