@@ -1,0 +1,77 @@
+---
+import Base from "../../layouts/Base.astro";
+import { Wrap } from "astro-headless-ui";
+---
+
+<Base>
+  <!-- True -->
+    <Wrap>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={true}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={'true'}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={1}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={[1,2,3]}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap wrap={{}}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+    <Wrap one={true} two={true} three={true}>
+      <div class="true">
+        True
+      </div>
+    </Wrap>
+
+    <!-- False -->
+    <Wrap wrap={false}>
+      <div class="false">
+        False
+      </div>
+    </Wrap>
+    <Wrap wrap={''}>
+      <div class="false">
+        False
+      </div>
+    </Wrap>
+    <Wrap one={0} two={NaN}>
+      <div class="false">
+        <span class="false-child">False</span>
+      </div>
+    </Wrap>
+    <Wrap one={null} two={undefined}>
+      <div class="false">
+        <span class="false-child">False</span>
+      </div>
+    </Wrap>
+    <Wrap one={false} two={true} three={false}>
+      <div class="false">
+        <span class="false-child">False</span>
+      </div>
+    </Wrap>
+</Base>
+
+<style>
+  .false {
+    border: 2px solid red;
+    color: red;
+  }
+</style>

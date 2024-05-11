@@ -1,0 +1,26 @@
+---
+import Base from "../../layouts/Base.astro";
+import { Ratio } from "astro-headless-ui";
+---
+
+<Base>
+  <div class="slots">
+    <Ratio is={6} of={10}> 
+      <span slot="is" class="result is">1</span>
+      <span class="between">X</span>
+      <span slot="of" class="result of">0</span>
+    </Ratio>
+  </div>
+  <div class="slot-functions-shared-index">
+    <Ratio is={6} of={10}> 
+      <span slot="is">{(i: number) => <span class="result is">{i}</span>}</span>
+      <span slot="of">{(i: number) => <span class="result of">{i}</span>}</span>
+    </Ratio>
+  </div>
+  <div class="slot-functions-index">
+    <Ratio is={6} of={10}> 
+      <span slot="is">{(i: number) => <span class="result is">{i}</span>}</span>
+      <span slot="of">{(_: number, i: number) => <span class="result of">{i}</span>}</span>
+    </Ratio>
+  </div>
+</Base>

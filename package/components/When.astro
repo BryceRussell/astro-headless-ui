@@ -1,8 +1,13 @@
 ---
-const props = Object.entries(Astro.props).filter(([k, _]) => !['slot'].includes(k))
+interface Props {
+  children: any;
+  [key: string]: any;
+}
+
+const values = Object.entries(Astro.props).filter(([k, _]) => !['slot', 'class'].includes(k))
 ---
 
-{ !!(!!props.length && props.every(([_, v]) => !!v))
+{ !!(!!values.length && values.every(([_, v]) => !!v))
     ? <slot />
     : <slot name="false"/>
 }

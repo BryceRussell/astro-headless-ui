@@ -4,6 +4,7 @@ export { default as AnimatedSpriteSheet } from './style-components/AnimatedSprit
 export { default as IconSwitcher } from './style-components/IconSwitcher.astro';
 // Components
 export { default as Rating } from './components/Rating.astro';
+export { default as Ratio } from './components/Ratio.astro';
 export { default as Link } from './components/Link.astro';
 export { default as Navigation } from './components/Navigation.astro';
 export { default as Breadcrumb } from './components/Breadcrumb.astro';

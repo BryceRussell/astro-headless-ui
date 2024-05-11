@@ -1,0 +1,24 @@
+---
+export interface Props {
+    is: number;
+    of: number;
+}
+
+let { is, of: _of } = Astro.props as Props;
+
+if (_of < is) throw Error(`<Ratio>: prop 'of' cannot be less than 'is'`);
+
+const remainder = Math.floor(_of - is);
+
+is = Math.floor(is);
+---
+
+{
+    [...Array(is)].map((_, i) => (
+        <Fragment set:html={Astro.slots.render("is", [i, is])} />
+    ))
+}<Fragment set:html={Astro.slots.render("default", [is, _of])} />{
+    [...Array(remainder)].map((_, i) => (
+        <Fragment set:html={Astro.slots.render("of", [i + is, i, remainder])} />
+    ))
+}
