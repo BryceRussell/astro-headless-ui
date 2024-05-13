@@ -15,14 +15,6 @@ A headless component library for Astro
 
 **[Submit an issue for bugs or suggestions](https://github.com/BryceRussell/astro-headless-ui/issues/new)**
 
-## Style Components
-
-HTML Element with an attached stylesheet
-
-- **[`<NoScriptProperty>`](https://github.com/BryceRussell/astro-headless-ui/wiki/NoScriptProperty)**: CSS javascript detector ([@predaytor](https://twitter.com/thepredaytor/status/1576322225606516736))
-- **[`<AnimatedSpriteSheet>`](https://github.com/BryceRussell/astro-headless-ui/wiki/AnimatedSpriteSheet)**: Animates a spritesheet as a background image on an element using css
-- **[`<IconSwitcher>`](https://github.com/BryceRussell/astro-headless-ui/wiki/IconSwitch)** Animated icon switcher, used to display current theme, copy button state, and more using icons
-
 ## Components
 
 Generates structured HTML
@@ -41,21 +33,6 @@ Generates structured HTML
 - **[`<When>`](https://github.com/BryceRussell/astro-headless-ui/wiki/When)**: acts like a conditional/ternary statement, mostly used for `<Switch/>`
 - **[`<Switch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Switch)**: Advanced conditional rendering, similar to [SolidJS `<Switch>`](https://www.solidjs.com/docs/latest/api#switchmatch) with extra features using slots
 - **[`<For>`](https://github.com/BryceRussell/astro-headless-ui/wiki/For)**: `.map()` in component form with extra features, similar to [SolidJS `<For>`](https://www.solidjs.com/docs/latest/api#for)
-
-## Client Components
-
-HTML element with client side interactivity using `<script>`
-
-- **[`<DarkThemeToggle>`](https://github.com/BryceRussell/astro-headless-ui/wiki/DarkThemeToggle)**: Dark theme toggle button/script
-- **[`<MultiThemeToggle>`](https://github.com/BryceRussell/astro-headless-ui/wiki/MultiThemeToggle)**: Multi theme toggle button(s)/script
-- **`<CopyCode>`**: Attaches a button that copies code to all selected codeblocks
-
-## Client Scripts
-
-Client side script that does not include HTML
-
-- **`<ScrollProperty>`**: Access scroll position of window or element inside CSS as custom properties
-- **`<MouseProperty>`**: Access mouse position of window or element inside CSS as custom properties
 
 ## Utility
 
