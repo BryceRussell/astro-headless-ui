@@ -1,7 +1,3 @@
-// Stylesheets
-export { default as NoScriptProperty } from './style-components/NoScriptProperty.astro';
-export { default as AnimatedSpriteSheet } from './style-components/AnimatedSpriteSheet.astro';
-export { default as IconSwitcher } from './style-components/IconSwitcher.astro';
 // Components
 export { default as Rating } from './components/Rating.astro';
 export { default as Ratio } from './components/Ratio.astro';
@@ -15,10 +11,3 @@ export { default as Wrap } from './components/Wrap.astro';
 export { default as When } from './components/When.astro';
 export { default as For } from './components/For.astro';
 export { default as Switch } from './components/Switch.astro';
-// Client Side Components
-export { default as DarkThemeToggle } from './client-components/DarkThemeToggle.astro';
-export { default as MultiThemeToggle } from './client-components/MultiThemeToggle.astro';
-export { default as CodeCopy } from './client-components/CodeCopy.astro';
-// Client Side Scripts
-export { default as ScrollProperty } from './scripts/ScrollProperty.astro';
-export { default as MouseProperty } from './scripts/MouseProperty.astro';
