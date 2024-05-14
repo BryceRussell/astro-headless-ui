@@ -34,8 +34,3 @@ Generates structured HTML
 - **[`<Switch>`](https://github.com/BryceRussell/astro-headless-ui/wiki/Switch)**: Advanced conditional rendering, similar to [SolidJS `<Switch>`](https://www.solidjs.com/docs/latest/api#switchmatch) with extra features using slots
 - **[`<For>`](https://github.com/BryceRussell/astro-headless-ui/wiki/For)**: `.map()` in component form with extra features, similar to [SolidJS `<For>`](https://www.solidjs.com/docs/latest/api#for)
 
-## Utility
-
-`astro-headless-ui/util`
-
-- **`hashId()`**: Create a hash from a string, for scoping CSS, HTML elements, and `<script>` tags
